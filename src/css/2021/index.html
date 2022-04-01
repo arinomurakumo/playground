@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <title>CSS 2020</title>
+  </head>
+  <body>
+    <section>
+      <h1>prefers-color-scheme</h1>
+      <p>prefers-color-scheme media query</p>
+      <p class="is-dark">ダークモード判定</p>
+      <ul>
+        <li>
+          <a href="https://caniuse.com/?search=prefers-color-scheme">Can I use</a>
+        </li>
+        <li>2021: not ie</li>
+      </ul>
+    </section>
+    <section>
+      <h1>prefers-reduced-motion</h1>
+      <p>prefers-reduced-motion media query</p>
+      <p class="animation">視差効果を減らす</p>
+      <ul>
+        <li>端末のモーション軽減機能を有効にす必要あり</li>
+        <li>
+          <a href="https://caniuse.com/?search=prefers-reduced-motion">Can I use</a>
+        </li>
+        <li>2021: not ie</li>
+      </ul>
+    </section>
+    <section class="min">
+      <h1>min()</h1>
+      <p>CSS math functions min(), max() and clamp()</p>
+      <ul>
+        <li>任意のプロパティに対する値に最大値を指定し、そのプロパティの値は必ず最大値以下になる</li>
+        <li>
+          <a href="https://caniuse.com/?search=min">Can I use</a>
+          <li>2021: </li>
+        </li>
+      </ul>
+    </section>
+    <section class="max">
+      <h1>max()</h1>
+      <p>CSS math functions min(), max() and clamp()</p>
+      <ul>
+        <li>任意のプロパティに対する値に最小値を指定して、そのプロパティの値は必ず最小値以上になる</li>
+        <li>
+          <a href="https://caniuse.com/?search=max">Can I use</a>
+          <li>2021: </li>
+        </li>
+      </ul>
+    </section>
+    <section class="clamp">
+      <h1>clamp()</h1>
+      <p>CSS math functions min(), max() and clamp()</p>
+      <ul>
+        <li>任意のプロパティに対する値に最小値と最大値を指定して、そのプロパティの値は必ず最小値以上、最大値以下になる</li>
+        <li>
+          <a href="https://caniuse.com/?search=clamp">Can I use</a>
+          <li>2021: </li>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h1>aspect-ratio</h1>
+      <p>CSS property</p>
+      <img src="../../image/cat.jpg" alt="" class="aspect-ratio" width="200" height="262" loading="lazy">
+      <ul>
+        <li>要素に対してアスペクト比を簡単に指定</li>
+        <li>
+          <a href="https://caniuse.com/?search=aspect-ratio">Can I use</a>
+          <li>2021: ie</li>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h1>@property</h1>
+      <p>CSS at-rule</p>
+      <p class="property">@property</p>
+      <ul>
+        <li>スタイルシートの中で直接カスタムプロパティの登録</li>
+        <li>
+          <a href="https://caniuse.com/?search=%40property">Can I use</a>
+        </li>
+        <li>2021: not ie / ff / safari</li>
+      </ul>
+    </section>
+    <section>
+      <h1>block-size / margin-block / margin-inline / inset</h1>
+      <p>CSS property</p>
+      <p class="block-size">
+        block-size / inline-size
+      </p>
+      <p class="block-size-vertical">
+        日本語で書こう
+      </p>
+      <p class="inset">
+        inset
+      </p>
+      <p class="margin-block">
+        margin-block
+      </p>
+      <p class="margin-inline">
+        margin-inline
+      </p>
+      <ul>
+        <li>任意のプロパティに対する値に最小値と最大値を指定して、そのプロパティの値は必ず最小値以上、最大値以下になる</li>
+        <li>
+          <a href="https://caniuse.com/?search=clamp">Can I use</a>
+          <li>2021: not ie</li>
+        </li>
+      </ul>
+    </section>
+    <section class="scroll-snap">
+      <h1>scroll-snap</h1>
+      <p>CSS property</p>
+      <h2>縦スクロール</h2>
+      <div class="scroll-snap-y">
+        <div class="scroll-snap-slide scroll-snap-item-01"><p>slide01</p></div>
+        <div class="scroll-snap-slide scroll-snap-item-02"><p>slide02</p></div>
+        <div class="scroll-snap-slide scroll-snap-item-03"><p>slide03</p></div>
+      </div>
+      <h2>横スクロール</h2>
+      <div class="scroll-snap-x">
+        <div class="scroll-snap-slide scroll-snap-item-04"><p>slide04</p></div>
+        <div class="scroll-snap-slide scroll-snap-item-05"><p>slide05</p></div>
+        <div class="scroll-snap-slide scroll-snap-item-06"><p>slide06</p></div>
+      </div>
+      <ul>
+        <li>行や列の間のすき間 (溝) を定義</li>
+        <li>
+          <a href="https://caniuse.com/?search=scroll-snap">Can I use</a>
+          <li>2021: ie / ff </li>
+        </li>
+      </ul>
+    </section>
+    <section class="flexbox-gap">
+      <h1>flexbox-gap</h1>
+      <p>CSS gap property for Flexbox</p>
+      <ul>
+        <li>行や列の間のすき間 (溝) を定義</li>
+        <li>
+          <a href="https://caniuse.com/?search=gap">Can I use</a>
+          <li>2021: ie / ff / sa</li>
+        </li>
+      </ul>
+    </section>
+    <section class="backdrop-filter">
+      <h1>backdrop-filter</h1>
+      <p>CSS Backdrop Filter</p>
+      <div class="filter-parent">
+        <p class="backdrop-filter">backdrop-filter</p>
+      </div>
+      <div class="filter-parent">
+        <p class="blur">blur</p>
+      </div>
+      <ul>
+        <li>ボカシやグレースケールなどの画像や要素の背景だけに対してフィルタをかけられてる</li>
+        <li>
+          <a href="https://caniuse.com/?search=backdrop-filter">Can I use</a>
+          <li>2021: ie / ff</li>
+        </li>
+      </ul>
+    </section>
+    <section class="content-visibility">
+      <h1>content-visibility</h1>
+      <p>CSS content-visibility</p>
+      <ul>
+        <li>要素がその内容物をレンダリングするかどうかを制御</li>
+        <li>
+          <a href="https://caniuse.com/?search=content-visibility">Can I use</a>
+          <li>2021: ie / ff / sa</li>
+        </li>
+      </ul>
+    </section>
+    <section class="contain">
+      <h1>contain</h1>
+      <p>CSS Container Queries</p>
+      <ul>
+        <li>ある要素とその内容が、できる限り多く、文書ツリーの他の部分から独立していることを示す</li>
+        <li>
+          <a href="https://caniuse.com/?search=contain">Can I use</a>
+          <li>2021: ie / edge / ff / sa / ch</li>
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h1>:is()</h1>
+      <p>CSS pseudo-class</p>
+      <ul>
+        <li>数多くのセレクターを小さくまとめて書く</li>
+        <li>
+          <a href="https://caniuse.com/css-matches-pseudo">Can I use</a>
+        </li>
+        <li>2021: not ie</li>
+      </ul>
+    </section>
+    <article>
+      <h1>:is(section, article) h1 applied color</h1>
+    </article>
+    <section>
+      <h1>:where()</h1>
+      <p>CSS pseudo-class</p>
+      <ul>
+        <li>詳細度の値が 0 である</li>
+        <li>
+          <a href="https://caniuse.com/?search=where">Can I use</a>
+        </li>
+        <li>2021: not ie</li>
+      </ul>
+    </section>
+    <section>
+      <h1>:has()</h1>
+      <p>CSS pseudo-class</p>
+      <ul>
+        <li>子要素に任意の要素を含んでいる場合を指定</li>
+        <li>
+          <a href="https://caniuse.com/?search=has">Can I use</a>
+        </li>
+        <li>2021: not ie / edge / ch / sa / ff</li>
+      </ul>
+      <small>smallタグ</small>
+    </section>
+    <section>
+      <h1>::marker</h1>
+      <p>CSS pseudo-class</p>
+      <ul>
+        <li class="marker">リスト項目の箇条書き記号ボックス (ふつうは黒丸や番号) を選択</li>
+        <li class="marker">
+          <a href="https://caniuse.com/?search=has">Can I use</a>
+        </li>
+        <li class="marker">2021: not ie / edge / ch / sa / ff</li>
+      </ul>
+      <ol>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</li>
+      </ol>
+      <small>smallタグ</small>
+    </section>
+</html>
+</html>
