@@ -206,7 +206,6 @@ ol li::marker {
 
 .scroll-snap {
   max-width: 50%;
-  margin: auto;
 }
 
 .scroll-snap-y {
@@ -249,4 +248,26 @@ ol li::marker {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+}
+
+/* counter-reset */
+.counter-reset {
+  counter-reset: item 0;
+}
+
+.counter-reset-item {
+  counter-increment: item;
+}
+
+.counter-reset-item::before {
+  content: counter(item) '. ';
+}
+
+/* dir */
+:dir(ltr) {
+  background-color: yellow;
+}
+
+:dir(rtl) {
+  background-color: powderblue;
 }
