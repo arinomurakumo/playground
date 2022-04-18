@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <title>cssVariables</title>
+  </head>
+  <body>
+    <section>
+      <h1>Override</h1>
+      <div class="class">#foo</div>
+      <div class="class class--2">#foo</div>
+    </section>
+    <section>
+      <h1>Animation</h1>
+      <div class="bubble">bubble</div>
+    </section>
+    <section>
+      <h1>SVG</h1>
+      <svg>
+        <symbol id="close-icon" viewbox="0 0 200 200">
+          <circle
+            cx="96"
+            cy="96"
+            r="88"
+            fill="none"
+            stroke="var(--svg-color)"
+            stroke-width="15"
+          />
+          <text
+            x="100"
+            y="160"
+            fill="var(--svg-color)"
+            text-anchor="middle"
+            style="font-size: 250px"
+          >
+            x
+          </text>
+        </symbol>
+      </svg>
+      <svg>
+        <use xlink:href="#close-icon" />
+      </svg>
+      <div class="svg-success">
+        <svg>
+          <use xlink:href="#close-icon" />
+        </svg>
+      </section>
+      <section>
+        <h1>Javascript</h1>
+        <div class="sidebar">sidebar</div>
+      </section>
+    </div>
+  </body>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sidebarElement = document.querySelector('.sidebar');
+      const cssStyles = getComputedStyle(sidebarElement);
+      const cssVal = String(cssStyles.getPropertyValue('--left-pos')).trim();
+      console.log(cssVal);
+      // sidebarElement.style.setProperty('--left-pos', '200px');
+    })
+  </script>
+</html>
