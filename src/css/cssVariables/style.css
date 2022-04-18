@@ -1,0 +1,63 @@
+:root {
+  --my-color: #73a4f4;
+
+  --top-color: orange;
+  --bottom-color: yellow;
+
+  --svg-color: black;
+}
+
+/* override */
+.class {
+  padding: 10vh;
+  background: var(--my-color);
+}
+
+.class--2 {
+  --my-color: linear-gradient(var(--top-color), var(--bottom-color));
+}
+
+/* animation */
+.bubble {
+  --direction-y: 30px;
+  --transparency: 0;
+  animation: bubbling 3s forwards infinite;
+}
+
+@keyframes bubbling {
+  0% {
+    transform: translatey(var(--direction-y));
+    opacity: var(--transparency);
+  }
+  40% {
+    opacity: calc(var(--transparency) + 0.2);
+  }
+  70% {
+    opacity: calc(var(--transparency) + 0.1);
+  }
+  100% {
+    opacity: var(--transparency);
+  }
+}
+
+/* override */
+.svg-success {
+  --svg-color: green;
+}
+
+/* javascript */
+.sidebar {
+  --left-pos: 100px;
+}
+
+/* cross browser */
+section {
+  color: gray;
+}
+
+@supports (--css: variables) {
+  section {
+    --supported-color: blue;
+    color: var(--supported-color, 'blue');
+  }
+}
