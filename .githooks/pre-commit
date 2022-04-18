@@ -1,0 +1,9 @@
+#!/bin/sh
+
+# Do not commit main
+currentBranch="$(git rev-parse --abbrev-ref HEAD)"
+
+if [ "$currentBranch" = "main" ]; then
+  echo "$(tput setaf 1)[error] $(tput setaf 3)Do not commit to main branch!!!"
+  exit 1
+fi
