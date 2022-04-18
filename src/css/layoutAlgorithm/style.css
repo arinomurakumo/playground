@@ -1,0 +1,74 @@
+@charset 'utf-8';
+
+.flow-layout-element .vertical {
+  display: block;
+}
+
+.flow-layout-element .horizontal {
+  display: inline;
+}
+
+.flow-layout-element .img {
+  border: solid 10px aquamarine;
+  display: block;
+}
+
+.flexbox-with-positioned .row {
+  display: flex;
+  padding: 16px;
+}
+.flexbox-with-positioned .item {
+  border: 2px solid;
+  border-radius: 4px;
+  background: white;
+}
+.flexbox-with-positioned .raised.item {
+  z-index: 2;
+  margin-top: 8px;
+  margin-right: -32px;
+  background-color: red;
+}
+
+.flexbox-with-proposal-width .row {
+  display: flex;
+}
+
+.flexbox-with-proposal-width .item {
+  width: 2000px;
+  height: 50px;
+  border: 2px solid;
+  border-radius: 4px;
+  background: hotpink;
+  margin: 16px;
+}
+
+.positioned {
+  /* この宣言により、Positionedレイアウトを使用します。 */
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.floated {
+  /* この宣言により、Floatレイアウトを使用します。 */
+  float: left;
+  margin-right: 32px;
+}
+
+.confrict .row {
+  display: flex;
+}
+
+.item {
+  width: 100px;
+}
+
+.confrict .absolute.item {
+  position: absolute;
+}
+
+.confrict .relative.item {
+  position: relative;
+  top: 100px;
+  right: 100px;
+}
