@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>layoutAlgorithm</title>
+  </head>
+  <body>
+    <div class="flow-layout-element">
+      <h1>Flow Layout Algorithm</h1>
+      <div class="vertical">block element</div>
+      <div class="horizontal">inline element</div>
+      <h1>img is inline element That's why applied line-height</h1>
+      <img
+        src="/image/cat.jpg"
+        alt="cat with Flow Layout "
+        width="200"
+        height="262"
+        loading="lazy"
+      />
+      <img
+        src="/image/cat.jpg"
+        alt="cat without Flow Layout"
+        class="img"
+        width="200"
+        height="262"
+        loading="lazy"
+      />
+    </div>
+    <div class="flexbox-with-positioned">
+      <h1>Flexbox Layout Algorithm</h1>
+      <div class="row">
+        <div class="item">children is flexbox algorithm</div>
+        <div class="item raised">children is flexbox algorithm</div>
+        <div class="item">children is flexbox algorithm</div>
+      </div>
+    </div>
+    <div class="flexbox-with-proposal-width">
+      <h1>Flexbox Layout Algorithm for Proposal width</h1>
+      <div class="item"></div>
+      <div class="row">
+        <div class="item"></div>
+      </div>
+    </div>
+    <div class="confrict">
+      <h1>Confrict Layout Algorithm</h1>
+      <div class="row">
+        <div class="item">exist content</div>
+        <div class="absolute item">ignore content</div>
+        <div class="item">exist content</div>
+      </div>
+      <h1>Confrict Layout Algorithm for relative position</h1>
+      <div class="row">
+        <div class="item">flexbox algorithm</div>
+        <div class="relative item">apply positioned layout</div>
+        <div class="item">flexbox algorithm</div>
+      </div>
+    </div>
+  </body>
+</html>
