@@ -1,0 +1,29 @@
+@charset 'utf-8';
+
+.parent {
+  contain: layout inline-size;
+  resize: horizontal;
+  overflow: auto;
+}
+
+.o-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.o-grid__item {
+  contain: layout inline-size;
+}
+
+.c-article {
+  background-color: aqua;
+}
+
+@container (min-width: 400px) {
+  .c-article {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: red;
+  }
+}
