@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css" />
+    <title>CSS 2022</title>
+  </head>
+  <body>
+    <pre>
+      CSS Features to start learning, as I expect them to ship in all browsers in 2022:
+      1. Container Queries
+      2. Cascade Layers
+      3. Color Functions
+      4. Viewport Units
+      5. :has()
+      6. Overscroll Behaviour
+      7. Subgrid
+      8. Accent Color
+    </pre>
+    <section>
+      <h1>color-mix()</h1>
+      <p>types: &lt;color&gt;: color-mix()</p>
+      <div class="color-mix-dark">
+        color-mix-dark
+      </div>
+      <div class="color-mix-darker">
+        color-mix-darker
+      </div>
+    </section>
+    <section>
+      <h1>color-mix()</h1>
+      <p>types: &lt;color&gt;: color-contrast()</p>
+      <div class="color-contrast">
+        color-contrast
+      </div>
+    </section>
+    <section>
+      <h1>svh/svw, lvh/lvw, dvh/dvw</h1>
+      <p>viewport units</p>
+      <div class="dvh">
+        Does your browser support <a href="https://www.bram.us/2021/07/08/the-large-small-and-dynamic-viewports/" target="_top">svh/svw, lvh/lvw, dvh/dvw length units</a>?
+      </div>
+    </section>
+    <section class="overscroll-behavior">
+      <h1>overscroll-behavior</h1>
+      <p>CSS overscroll-behavior</p>
+      <p>
+        CSS property to control the behavior when the scroll position of a scroll container reaches the edge of the scrollport.
+      </p>
+      <div class="wrap">
+        <div class="center">
+            <input type="checkbox" id="toggle">
+            <label for="toggle">Enable <code>overscroll-behavior: contain</code></label>
+            <div class="scroll">
+              <p>Disable parent scrolling when child scroll container reaches the edge of the scrollport.</p>
+              <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+            </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h1>Subgrid</h1>
+      <p>CSS Subgrid</p>
+      <p>
+        Feature of the CSS Grid Layout Module Level 2 that allows a grid-item with its own grid to align in one or both dimensions with its parent grid.
+      </p>
+      <div class="column-subgrid">
+        <div class="grid">
+          <div class="item">
+            <div class="subitem"></div>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <div class="row-subgrid">
+        <div class="grid">
+          <div class="item">
+            <div class="subitem"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h1>CSS Nesting</h1>
+      <p>CSS nesting provides the ability to nest one style rule inside another, with the selector of the child rule relative to the selector of the parent rule. Similar behavior previously required a CSS pre-processor.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>th</th>
+            <th>th</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>td</td>
+            <td>td</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td>tfoot</td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+    <section>
+      <h1>@scope</h1>
+      <div class="dark-theme">
+        <a href="#">plum</a>
+        <div class="light-theme">
+          <a href="#">also plum???</a>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h1>@when / @else</h1>
+      <div class="when">
+        when contents
+      </div>
+    </section>
+  </body>
+</html>
+</html>
