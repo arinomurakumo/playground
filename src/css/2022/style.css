@@ -1,0 +1,181 @@
+:root {
+  --theme-primary: aliceblue;
+}
+.color-mix-dark {
+  color: color-mix(var(--theme-primary), black 10%);
+}
+.color-mix-darker {
+  color: color-mix(var(--theme-primary), black 20%);
+}
+
+/* tan, sienna, #d2691e を比較*/
+/* siennaはtanに対して4.273のコンストストを持ち、AA-largeのしきい値を超えているため選択されます */
+.color-contrast {
+  color-contrast(wheat vs tan, sienna, #d2691e to AA-large);
+}
+
+html{
+  height: 100%;
+}
+
+@supports(height: -webkit-fill-available) {
+  html {
+    height: -webkit-fill-available;
+    background-color: #ccc;
+  }
+}
+
+body{
+  min-height: 100vh;
+  /* min-height: -webkit-fill-available; */
+}
+
+.dvh::after {
+  content: "❌ Your browser does not support Dynamic Viewport Units";
+  background-color: #ff00002b;
+
+  display: block;
+  margin: 1em 0;
+  padding: 1em;
+  border: 1px solid #ccc;
+}
+
+@supports(height: 100dvh) {
+  .dvh::after {
+    content: "✅ Your browser supports Dynamic Viewport Units";
+    background-color: #00ff002b;
+  }
+}
+
+
+.overscroll-behavior input[type="checkbox"]:checked + label + .scroll {
+    overscroll-behavior: contain;
+}
+
+.overscroll-behavior .wrap {
+  height: 120vh;
+  width: 100%;
+  background: #F5F9FF;
+}
+
+.overscroll-behavior .center {
+  max-width: 420px;
+  margin: 0 auto;
+  padding-top: 4%;
+}
+
+.overscroll-behavior label {
+  vertical-align: top;
+  line-height: 21px;
+  margin-left: 4px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.overscroll-behavior code {
+  display: inline-block;
+  border-bottom: 1px solid #5628EE;
+}
+
+.overscroll-behavior .scroll {
+  background: #fff;
+  border: 1px solid #CDD9ED;
+  border-radius: 5px;
+  height: 240px;
+  margin-top: 20px;
+  overflow: auto;
+  padding: 24px;
+  box-shadow: 0 1px 4px rgba(18, 22, 33, .1);
+}
+
+.overscroll-behavior p:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+/* subgrid */
+
+.column-subgrid .grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(4, minmax(100px, auto));
+  background-color: rebeccapurple;
+}
+
+.column-subgrid .item {
+  display: grid;
+  grid-column: 2 / 7;
+  grid-row: 2 / 4;
+  grid-template-columns: subgrid;
+  grid-template-rows: repeat(3, 80px);
+  background-color: red;
+}
+
+.column-subgrid .subitem {
+  grid-column: 3 / 6;
+  grid-row: 1 / 3;
+  background-color: royalblue;
+}
+
+.row-subgrid .grid {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(4, minmax(100px, auto));
+  background-color: rebeccapurple;
+}
+
+.row-subgrid .item {
+  display: grid;
+  grid-column: 2 / 7;
+  grid-row: 2 / 4;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: subgrid;
+  background-color: red;
+}
+
+.row-subgrid .subitem {
+  grid-column: 2 / 4;
+  grid-row: 1 / 3;
+  background-color: royalblue;
+}
+
+table.nest {
+  & td {
+    text-align: center;
+    &.c { text-transform: uppercase }
+    &:first-child, &:first-child + td { border: 1px solid black }
+  }
+  & th {
+    text-align: center;
+    background: black;
+    color: white;
+  }
+  @nest tfoot & {
+    font-size: 0.8em;
+  }
+}
+
+/* .light-themeと.dark-themeが入れ子になっている場合、期待した結果が得られない場合があります */
+.light-theme a { color: purple; }
+.dark-theme a { color: plum; }
+ 
+/* スコープを設定することで、a要素は最も近いスコープによってスタイル付けされるため、これを修正することができます。 */
+@scope (.light-scheme) {
+  a { color: darkmagenta; }
+}
+@scope (.dark-scheme) {
+  a { color: plum; }
+}
+
+@when media(width >= 400px) and media(pointer: fine) and supports(display: flex) {
+  .when {
+    background-color: rebeccapurple;
+  }
+} @else supports(caret-color: pink) and supports(background: double-rainbow()) {
+  .when {
+    background-color: red;
+  }
+} @else {
+  .when {
+    background-color: royalblue;
+  }
+}
