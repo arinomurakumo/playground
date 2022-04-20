@@ -3,7 +3,7 @@
 # Confirm branch
 currentBranch="$(git rev-parse --abbrev-ref HEAD)"
 
-echo "[warn] push to remote , continue? branch name: $(tput bold)$(tput setaf 1)$currentBranch $(tput sgr0)$(tput setaf 7)[y/N]"
+echo "[warn] push to remote , continue? branch name: $(tput bold)$(tput setaf 1)$currentBranch $(tput sgr0)[y/N]"
 
 exec < /dev/tty
 read answer
