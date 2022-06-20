@@ -1,0 +1,4 @@
+.max-inline-size ol {
+  max-inline-size: max-content;
+  margin-inline: auto;
+}
