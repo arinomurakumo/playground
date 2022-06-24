@@ -1,0 +1,36 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font: 1em system-ui;
+  font-size: 18px;
+}
+
+main {
+  flex: 1;
+  background-color: #eee;
+  padding: 1em;
+}
+
+footer {
+  flex: none;
+  display: flex;
+  gap: 1em;
+  justify-content: space-evenly;
+  background: black;
+  padding: 1em 1em calc(1em + env(safe-area-inset-bottom));
+  /* safe-area-inset-bottom の値を最初の 1em のパディングに追加します。
+  この変数が正の値であるデバイスでは、より大きな黒い領域が表示されます。 */
+  position: sticky;
+  bottom: 0;
+}
+
+button {
+  padding: 1em;
+  background: white;
+  color: black;
+  margin: 0;
+  width: 100%;
+  border: none;
+  font: 1em system-ui;
+}
