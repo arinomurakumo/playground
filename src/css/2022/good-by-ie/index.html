@@ -100,12 +100,10 @@
         要素の背景を境界ボックス、パディングボックス、コンテンツボックスのどれまで拡張するかを設定
       </p>
       <div class="background-clip">
-        <p class="border-box">背景が境界の裏まで拡張されます。</p>
-        <p class="padding-box">背景が境界の内側の縁まで拡張されます。</p>
-        <p class="content-box">
-          背景がコンテンツボックスの縁までだけ表示されます。
-        </p>
-        <p class="text">背景が前景のテキストで切り取られます。</p>
+        <p class="border-box">background-clip: border-box;</p>
+        <p class="padding-box">background-clip: padding-box;</p>
+        <p class="content-box">background-clip: content-box;</p>
+        <p class="text">background-clip: text;</p>
       </div>
       <style>
         .background-clip p {
@@ -233,7 +231,21 @@
     <section>
       <h2>▲color-adjust</h2>
       <p>CSS color-adjust</p>
-      <p>非標準: この機能は標準ではなく、標準化の予定もありません。</p>
+      <p>
+        非標準: この機能は標準ではなく、標準化の予定もありません。標準外の CSS
+        拡張で、 WebKit
+        ブラウザー上で印刷時に背景色や背景画像の表示を強制することができます
+      </p>
+      <div class="color-adjust">
+        <article>強制的に白黒で印刷する</article>
+      </div>
+      <style>
+        .color-adjust article {
+          -webkit-print-color-adjust: exact;
+          background: #222;
+          color: #eee;
+        }
+      </style>
     </section>
     <section>
       <h2>●conic-gradient()</h2>
@@ -527,8 +539,8 @@
     </section>
     <section>
       <h2>●Filter</h2>
-      <p></p>
-      <p></p>
+      <p>CSS Filter Effects</p>
+      <p>ぼかしや色変化などのグラフィック効果を要素に適用します。</p>
       <div class="filter">
         <img src="/image/cat.jpg" alt="" />
       </div>
@@ -1035,7 +1047,7 @@
       </style>
     </section>
     <section>
-      <h2>overflow-anchor</h2>
+      <h2>▲overflow-anchor</h2>
       <p>CSS overflow-anchor (Scroll Anchoring)</p>
       <p>
         コンテンツの移動を最小化するためにスクロール位置を調整する、ブラウザーのスクロールアンカリングの動作をオプトアウトする方法<br />
@@ -1274,7 +1286,7 @@
       </style>
     </section>
     <section>
-      <h2>unset</h2>
+      <h2>●unset</h2>
       <p></p>
       <p>
         CSS
