@@ -1655,7 +1655,10 @@
     <section>
       <h2>●object-fit/object-position</h2>
       <p>CSS3 object-fit/object-position</p>
-      <p></p>
+      <p>
+        置換要素、例えば &lt;img&gt; や &lt;video&gt;
+        などの中身を、コンテナーにどのようにはめ込むかを設定します。
+      </p>
       <div class="object-fit">
         <img src="/image/cat.jpg" alt="" />
       </div>
@@ -1672,34 +1675,354 @@
       </style>
     </section>
     <section>
-      <h2>hoge</h2>
-      <p></p>
-      <p></p>
-      <div class="hoge"></div>
+      <h2>▲prefers-color-scheme</h2>
+      <p>prefers-color-scheme media query</p>
+      <p>
+        CSS
+        のメディア特性で、ユーザーがシステムに要求したカラーテーマが明色か暗色かを検出するために使用します。
+      </p>
+      <div class="prefers-color-scheme">
+        <div class="day">Day (initial)</div>
+        <div class="day light-scheme">Day (changes in light scheme)</div>
+        <div class="day dark-scheme">Day (changes in dark scheme)</div>
+        <br />
+
+        <div class="night">Night (initial)</div>
+        <div class="night light-scheme">Night (changes in light scheme)</div>
+        <div class="night dark-scheme">Night (changes in dark scheme)</div>
+      </div>
       <style>
-        .hoge {
+        .prefers-color-scheme .day {
+          background: #eee;
+          color: black;
+        }
+        .prefers-color-scheme .night {
+          background: #333;
+          color: white;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          .prefers-color-scheme .day.dark-scheme {
+            background: #333;
+            color: white;
+          }
+          .prefers-color-scheme .night.dark-scheme {
+            background: black;
+            color: #ddd;
+          }
+        }
+
+        @media (prefers-color-scheme: light) {
+          .prefers-color-scheme .day.light-scheme {
+            background: white;
+            color: #555;
+          }
+          .prefers-color-scheme .night.light-scheme {
+            background: #eee;
+            color: black;
+          }
+        }
+
+        .prefers-color-scheme .day,
+        .prefers-color-scheme .night {
+          display: inline-block;
+          padding: 1em;
+          width: 7em;
+          height: 2em;
+          vertical-align: middle;
         }
       </style>
     </section>
     <section>
-      <h2>hoge</h2>
-      <p></p>
-      <p></p>
-      <div class="hoge"></div>
+      <h2>●prefers-reduced-motion</h2>
+      <p>prefers-reduced-motion media query</p>
+      <p>
+        CSS
+        のメディア特性で、ユーザーが余計な動きを最少化するよう要求したことを検出するために使用します。
+      </p>
+      <div class="prefers-reduced-motion">
+        <div class="animation">animated box</div>
+      </div>
       <style>
-        .hoge {
+        .prefers-reduced-motion .animation {
+          animation: pulse 1s linear infinite both;
+        }
+
+        /* Tone down the animation to avoid vestibular motion triggers like scaling or panning large objects. */
+        @media (prefers-reduced-motion) {
+          .prefers-reduced-motion .animation {
+            animation-name: dissolve;
+          }
         }
       </style>
     </section>
     <section>
-      <h2>hoge</h2>
-      <p></p>
-      <p></p>
-      <div class="hoge"></div>
+      <h2>●text-emphasis</h2>
+      <p>text-emphasis styling</p>
+      <p>
+        (空白や制御文字を除く) テキストに圏点を適用します。これは
+        text-emphasis-style と text-emphasis-color の一括指定です。
+      </p>
+      <div class="text-emphasis">
+        <p>これは重要です！</p>
+      </div>
       <style>
-        .hoge {
+        .text-emphasis p {
+          -webkit-text-emphasis: triangle #d55;
+          text-emphasis: triangle #d55;
         }
       </style>
+    </section>
+    <section>
+      <h2>●-webkit-text-stroke</h2>
+      <p>CSS text-stroke and text-fill</p>
+      <p>
+        この機能は標準ではなく、標準化の予定もありません。テキスト文字の輪郭線の幅と色を指定します。
+      </p>
+      <div class="text-stroke">
+        <p>このテキストの輪郭線は赤です。</p>
+      </div>
+      <style>
+        .text-stroke p {
+          font-size: 3em;
+          margin: 0;
+          -webkit-text-stroke: 2px red;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●-webkit-text-fill-color</h2>
+      <p>CSS text-stroke and text-fill</p>
+      <p>
+        この機能は標準ではなく、標準化の予定もありません。プロパティで、テキストの文字の塗りつぶしの色を指定します。
+      </p>
+      <div class="text-fill-color">
+        <p>This text is green.</p>
+      </div>
+      <style>
+        .text-fill-color p {
+          margin: 0;
+          font-size: 3em;
+          -webkit-text-fill-color: green;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲font-variation-settings</h2>
+      <p>CSS at-rule: @font-face: font-variation-settings</p>
+      <p>
+        CSS の記述子で、 @font-face ルールの中で OpenType または TrueType
+        の低レベルのフォントバリエーションを指定することができます。
+      </p>
+      <div>
+        <p class="font-variation-settings">font-variation-settings</p>
+        <p>font-variation-settings</p>
+      </div>
+      <style>
+        @font-face {
+          font-family: 'OpenTypeFont';
+          src: url('open_type_font.woff2') format('woff2');
+
+          font-family: 'Noto Sans JP';
+          font-weight: normal;
+          font-style: normal;
+          src: url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff2)
+              format('woff2'),
+            url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff)
+              format('woff');
+          font-variation-settings: 'wght' 400, 'wdth' 300;
+        }
+        .font-variation-settings {
+          font-family: 'Noto Sans JP';
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●will-change</h2>
+      <p>CSS will-change property</p>
+      <p>
+        will-change
+        プロパティは、どのような要素の変更が予測されているかブラウザーに助言します。
+      </p>
+      <div class="will-change">
+        <button type="button" class="element">
+          要素がクリックされる時に変化するとしたら、その要素がホバーされる時にwill-changeを設定すれば、ブラウザが変化に備えて最適化する時間を稼げます
+        </button>
+      </div>
+      <style>
+        .will-change .element {
+          transition: opacity 0.2s;
+          opacity: 1;
+        }
+        .will-change .element:hover {
+          will-change: opacity;
+        }
+        .will-change .element:active {
+          opacity: 0.3;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●Custom Elements</h2>
+      <p>Custom Elements (V1)</p>
+      <p>
+        ウェブ文書上でカスタム要素を制御するのは CustomElementRegistry
+        オブジェクトです。 —
+        このオブジェクトで、ページへカスタム要素を登録したり、どのようなカスタム要素が登録されているのかを返したりすることができます。
+      </p>
+      <div class="Custom Elements"></div>
+      <style>
+        .Custom Elements {
+        }
+      </style>
+      <script>
+        class PopUpInfo extends HTMLElement {
+          constructor() {
+            // Always call super first in constructor
+            super();
+
+            // Create a shadow root
+            const shadow = this.attachShadow({ mode: 'open' });
+
+            // Create spans
+            const wrapper = document.createElement('span');
+            wrapper.setAttribute('class', 'wrapper');
+
+            const icon = document.createElement('span');
+            icon.setAttribute('class', 'icon');
+            icon.setAttribute('tabindex', 0);
+
+            const info = document.createElement('span');
+            info.setAttribute('class', 'info');
+
+            // Take attribute content and put it inside the info span
+            const text = this.getAttribute('data-text');
+            info.textContent = text;
+
+            // Insert icon
+            let imgUrl;
+            if (this.hasAttribute('img')) {
+              imgUrl = this.getAttribute('img');
+            } else {
+              imgUrl = '/image/cat.jpg';
+            }
+
+            const img = document.createElement('img');
+            img.src = imgUrl;
+            icon.appendChild(img);
+
+            // Create some CSS to apply to the shadow dom
+            const style = document.createElement('style');
+            console.log(style.isConnected);
+
+            style.textContent = `
+              .wrapper {
+                position: relative;
+              }
+              .info {
+                font-size: 0.8rem;
+                width: 200px;
+                display: inline-block;
+                border: 1px solid black;
+                padding: 10px;
+                background: white;
+                border-radius: 10px;
+                opacity: 0;
+                transition: 0.6s all;
+                position: absolute;
+                bottom: 20px;
+                left: 10px;
+                z-index: 3;
+              }
+              img {
+                width: 1.2rem;
+              }
+              .icon:hover + .info, .icon:focus + .info {
+                opacity: 1;
+              }
+            `;
+
+            // Attach the created elements to the shadow dom
+            shadow.appendChild(style);
+            console.log(style.isConnected);
+            shadow.appendChild(wrapper);
+            wrapper.appendChild(icon);
+            wrapper.appendChild(info);
+          }
+        }
+        customElements.define('popup-info', PopUpInfo);
+      </script>
+      <popup-info
+        img="/image/cat.jpg"
+        data-text="Your card validation code (CVC)
+      is an extra security feature — it is the last 3 or 4 numbers on the
+      back of your card."
+      ></popup-info>
+    </section>
+    <section>
+      <h2>▲Dialog</h2>
+      <p>Dialog element</p>
+      <p>
+        ダイアログボックスや、消すことができるアラート、インスペクター、サブウィンドウ等のような対話的コンポーネントを表します。
+      </p>
+      <div class="dialog">
+        <dialog id="favDialog">
+          <form method="dialog">
+            <p>
+              <label
+                >Favorite animal:
+                <select>
+                  <option></option>
+                  <option>Brine shrimp</option>
+                  <option>Red panda</option>
+                  <option>Spider monkey</option>
+                </select>
+              </label>
+            </p>
+            <menu>
+              <button value="cancel">Cancel</button>
+              <button id="confirmBtn" value="default">Confirm</button>
+            </menu>
+          </form>
+        </dialog>
+
+        <menu>
+          <button id="updateDetails">Update details</button>
+        </menu>
+
+        <output aria-live="polite"></output>
+      </div>
+      <style>
+        .dialog {
+        }
+      </style>
+      <script>
+        var updateButton = document.getElementById('updateDetails');
+        var favDialog = document.getElementById('favDialog');
+        var outputBox = document.querySelector('output');
+        var selectEl = document.querySelector('select');
+        var confirmBtn = document.getElementById('confirmBtn');
+
+        // "Update details" button opens the <dialog> modally
+        updateButton.addEventListener('click', function onOpen() {
+          if (typeof favDialog.showModal === 'function') {
+            favDialog.showModal();
+          } else {
+            alert('The <dialog> API is not supported by this browser');
+          }
+        });
+        // "Favorite animal" input sets the value of the submit button
+        selectEl.addEventListener('change', function onSelect(e) {
+          confirmBtn.value = selectEl.value;
+        });
+        // "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
+        favDialog.addEventListener('close', function onClose() {
+          outputBox.value =
+            favDialog.returnValue +
+            ' button clicked - ' +
+            new Date().toString();
+        });
+      </script>
     </section>
     <section>
       <h2>hoge</h2>
