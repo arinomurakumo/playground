@@ -11,6 +11,12 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      h1,
+      section {
+        margin-block-start: 80px;
+      }
+    </style>
     <title>CSS 2022 / good-by-ie</title>
   </head>
   <body>
@@ -213,17 +219,17 @@
         <div id="Green">This is Green.</div>
         <div id="gReEn">tHiS iS gReEn.</div>
         Case-sensitive is not support in Chrome
-        <div data-hoge="hoge">hoge</div>
-        <div data-hoge="hogeN">hogeN</div>
-        <div data-hoge="Nhoge">Nhoge</div>
-        <div data-hoge="MhogeN">MhogeN</div>
+        <div data-fuga="fuga">fuga</div>
+        <div data-fuga="fugaN">fugaN</div>
+        <div data-fuga="Nfuga">Nfuga</div>
+        <div data-fuga="MfugaN">MfugaN</div>
       </div>
       <style>
         .case-insensitive [id='green' i] {
           color: teal;
         }
 
-        .case-insensitive [data-hoge='hoge' s] {
+        .case-insensitive [data-fuga='fuga' s] {
           font-weight: bold;
         }
       </style>
@@ -1575,16 +1581,6 @@
       </style>
     </section>
     <section>
-      <h2>hoge</h2>
-      <p></p>
-      <p></p>
-      <div class="hoge"></div>
-      <style>
-        .hoge {
-        }
-      </style>
-    </section>
-    <section>
       <h2>●Font Loading</h2>
       <p>CSS Font Loading</p>
       <p>
@@ -1612,10 +1608,6 @@
             "'Noto Sans JP', sans-serif";
         });
       </script>
-      <style>
-        .hoge {
-        }
-      </style>
     </section>
     <section>
       <h2>●font-variant-numeric</h2>
@@ -1796,7 +1788,7 @@
       </div>
       <style>
         .text-stroke p {
-          font-size: 3em;
+          font-size: 2em;
           margin: 0;
           -webkit-text-stroke: 2px red;
         }
@@ -1814,7 +1806,7 @@
       <style>
         .text-fill-color p {
           margin: 0;
-          font-size: 3em;
+          font-size: 2em;
           -webkit-text-fill-color: green;
         }
       </style>
@@ -1874,9 +1866,10 @@
         }
       </style>
     </section>
+    <h1>IEをサポート外にした時に使用できるHTMLの要素や属性</h1>
     <section>
       <h2>●Custom Elements</h2>
-      <p>Custom Elements (V1)</p>
+      <p>要素：Custom Elements (V1)</p>
       <p>
         ウェブ文書上でカスタム要素を制御するのは CustomElementRegistry
         オブジェクトです。 —
@@ -1973,7 +1966,7 @@
     </section>
     <section>
       <h2>▲Dialog</h2>
-      <p>Dialog element</p>
+      <p>要素：Dialog element</p>
       <p>
         ダイアログボックスや、消すことができるアラート、インスペクター、サブウィンドウ等のような対話的コンポーネントを表します。
       </p>
@@ -1997,17 +1990,11 @@
             </menu>
           </form>
         </dialog>
-
         <menu>
           <button id="updateDetails">Update details</button>
         </menu>
-
         <output aria-live="polite"></output>
       </div>
-      <style>
-        .dialog {
-        }
-      </style>
       <script>
         var updateButton = document.getElementById('updateDetails');
         var favDialog = document.getElementById('favDialog');
@@ -2035,6 +2022,213 @@
             new Date().toString();
         });
       </script>
+    </section>
+    <section>
+      <h2>● form attribute</h2>
+      <p>属性：Form attribute</p>
+      <p>
+        form
+        属性によって、入力欄を文書内のどこに置いても、文書内の他の場所にあるフォームと関連付けることができます。
+      </p>
+      <div>
+        <form id="form1" />
+        <input type="text" name="text1" form="form1" />
+      </div>
+    </section>
+    <section>
+      <h2>▲inert</h2>
+      <p>属性：HTMLElement API: inert</p>
+      <p>
+        inert
+        プロパティは論理値で、存在する場合は、フォーカスイベントや支援技術からのイベントを含む、要素に対するユーザーの入力イベントをブラウザーが「無視」するようにします。
+      </p>
+      <div class="inert">
+        <div>
+          <label for="button1">ボタン 1</label>
+          <button id="button1">不活性ではありません</button>
+        </div>
+        <div inert>
+          <label for="button2">ボタン 2</label>
+          <button id="button2">不活性です</button>
+        </div>
+      </div>
+      <style>
+        .inert [inert] > * {
+          opacity: 0.5;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●type="color"</h2>
+      <p>属性：Color input type</p>
+      <p>
+        input 要素の color は視覚的なインターフェイス、もしくは #rrggbb の
+        16進数表記でテキストを入力することでユーザーが色を指定することができます。
+      </p>
+      <div class="typeColor">
+        <p>Choose your monster's colors:</p>
+        <div>
+          <input type="color" id="head" name="head" value="#e66465" />
+          <label for="head">Head</label>
+        </div>
+        <div>
+          <input type="color" id="body" name="body" value="#f6b73c" />
+          <label for="body">Body</label>
+        </div>
+        <p>Supported through WKWebView and Safari but not through UIWebView</p>
+      </div>
+      <style>
+        .typeColor p,
+        .typeColor label {
+          font: 1rem 'Fira Sans', sans-serif;
+        }
+
+        .typeColor input {
+          margin: 0.4rem;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●inputmode</h2>
+      <p>属性：inputmode attribute</p>
+      <p>
+        inputmode
+        はグローバル属性で、ユーザーが要素やその内容を編集する際に入力されるデータの型のヒントとなる列挙型属性です。
+      </p>
+      <div class="inputmode">
+        <input type="text" inputmode="none" placeholder="none" />
+        <input type="text" inputmode="text" placeholder="text(規定値)" />
+        <input type="text" inputmode="decimal" placeholder="decimal" />
+        <input type="text" inputmode="numeric" placeholder="numeric" />
+        <input type="text" inputmode="tel" placeholder="tel" />
+        <input type="text" inputmode="search" placeholder="search" />
+        <input type="text" inputmode="email" placeholder="email" />
+        <input type="text" inputmode="url" placeholder="url" />
+      </div>
+    </section>
+    <section>
+      <h2>●minlength / maxlength</h2>
+      <p>属性：Minimum length attribute for input fields</p>
+      <p>
+        minlength: ext, search, url, tel, email, password
+        で有効であり、ユーザーがフィールドに入力することができる最小文字数
+        (UTF-16 コード単位) を定義します。
+      </p>
+      <p>
+        maxlength: date, month, week, time, datetime-local, number, range
+        で有効であり、許可される値の範囲の最大値を定義します。
+      </p>
+      <div>
+        <input type="text" minlength="2" placeholder="minlength" />
+        <input type="text" maxlength="2" placeholder="maxlength" />
+      </div>
+    </section>
+    <section>
+      <h2>▲ images iframes loading</h2>
+      <p>属性：Lazy loading via attribute for images & iframes</p>
+      <p>
+        画像とiframeの読み込み属性により、作成者はブラウザがリソースの読み込みを開始するタイミングを制御できます。
+      </p>
+      <div>
+        <p>eager cat</p>
+        <img src="/image/cat.jpg" alt="" loading="eager" />
+        <p>lazy cat</p>
+        <img src="/image/cat.jpg" alt="" loading="lazy" />
+      </div>
+    </section>
+    <section>
+      <h2>●olの降順</h2>
+      <p>属性：Reversed attribute of ordered lists</p>
+      <p>
+        論理属性で、リストの項目が逆順で指定されていることを指定します。項目は大きい方から小さい方へ番号付けされます。
+      </p>
+      <div>
+        <ol reversed>
+          <li>リスト項目1</li>
+          <li>リスト項目2</li>
+          <li>リスト項目3</li>
+        </ol>
+      </div>
+    </section>
+    <section>
+      <h2>●picture</h2>
+      <p>要素：Picture element</p>
+      <p>
+        picture 要素は、0個以上の source 要素と一つの img
+        要素を含み、様々な画面や端末の条件に応じた画像を提供します。
+      </p>
+      <div>
+        <picture>
+          <source
+            srcset="/image/car-horizontal.jpg"
+            media="(min-width: 800px)"
+          />
+          <img src="/image/cat.jpg" alt="" />
+        </picture>
+      </div>
+    </section>
+    <section>
+      <h2>srcset / sizes</h2>
+      <p>属性：Srcset and sizes attributes</p>
+      <p>
+        sizes :
+        ソースのサイズのセットを示す、カンマ区切りの文字列を1個以上並べたリストです。
+      </p>
+      <p>
+        srcset :
+        ユーザーエージェントが使用可能なソース画像のセットを示す、カンマ区切りで文字列を
+        1 個以上並べたリストです
+      </p>
+      <div>
+        <img
+          srcset="
+            /image/cat.jpg            200w,
+            /image/car-horizontal.jpg 262w,
+            /image/cat.jpg            200w
+          "
+          sizes="
+            (max-width: 320px) 100vw,
+            (max-width: 480px) 150vw,
+            262px
+          "
+        />
+      </div>
+    </section>
+    <section>
+      <h2>▲ping</h2>
+      <p>属性：Ping attribute</p>
+      <p>
+        空白で区切られた URL のリストです。リンクをたどるとき、ブラウザーは POST
+        リクエストを指定された URL に、 PING
+        を本文として送信します。通常、トラッキングに使用されます。
+      </p>
+      <div>
+        <a href="#" ping="tracking.php">ping attribute</a>
+      </div>
+    </section>
+    <section>
+      <h2>●rel=noopener</h2>
+      <p>リンク種別：rel=noopener</p>
+      <p>
+        noopener キーワードを a, area, form の各要素の rel
+        属性に指定すると、リンクを新しい閲覧コンテキストで開き、リンク元の文書へアクセスできないようにすることをブラウザーに指示します。
+      </p>
+      <div class="hoge"></div>
+      <style>
+        .hoge {
+        }
+      </style>
+    </section>
+    <h1>IEをサポート外にした時に使用できる機能</h1>
+    <section>
+      <h2>hoge</h2>
+      <p></p>
+      <p></p>
+      <div class="hoge"></div>
+      <style>
+        .hoge {
+        }
+      </style>
     </section>
     <section>
       <h2>hoge</h2>
