@@ -2030,7 +2030,7 @@
     </section>
     <section>
       <h2>● form attribute</h2>
-      <p>属性：Form attribute</p>
+      <p>属性: Form attribute</p>
       <p>
         form
         属性によって、入力欄を文書内のどこに置いても、文書内の他の場所にあるフォームと関連付けることができます。
@@ -2042,7 +2042,7 @@
     </section>
     <section>
       <h2>▲inert</h2>
-      <p>属性：HTMLElement API: inert</p>
+      <p>属性: HTMLElement API: inert</p>
       <p>
         inert
         プロパティは論理値で、存在する場合は、フォーカスイベントや支援技術からのイベントを含む、要素に対するユーザーの入力イベントをブラウザーが「無視」するようにします。
@@ -2065,7 +2065,7 @@
     </section>
     <section>
       <h2>●type="color"</h2>
-      <p>属性：Color input type</p>
+      <p>属性: Color input type</p>
       <p>
         input 要素の color は視覚的なインターフェイス、もしくは #rrggbb の
         16進数表記でテキストを入力することでユーザーが色を指定することができます。
@@ -2095,7 +2095,7 @@
     </section>
     <section>
       <h2>●inputmode</h2>
-      <p>属性：inputmode attribute</p>
+      <p>属性: inputmode attribute</p>
       <p>
         inputmode
         はグローバル属性で、ユーザーが要素やその内容を編集する際に入力されるデータの型のヒントとなる列挙型属性です。
@@ -2113,7 +2113,7 @@
     </section>
     <section>
       <h2>●minlength / maxlength</h2>
-      <p>属性：Minimum length attribute for input fields</p>
+      <p>属性: Minimum length attribute for input fields</p>
       <p>
         minlength: ext, search, url, tel, email, password
         で有効であり、ユーザーがフィールドに入力することができる最小文字数
@@ -2130,7 +2130,7 @@
     </section>
     <section>
       <h2>▲ images iframes loading</h2>
-      <p>属性：Lazy loading via attribute for images & iframes</p>
+      <p>属性: Lazy loading via attribute for images & iframes</p>
       <p>
         画像とiframeの読み込み属性により、作成者はブラウザがリソースの読み込みを開始するタイミングを制御できます。
       </p>
@@ -2143,7 +2143,7 @@
     </section>
     <section>
       <h2>●olの降順</h2>
-      <p>属性：Reversed attribute of ordered lists</p>
+      <p>属性: Reversed attribute of ordered lists</p>
       <p>
         論理属性で、リストの項目が逆順で指定されていることを指定します。項目は大きい方から小さい方へ番号付けされます。
       </p>
@@ -2174,7 +2174,7 @@
     </section>
     <section>
       <h2>srcset / sizes</h2>
-      <p>属性：Srcset and sizes attributes</p>
+      <p>属性: Srcset and sizes attributes</p>
       <p>
         sizes :
         ソースのサイズのセットを示す、カンマ区切りの文字列を1個以上並べたリストです。
@@ -2201,7 +2201,7 @@
     </section>
     <section>
       <h2>▲ping</h2>
-      <p>属性：Ping attribute</p>
+      <p>属性: Ping attribute</p>
       <p>
         空白で区切られた URL のリストです。リンクをたどるとき、ブラウザーは POST
         リクエストを指定された URL に、 PING
@@ -2213,7 +2213,7 @@
     </section>
     <section>
       <h2>●rel=noopener</h2>
-      <p>リンク種別：rel=noopener</p>
+      <p>リンク種別: rel=noopener</p>
       <p>
         noopener キーワードを a, area, form の各要素の rel
         属性に指定すると、リンクを新しい閲覧コンテキストで開き、リンク元の文書へアクセスできないようにすることをブラウザーに指示します。
@@ -2226,44 +2226,303 @@
     </section>
     <h1>IEをサポート外にした時に使用できる機能</h1>
     <section>
-      <h2>hoge</h2>
+      <h2>●Animated PNG</h2>
+      <p>機能: Animated PNG (APNG)</p>
+      <p>アニメーション PNG (APNG) 画像フォーマット</p>
+      <div>
+        <img src="/image/run.png" alt="" loading="lazy" />
+      </div>
+    </section>
+    <section>
+      <h2>Canvas blend modes</h2>
+      <p>機能: Canvas blend modes</p>
       <p></p>
-      <p></p>
-      <div class="hoge"></div>
+      <div>
+        <canvas id="canvas-blend-modes"></canvas>
+      </div>
+      <script>
+        var canvas = document.getElementById('canvas-blend-modes');
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#037';
+        ctx.fillRect(0, 0, 130, 130);
+
+        ctx.globalCompositeOperation = 'lighter'; // AKA add / linear-dodge
+        ctx.fillStyle = '#777';
+        ctx.fillRect(90, 20, 130, 130);
+      </script>
+    </section>
+    <section>
+      <h2>▲-webkit-box-reflect</h2>
+      <p>CSS Reflections</p>
+      <p>
+        非標準: この機能は標準ではなく、標準化の予定もありません。 CSS
+        のプロパティで、要素の内容を特定の方向に反射させることができます。
+      </p>
+      <div class="reflect">
+        <img src="/image/cat.jpg" alt="" class="reflect-image" />
+      </div>
       <style>
-        .hoge {
+        .reflect .reflect-image {
+          margin-block-end: 200px;
+          -webkit-box-reflect: below 1px -webkit-gradient(linear, left bottom, left
+                top, from(#fff), to(transparent));
         }
       </style>
     </section>
     <section>
-      <h2>hoge</h2>
-      <p></p>
-      <p></p>
-      <div class="hoge"></div>
+      <h2>●shape-outside / shape-margin / shape-image-threshold</h2>
+      <p>CSS Shapes Level 1</p>
+      <p>
+        shape-outside: CSS
+        のプロパティで、隣接するインラインコンテンツが回り込むシェイプ (形状) を
+        — 矩形でない場合もありますが — 定義します
+      </p>
+      <p>
+        shape-margin: shape-outside を使用して作成された CSS
+        シェイプのマージンを設定します。
+      </p>
+      <p>
+        shape-image-threshold: shape-outside
+        の値に指定された画像によってシェイプを抽出するために使用するアルファチャネルのしきい値を設定します。
+      </p>
+      <div class="shape-outside">
+        <div class="main">
+          <div class="left"></div>
+          <div class="right"></div>
+          <p>
+            Sometimes a web page's text content appears to be funneling your
+            attention towards a spot on the page to drive you to follow a
+            particular link. Sometimes you don't notice.
+          </p>
+        </div>
+      </div>
+      <div class="shape-margin">
+        <section>
+          <div class="shape"></div>
+          We are not quite sure of any one thing in biology; our knowledge of
+          geology is relatively very slight, and the economic laws of society
+          are uncertain to every one except some individual who attempts to set
+          them forth; but before the world was fashioned the square on the
+          hypotenuse was equal to the sum of the squares on the other two sides
+          of a right triangle, and it will be so after this world is dead; and
+          the inhabitant of Mars, if one exists, probably knows its truth as we
+          know it.
+        </section>
+      </div>
+      <div class="shape-image-threshold">
+        <div id="gradient-shape"></div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel at
+          commodi voluptates enim, distinctio officia. Saepe option accusamus
+          doloribus sint facilis itaque ab nulla, dolor molestiae assumenda cum
+          sit placeat adipisci, libero quae nihil porro debitis laboriosam
+          inventore animi impedit nostrum nesciunt quisquam expedita! Dolores
+          consectetur iure atque a mollitia dicta repudiandae illum
+          exercitationem aliquam repellendus ipsum porro modi, id nemo eligendi,
+          architecto ratione quibusdam iusto nisi soluta? Totam inventore ea eum
+          sed velit et eligendi suscipit accusamus iusto dolore, at provident
+          eius alias maxime pariatur non deleniti ipsum sequi rem eveniet
+          laboriosam magni expedita?
+        </p>
+      </div>
       <style>
-        .hoge {
+        .shape-outside .main {
+          width: 530px;
+        }
+
+        .shape-outside .left,
+        .shape-outside .right {
+          width: 40%;
+          height: 12ex;
+          background-color: lightgray;
+        }
+
+        .shape-outside .left {
+          -webkit-shape-outside: polygon(0 0, 100% 100%, 0 100%);
+          shape-outside: polygon(0 0, 100% 100%, 0 100%);
+          float: left;
+          -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 100%, 0 100%);
+        }
+
+        .shape-outside .right {
+          -webkit-shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+          shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+          float: right;
+          -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+
+        .shape-outside p {
+          text-align: center;
+        }
+      </style>
+      <style>
+        .shape-margin section {
+          max-width: 400px;
+        }
+
+        .shape-margin .shape {
+          float: left;
+          width: 150px;
+          height: 150px;
+          background-color: maroon;
+          clip-path: polygon(0 0, 150px 150px, 0 150px);
+          shape-outside: polygon(0 0, 150px 150px, 0 150px);
+          shape-margin: 20px;
+        }
+      </style>
+      <style>
+        .shape-image-threshold #gradient-shape {
+          width: 150px;
+          height: 150px;
+          float: left;
+          background-image: linear-gradient(
+            30deg,
+            black,
+            transparent 80%,
+            transparent
+          );
+          shape-outside: linear-gradient(
+            30deg,
+            black,
+            transparent 80%,
+            transparent
+          );
+          shape-image-threshold: 0.2;
         }
       </style>
     </section>
     <section>
-      <h2>hoge</h2>
-      <p></p>
-      <p></p>
-      <div class="hoge"></div>
+      <h2>●CSS.supports()</h2>
+      <p>CSS.supports() API</p>
+      <p>
+        CSS.supports() メソッドは、ブラウザーが指定された CSS
+        機能に対応しているかどうかを論理値で返します。
+      </p>
+      <div class="supports">
+        <dl>
+          <dt>text-decoration-style, blink</dt>
+          <dd id="supports1"></dd>
+        </dl>
+        <dl>
+          <dt>display: flex</dt>
+          <dd id="supports2"></dd>
+        </dl>
+        <dl>
+          <dt>(--foo: red)</dt>
+          <dd id="supports3"></dd>
+        </dl>
+        <dl>
+          <dt>
+            (transform-style: preserve) or (-moz-transform-style: preserve) or
+            (-o-transform-style: preserve) or (-webkit-transform-style:
+            preserve)
+          </dt>
+          <dd id="supports4"></dd>
+        </dl>
+      </div>
+      <script>
+        const supports1 = CSS.supports('text-decoration-style', 'blink');
+        document.getElementById('supports1').innerText = supports1;
+
+        const supports2 = CSS.supports('display: flex');
+        document.getElementById('supports2').innerText = supports2;
+
+        const supports3 = CSS.supports('(--foo: red)');
+        document.getElementById('supports3').innerText = supports3;
+
+        const supports4 =
+          CSS.supports(`(transform-style: preserve) or (-moz-transform-style: preserve) or
+                       (-o-transform-style: preserve) or (-webkit-transform-style: preserve)`);
+        document.getElementById('supports4').innerText = supports4;
+      </script>
+    </section>
+    <section>
+      <h2>●IntersectionObserver</h2>
+      <p>API: IntersectionObserver</p>
+      <p>
+        Intersection Observer API の IntersectionObserver
+        インターフェイスは、対象の要素と祖先要素または文書の最上位のビューポートとの交差状態の変化を非同期に監視する方法を提供します。
+      </p>
+    </section>
+    <section>
+      <h2>●SVG favicons</h2>
+      <p>SVG favicons</p>
+      <p>
+        ファビコン (お気に入りアイコン) はウェブサイトに含まれる小さなアイコン
+      </p>
+    </section>
+    <section>
+      <h2>▲:picture-in-picture</h2>
+      <p>Picture-in-Picture</p>
+      <p>
+        :picture-in-picture は CSS
+        の擬似クラスで、現在ピクチャインピクチャモードの要素に一致します
+      </p>
+      <div class="picture-in-picture">
+        <p>MDN Web Docs Demo: :picture-in-picture pseudo-class</p>
+        <p>
+          This demo uses the <code>:picture-in-picture</code> pseudo-class to
+          automatically change the style of a video entirely using CSS.
+        </p>
+        <video id="pip-video"></video>
+      </div>
       <style>
-        .hoge {
+        .picture-in-picture :picture-in-picture {
+          box-shadow: 0 0 0 5px red;
         }
       </style>
     </section>
     <section>
-      <h2>hoge</h2>
-      <p></p>
-      <p></p>
-      <div class="hoge"></div>
-      <style>
-        .hoge {
-        }
-      </style>
+      <h2>▲WebP</h2>
+      <p>WebP image format</p>
+      <p>
+        WebP は Google
+        の開発した画像圧縮フォーマットです。可逆圧縮と不可逆圧縮の両方に対応しています。
+      </p>
+    </section>
+    <section>
+      <h2>●WOFF 2.0</h2>
+      <p>WOFF 2.0 - Web Open Font Format</p>
+      <p>
+        WOFF (Web Open Font Format) は、Mozilla が Type Supply や
+        LettError、他の組織と提携して開発した新しい Web フォント形式です。
+      </p>
+      <p>
+        WOFF と WOFF2 という、2 つのバージョンの WOFF
+        があります。これらの主な違いは、使用する圧縮アルゴリズムです。@font-face
+        では format 記述子で、それぞれ 'woff' と 'woff2' で識別されます。
+      </p>
+      <table>
+        <tr>
+          <th>size</th>
+          <th>format</th>
+          <th>file</th>
+        </tr>
+        <tr>
+          <td>498.8K</td>
+          <td>otf</td>
+          <td>NotoSansCJKjp-Jxck-Regular-201802.otf</td>
+        </tr>
+        <tr>
+          <td>391.6K</td>
+          <td>woff</td>
+          <td>NotoSansCJKjp-Jxck-Regular-201802.woff</td>
+        </tr>
+        <tr>
+          <td>345.7K</td>
+          <td>woff2</td>
+          <td>NotoSansCJKjp-Jxck-Regular-201802.woff2</td>
+        </tr>
+      </table>
+    </section>
+    <section>
+      <h2>●SVG favicons</h2>
+      <p>SVG favicons</p>
+      <p>
+        ファビコン (お気に入りアイコン) はウェブサイトに含まれる小さなアイコン
+      </p>
     </section>
   </body>
 </html>
