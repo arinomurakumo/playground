@@ -1,0 +1,2528 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      h1,
+      section {
+        margin-block-start: 80px;
+      }
+    </style>
+    <title>CSS 2022 / good-by-ie</title>
+  </head>
+  <body>
+    <h1>IEをサポート外にした時に使用できるCSSのプロパティ</h1>
+    <section>
+      <h2>▲accent-color</h2>
+      <p>CSS property: accent-color</p>
+      <p>
+        一部の要素で生成されるユーザーインターフェイス要素の強調表示色を設定
+      </p>
+      <div>
+        <input type="checkbox" class="accent-color" checked />
+      </div>
+      <style>
+        .accent-color {
+          accent-color: red;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●Appearance</h2>
+      <p>CSS property: CSS Appearance</p>
+      <p>
+        OS
+        のテーマに基づいたプラットフォームネイティブのスタイル付けを使用して要素を表示
+      </p>
+      <div>
+        <button type="button" class="appearance-none">
+          appearance: unset;
+        </button>
+      </div>
+      <style>
+        .appearance-none {
+          appearance: none;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●caret-color</h2>
+      <p>CSS property: CSS caret-color</p>
+      <p>
+        次に入力された文字が挿入される位置を示す可視マーカーである入力キャレットの色を設定
+      </p>
+      <div>
+        <input type="text" class="caret-color" />
+      </div>
+      <style>
+        .caret-color {
+          caret-color: red;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●all</h2>
+      <p>CSS property: CSS all property</p>
+      <p>
+        all は CSS の一括指定プロパティで、要素のすべてのプロパティを
+        (unicode-bidi、direction、 CSS カスタムプロパティを除いて) 初期化
+      </p>
+      <div class="all-initial">all: initial</div>
+      <style>
+        .all-initial {
+          background-color: red;
+          all: initial;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●backdrop-filter</h2>
+      <p>CSS property: CSS Backdrop Filter</p>
+      <p>
+        要素の背後の領域に、ぼかしや色変化のようなグラフィック効果を適用する
+      </p>
+      <div style="padding: 10%; background-image: url(/image/cat.jpg)">
+        <div class="backdrop-filter">backdrop-filter: blur(10px)</div>
+      </div>
+      <style>
+        .backdrop-filter {
+          backdrop-filter: blur(10px);
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●background-clip</h2>
+      <p>CSS property: Background-clip: text</p>
+      <p>
+        要素の背景を境界ボックス、パディングボックス、コンテンツボックスのどれまで拡張するかを設定
+      </p>
+      <div class="background-clip">
+        <p class="border-box">background-clip: border-box;</p>
+        <p class="padding-box">background-clip: padding-box;</p>
+        <p class="content-box">background-clip: content-box;</p>
+        <p class="text">background-clip: text;</p>
+      </div>
+      <style>
+        .background-clip p {
+          border: 0.8em darkviolet;
+          border-style: dotted double;
+          margin: 1em 0;
+          padding: 1.4em;
+          background: linear-gradient(60deg, red, yellow, red, yellow, red);
+          font: 900 1.2em sans-serif;
+          text-decoration: underline;
+        }
+
+        .background-clip .border-box {
+          background-clip: border-box;
+        }
+
+        .background-clip .padding-box {
+          background-clip: padding-box;
+        }
+
+        .background-clip .content-box {
+          background-clip: content-box;
+        }
+
+        .background-clip .text {
+          background-clip: text;
+          -webkit-background-clip: text;
+          color: rgba(0, 0, 0, 0.2);
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●background-blend-mode</h2>
+      <p>CSS property: CSS background-blend-mode</p>
+      <p>
+        要素の背景画像が相互にどのように混合されるか、また要素の背景色とどのように混合されるかを設定
+      </p>
+      <div class="background-blend-mode"></div>
+      <style>
+        .background-blend-mode {
+          width: 300px;
+          height: 300px;
+          background: url('/image/cat.jpg'), url('/image/cat.jpg');
+          background-blend-mode: screen;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲Cascade Layers</h2>
+      <p>At-Rule: CSS Cascade Layers</p>
+      <p>
+        CSS
+        のアットルールで、カスケードレイヤーを宣言します。カスケードレイヤー内のルールは一緒にカスケードされるため、ウェブ開発者はカスケードをより自由に制御することができる
+      </p>
+      <div class="cascade-layers">
+        <p>Hello, world!</p>
+        <div class="box">
+          <p>Hello, world!</p>
+        </div>
+        <div class="item">
+          I am displayed in <code>color: rebeccapurple</code> because the
+          <code>special</code> layer comes after the <code>base</code> layer. My
+          green border, font-size, and padding come from the
+          <code>base</code> layer.
+        </div>
+      </div>
+      <style>
+        .cascade-layers p {
+          color: rebeccapurple;
+        }
+
+        @layer type {
+          .cascade-layers .box p {
+            font-weight: bold;
+            font-size: 1.3em;
+            color: green;
+          }
+        }
+
+        @layer base, special;
+
+        @layer special {
+          .cascade-layers .item {
+            color: rebeccapurple;
+          }
+        }
+
+        @layer base {
+          .cascade-layers .item {
+            color: green;
+            border: 5px solid green;
+            font-size: 1.3em;
+            padding: 0.5em;
+          }
+        }
+      </style>
+    </section>
+    <section>
+      <h2>Case-insensitive ●i / ▲s</h2>
+      <p>CSS property: Case-insensitive CSS attribute selector</p>
+      <p>
+        [attr operator value i]：閉じ角括弧の前に i (または I) を追加すると、
+        (ASCII の範囲内の文字の場合)
+        値は大文字と小文字を区別せずに比較されます。
+      </p>
+      <p>
+        [attr operator value s]：閉じ角括弧の前に s (または S) を追加すると、
+        (ASCII の範囲内の文字の場合) 値は大文字と小文字を区別して比較されます。
+      </p>
+      <div class="case-insensitive">
+        <div id="green">This is green.</div>
+        <div id="Green">This is Green.</div>
+        <div id="gReEn">tHiS iS gReEn.</div>
+        Case-sensitive is not support in Chrome
+        <div data-fuga="fuga">fuga</div>
+        <div data-fuga="fugaN">fugaN</div>
+        <div data-fuga="Nfuga">Nfuga</div>
+        <div data-fuga="MfugaN">MfugaN</div>
+      </div>
+      <style>
+        .case-insensitive [id='green' i] {
+          color: teal;
+        }
+
+        .case-insensitive [data-fuga='fuga' s] {
+          font-weight: bold;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲color-adjust</h2>
+      <p>CSS property: CSS color-adjust</p>
+      <p>
+        非標準: この機能は標準ではなく、標準化の予定もありません。標準外の CSS
+        拡張で、 WebKit
+        ブラウザー上で印刷時に背景色や背景画像の表示を強制することができます
+      </p>
+      <div class="color-adjust">
+        <article>強制的に白黒で印刷する</article>
+      </div>
+      <style>
+        .color-adjust article {
+          -webkit-print-color-adjust: exact;
+          background: #222;
+          color: #eee;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●conic-gradient()</h2>
+      <p>Function: &lt;image&gt;: &lt;gradient&gt;: conic-gradient()</p>
+      <p>
+        CSS の関数で、 (中心から広がるのではなく)
+        中心点の周りを回りながら色が変化する画像を生成
+      </p>
+      <div class="conic-gradient">色相環</div>
+      <div class="conic-gradient2">グラデーションの円グラフ</div>
+      <style>
+        .conic-gradient {
+          padding: 10%;
+          background: conic-gradient(
+            #f00,
+            #ff00bf,
+            #7f00ff,
+            #0040ff,
+            #0ff,
+            #00ff40,
+            #80ff00,
+            #ffbf00,
+            #f00
+          );
+        }
+
+        .conic-gradient2 {
+          width: 400px;
+          height: 400px;
+          background: conic-gradient(
+            red 36deg,
+            orange 36deg 170deg,
+            yellow 170deg
+          );
+          border-radius: 50%;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●border-image-slice</h2>
+      <p>CSS property: border-image-slice</p>
+      <p>
+        border-image-source
+        で指定された画像を複数の領域に分割します。これらの領域は境界画像の部品を構成
+      </p>
+      <div class="border-image-slice">.border-image-slice</div>
+      <style>
+        .border-image-slice {
+          width: 400px;
+          height: 400px;
+          border-image-source: url(/image/cat.jpg);
+          border-image-slice: 14;
+          border-width: 40px;
+          border-style: solid;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲Containment</h2>
+      <p>CSS property: CSS Containment</p>
+      <p>
+        DOMのレンダリングを開発者側で調整できるようにするパフォーマンス系のプロパティ
+      </p>
+      <div class="containment">
+        <h3>contain</h3>
+        <article>
+          <h4>良い記事の見出し</h4>
+          <p>内容はこちら。</p>
+        </article>
+        <article>
+          <h4>他の記事の他の見出し</h4>
+          <p>さらなる内容はこちら。</p>
+        </article>
+      </div>
+      <div class="containment-layout">
+        <h3>layout</h3>
+        <article>
+          <h4>良い記事の見出し</h4>
+          <p>内容はこちら。</p>
+        </article>
+        <article>
+          <h4>他の記事の他の見出し</h4>
+          <p>さらなる内容はこちら。</p>
+        </article>
+      </div>
+      <div class="containment-paint">
+        <h3>paint</h3>
+        <article>
+          <h4>良い記事の見出し</h4>
+          <p>内容はこちら。</p>
+        </article>
+        <article>
+          <h4>他の記事の他の見出し</h4>
+          <p>さらなる内容はこちら。</p>
+        </article>
+      </div>
+      <div class="containment-size">
+        <h3>size</h3>
+        <article>
+          <h4>良い記事の見出し</h4>
+          <p>内容はこちら。</p>
+        </article>
+        <article>
+          <h4>他の記事の他の見出し</h4>
+          <p>さらなる内容はこちら。</p>
+        </article>
+      </div>
+      <div class="containment-style">
+        <h3>style</h3>
+        <article>
+          <h4>良い記事の見出し</h4>
+          <p>内容はこちら。</p>
+        </article>
+        <article>
+          <h4>他の記事の他の見出し</h4>
+          <p>さらなる内容はこちら。</p>
+        </article>
+        <ol>
+          <li>first</li>
+          <li>second</li>
+          <li>third</li>
+        </ol>
+      </div>
+      <style>
+        .containment article {
+          contain: content;
+        }
+
+        .containment-layout article {
+          contain: layout;
+        }
+
+        .containment-paint article {
+          contain: paint;
+        }
+
+        .containment-size article {
+          contain: size;
+        }
+
+        .containment-style article {
+          contain: style;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●:default</h2>
+      <p>Pseudo-classes: :default CSS pseudo-class</p>
+      <p>関連する要素のグループ内で既定となっているフォーム上の要素を選択</p>
+      <div class="default">
+        <fieldset>
+          <legend>Favorite season</legend>
+          <input type="radio" name="season" id="spring" />
+          <label for="spring">Spring</label>
+          <input type="radio" name="season" id="summer" checked />
+          <label for="summer">Summer</label>
+          <input type="radio" name="season" id="fall" />
+          <label for="fall">Fall</label>
+          <input type="radio" name="season" id="winter" />
+          <label for="winter">Winter</label>
+        </fieldset>
+      </div>
+      <style>
+        .default input:default {
+          box-shadow: 0 0 2px 1px coral;
+        }
+
+        .default input:default + label {
+          color: coral;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲display: contents;</h2>
+      <p>CSS property: CSS display: contents</p>
+      <p>
+        これらの要素は自身のために特定のボックスを生成しません。擬似ボックスやその子ボックスで置き換えられます
+      </p>
+      <div class="display-contents">
+        <div class="grid-with-contents">
+          <div class="item side-navi">side-nav2</div>
+          <main class="contents">
+            <article class="contents">
+              <div class="item content">content2</div>
+              <footer class="item content-footer">content-footer2</footer>
+            </article>
+          </main>
+          <footer class="contents">
+            <navi class="item" id="footer-navi-2">footer-navi2</navi>
+            <div class="item" id="footer-2">footer2</div>
+          </footer>
+        </div>
+        <div class="grid">
+          <div class="item side-navi">side-nav</div>
+          <div class="item content">content</div>
+          <div class="item content-footer">content-footer</div>
+          <div class="item footer-navi">footer-navi</div>
+          <div class="item footer">footer</div>
+        </div>
+      </div>
+      <style>
+        .display-contents .item {
+          border: solid 1px #ff3333;
+          background-color: #ffeeee;
+          margin: 1px;
+          padding: 10px;
+        }
+
+        .display-contents .contents {
+          display: contents;
+        }
+
+        .display-contents .grid-with-contents {
+          display: grid;
+          padding: 0;
+          grid-template-rows: 20vh 50px;
+          grid-template-columns: 150px 1fr;
+          grid-template-areas:
+            'side-navi content'
+            'side-navi content-footer'
+            'side-navi footer-navi'
+            'side-navi footer';
+        }
+
+        .display-contents .side-navi {
+          grid-area: side-navi;
+        }
+        .display-contents .content {
+          grid-area: content;
+        }
+        .display-contents .content-footer {
+          grid-area: content-footer;
+        }
+        .display-contents .footer-navi {
+          grid-area: footer-navi;
+        }
+        .display-contents .footer {
+          grid-area: footer;
+        }
+
+        .display-contents .grid {
+          display: grid;
+          padding: 0;
+          grid-template-rows: 20vh 50px;
+          grid-template-columns: 150px 1fr;
+          grid-template-areas:
+            'side-navi content'
+            'side-navi content-footer'
+            'side-navi footer-navi'
+            'side-navi footer';
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●env()</h2>
+      <p>CSS Environment Variables env()</p>
+      <p>
+        CSS の関数で、ユーザーエージェントが定義した環境変数の値を、 var()
+        関数やカスタムプロパティと同じ方法で CSS
+        に挿入するために使用することができる
+      </p>
+      <style>
+        body {
+          padding: env(safe-area-inset-top, 20px)
+            env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 20px)
+            env(safe-area-inset-left, 20px);
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●Feature Queries</h2>
+      <p>At-Rule: CSS Feature Queries</p>
+      <p>
+        CSS の @supports
+        アットルールを使って作成され、ウェブ開発者がある機能に対応しているかどうかを検査し、その検査結果に基づいて実行する
+        CSS を提供する方法として有益
+      </p>
+      <div class="feature-queries"><div class="box">feature-queries</div></div>
+      <style>
+        .feature-queries .box {
+          border: 4px solid blue;
+          color: blue;
+        }
+        @supports (row-gap: 10px) {
+          .feature-queries .box {
+            border: 4px solid red;
+            color: red;
+          }
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●Filter</h2>
+      <p>CSS property: CSS Filter Effects</p>
+      <p>ぼかしや色変化などのグラフィック効果を要素に適用します。</p>
+      <div class="filter">
+        <img src="/image/cat.jpg" alt="" />
+      </div>
+      <style>
+        .filter {
+          filter: blur(5px);
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●fit-content</h2>
+      <p>CSS property: Intrinsic & Extrinsic Sizing</p>
+      <p>
+        fit-content(stretch)
+        として動作します。実際には、ボックスは利用可能な空間を使用しますが、max-content
+        以上にはならないことを意味します。
+      </p>
+      <div class="fit-content">
+        <div class="container">
+          <div class="item">Item</div>
+          <div class="item">Item with more text in it.</div>
+          <div class="item">
+            Item with more text in it, hopefully we have added enough text so
+            the text will start to wrap.
+          </div>
+        </div>
+        <style>
+          .fit-content .container {
+            border: 2px solid #ccc;
+            padding: 10px;
+            width: 20em;
+          }
+
+          .fit-content .item {
+            width: -moz-fit-content;
+            width: fit-content;
+            background-color: #8ca0ff;
+            padding: 5px;
+            margin-bottom: 1em;
+          }
+        </style>
+      </div>
+    </section>
+    <section>
+      <h2>▲:focus-visible</h2>
+      <p>Pseudo-classes: :focus-visible CSS pseudo-class</p>
+      <p>
+        :focus-visible 擬似クラスは、要素が :focus
+        擬似クラスに一致している時で、ユーザーエージェントが要素にフォーカスを明示するべきであると推測的に判断した場合に適用
+      </p>
+      <div class="focus-visible">
+        <input value="既定のスタイル" /><br />
+        <button>既定のスタイル</button><br />
+        <input class="focus-only" value=":focus のみ" /><br />
+        <button class="focus-only">:focus のみ</button><br />
+        <input class="focus-visible-only" value=":focus-visible のみ" /><br />
+        <button class="focus-visible-only">:focus-visible のみ</button>
+      </div>
+      <style>
+        .focus-visible input,
+        .focus-visible button {
+          margin: 10px;
+        }
+
+        .focus-visible .focus-only:focus {
+          outline: 2px solid black;
+        }
+
+        .focus-visible .focus-visible-only:focus-visible {
+          outline: 4px dashed darkorange;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲:focus-within</h2>
+      <p>Pseudo-classes: :focus-within CSS pseudo-class</p>
+      <p>
+        要素または子孫要素にフォーカスがある場合に一致します。言い換えれば、それ自身が
+        :focus 擬似クラスに該当するか、子孫に :focus
+        に該当する要素がある要素を表します
+      </p>
+      <div class="focus-within">
+        <p>このフォームに入力してみてください。</p>
+        <form>
+          <label for="given_name">名前:</label>
+          <input id="given_name" type="text" />
+          <br />
+          <label for="family_name">苗字:</label>
+          <input id="family_name" type="text" />
+        </form>
+      </div>
+      <style>
+        .focus-within form {
+          border: 1px solid;
+          color: gray;
+          padding: 4px;
+        }
+
+        .focus-within form:focus-within {
+          background: #ff8;
+          color: black;
+        }
+
+        .focus-within input {
+          margin: 4px;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●font-display</h2>
+      <p>CSS property: CSS font-display</p>
+      <p>
+        フォントがダウンロード済みで利用できるかに基づいて、どのようにフォントの種類を表示するかを定めます
+      </p>
+      <div class="font-display">
+        自分用の、"Noto Sans
+        JP"のWebフォント利用のためのCSS。ローカルにフォントがあれば、Webフォントよりも優先して使用する。
+      </div>
+      <div>
+        自分用の、"Noto Sans
+        JP"のWebフォント利用のためのCSS。ローカルにフォントがあれば、Webフォントよりも優先して使用する。
+      </div>
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
+        @font-face {
+          font-family: 'Noto Sans JP';
+          font-style: normal;
+          font-weight: 100;
+          src: local('Noto Sans CJK JP'),
+            url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff2)
+              format('woff2'),
+            url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff)
+              format('woff'),
+            url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.otf)
+              format('opentype');
+          font-display: fallback;
+        }
+        .font-display {
+          font-family: 'Noto Sans JP';
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲image-orientation</h2>
+      <p>CSS property: CSS3 image-orientation</p>
+      <p>画像の向きのレイアウトに依存しない修正を指定</p>
+      <div class="image-orientation">
+        <img src="/image/car-horizontal.jpg" alt="" />
+      </div>
+      <style>
+        .image-orientation {
+          image-orientation: none;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●:in-range / :out-of-range</h2>
+      <p>Pseudo-classes: :in-range and :out-of-range CSS pseudo-classes</p>
+      <p>
+        現在の値が min および max 属性による制限範囲内にある &lt;input&gt;
+        要素を表します。
+      </p>
+      <div class="in-range">
+        <input
+          id="value1"
+          name="value1"
+          type="number"
+          placeholder="1 to 10"
+          min="1"
+          max="10"
+          value="12"
+          required
+        />
+        <label for="value1">あなたの値は</label>
+      </div>
+      <style>
+        .in-range input:in-range {
+          background-color: rgba(0, 255, 0, 0.25);
+        }
+
+        .in-range input:out-of-range {
+          background-color: rgba(255, 0, 0, 0.25);
+          border: 2px solid red;
+        }
+
+        .in-range input:in-range + label::after {
+          content: '範囲内です。';
+        }
+
+        .in-range input:out-of-range + label::after {
+          content: '範囲外です！';
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●initial</h2>
+      <p>Keyword: CSS initial value</p>
+      <p>要素にプロパティの初期値（または既定値）を設定</p>
+      <div class="initial">
+        <p>
+          <span>このテキストは赤です。</span>
+          <em>このテキストは初期値（ふつうは黒）です。</em>
+          <span>これは再び赤です。</span>
+        </p>
+      </div>
+      <style>
+        .initial p {
+          color: red;
+        }
+
+        .initial em {
+          color: initial;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●:is()</h2>
+      <p>Pseudo-classes: :is() CSS pseudo-class</p>
+      <p>
+        CSS
+        の擬似クラス関数で、セレクターのリストを引数に取り、リスト中のセレクターの何れか一つに当てはまる要素をすべて選択
+      </p>
+      <div class="is">
+        <header><p>header</p></header>
+        <main><p>main</p></main>
+        <p>paragraph</p>
+        <footer><p>footer</p></footer>
+      </div>
+      <style>
+        .is :is(header, main, footer) p:hover {
+          color: red;
+          cursor: pointer;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●-webkit-line-clamp</h2>
+      <p>CSS property: CSS line-clamp</p>
+      <p>ブロックコンテナーの内容を指定した行数に制限することができます</p>
+      <div class="line-clamp">
+        <p>
+          In this example the <code>-webkit-line-clamp</code> property is set to
+          <code>3</code>, which means the text is clamped after three lines. An
+          ellipsis will be shown at the point where the text is clamped.
+        </p>
+      </div>
+      <style>
+        .line-clamp p {
+          width: 300px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 3;
+          overflow: hidden;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲Logical Properties and Values</h2>
+      <p>CSS property: CSS Logical Properties</p>
+      <p>フローに対して相対的なプロパティや値を扱う上で重要な概念</p>
+      <div class="logical-properties">
+        <div class="grid">
+          <div>One</div>
+          <div>Two</div>
+          <div>Three</div>
+          <div>Four</div>
+        </div>
+      </div>
+      <style>
+        .logical-properties .grid {
+          writing-mode: vertical-rl;
+          inline-size: 400px;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲margin-inline</h2>
+      <p>CSS property: CSS property: margin-inline</p>
+      <p>論理的なインライン方向の先頭と末尾のマージンを設定</p>
+      <div class="margin-inline">
+        <div>
+          <p>Example text</p>
+        </div>
+        <div class="verticalExample">
+          <p>Example text</p>
+        </div>
+      </div>
+      <style>
+        .margin-inline div {
+          background-color: yellow;
+          width: 120px;
+          height: auto;
+          border: 1px solid green;
+        }
+
+        .margin-inline p {
+          margin: 0;
+          margin-inline: 20px 40px;
+          background-color: tan;
+        }
+
+        .margin-inline .verticalExample {
+          writing-mode: vertical-rl;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●::marker</h2>
+      <p>Pseudo-classes: CSS ::marker pseudo-element</p>
+      <p>リスト項目の箇条書き記号ボックス (ふつうは黒丸や番号) を選択</p>
+      <div class="marker">
+        <ul>
+          <li>Peaches</li>
+          <li>Apples</li>
+          <li>Plums</li>
+        </ul>
+      </div>
+      <style>
+        .marker ul li::marker {
+          color: red;
+          font-size: 1.5em;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●min(), ●max(), ▲clamp()</h2>
+      <p>CSS property: CSS math functions min(), max() and clamp()</p>
+      <p>
+        min(): カンマで区切られた式のリストから最小の (最も負である) 値を設定
+      </p>
+      <div>
+        10vw, 4000px どちらかの最小サイズ<br />
+        <img src="/image/cat.jpg" alt="" class="min" />
+      </div>
+      <p>
+        min(): カンマで区切られた式のリストから最大の (最も正である) 値を設定
+      </p>
+      <div>
+        20vw, 100px どちらかの最大サイズ<br />
+        <img src="/image/cat.jpg" alt="" class="max" />
+      </div>
+      <p>clamp(): 値を上限と下限の間に制限します</p>
+      <div>
+        最小値1rem、推奨値2.5vw、最大値2rem<br />
+        このテキストのフォントサイズは、ページのベースフォントとビューポートのサイズによって異なります。
+      </div>
+      <style>
+        .min {
+          width: min(10vw, 4000px);
+        }
+        .max {
+          width: max(20vw, 100px);
+        }
+        .clamp {
+          font-size: clamp(1rem, 2.5vw, 2rem);
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●max-inline-size</h2>
+      <p>CSS property: max-inline-size</p>
+      <p>書字方向に応じて要素ブロックの水平または垂直方向の最大の寸法を定義</p>
+      <div class="max-inline-size">
+        This is a box where you can change the max-inline-size.
+      </div>
+      <style>
+        .max-inline-size {
+          max-inline-size: 150px;
+          writing-mode: vertical-rl;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●@media pointer</h2>
+      <p>Media Queries: interaction media features</p>
+      <p>
+        ユーザーが（マウスなどの）ポインティングデバイスを持っているか、もしそうならば、主要なポインティングデバイスにどれだけの正確性があるかを調べます
+      </p>
+      <div class="pointer">
+        <input id="test" type="checkbox" />
+        <label for="test">Look at me!</label>
+      </div>
+      <style>
+        .pointer input[type='checkbox'] {
+          -moz-appearance: none;
+          -webkit-appearance: none;
+          appearance: none;
+          border: solid;
+          margin: 0;
+        }
+
+        .pointer input[type='checkbox']:checked {
+          background: gray;
+        }
+
+        @media (pointer: fine) {
+          .pointer input[type='checkbox'] {
+            width: 15px;
+            height: 15px;
+            border-width: 2px;
+            border-color: green;
+          }
+        }
+
+        @media (pointer: coarse) {
+          .pointer input[type='checkbox'] {
+            width: 30px;
+            height: 30px;
+            border-width: 2px;
+            border-color: red;
+          }
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●@media hover</h2>
+      <p>Media Queries: interaction media features</p>
+      <p>
+        第一の入力機構が要素の上でホバー (停止)
+        することができるかどうかを検査するために使用することができます
+      </p>
+      <div class="hover"><a href="#">Try hovering over me!</a></div>
+      <style>
+        @media (hover: hover) {
+          .hover a:hover {
+            background: yellow;
+          }
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●@media any-pointer</h2>
+      <p>Media Queries: interaction media features</p>
+      <p></p>
+      <div class="any-pointer">
+        <input id="test" type="checkbox" />
+        <label for="test">Look at me!</label>
+      </div>
+      <style>
+        .any-pointer input[type='checkbox']:checked {
+          background: gray;
+        }
+
+        @media (any-pointer: fine) {
+          .any-pointer input[type='checkbox'] {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border: 2px solid green;
+          }
+        }
+
+        @media (any-pointer: coarse) {
+          .any-pointer input[type='checkbox'] {
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            appearance: none;
+            width: 30px;
+            height: 30px;
+            border: 2px solid red;
+          }
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●:not()</h2>
+      <p>Pseudo-classes: selector list argument of :not()</p>
+      <p>列挙されたセレクターに一致しない要素を表します</p>
+      <div class="not">
+        <p>I am a paragraph.</p>
+        <p class="fancy">I am so very fancy!</p>
+        <div>I am NOT a paragraph.</div>
+        <h2>
+          <span class="foo">foo inside h2</span>
+          <span class="bar">bar inside h2</span>
+        </h2>
+      </div>
+      <style>
+        .not .fancy {
+          text-shadow: 2px 2px 3px gold;
+        }
+
+        .not p:not(.fancy) {
+          color: green;
+        }
+
+        .not :not(p) {
+          text-decoration: underline;
+        }
+
+        .not :not(div):not(span) {
+          font-weight: bold;
+        }
+
+        .not :not(div, .fancy) {
+          text-decoration: overline underline;
+        }
+
+        .not h2 :not(span.foo) {
+          color: red;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲overflow-anchor</h2>
+      <p>CSS property: CSS overflow-anchor (Scroll Anchoring)</p>
+      <p>
+        コンテンツの移動を最小化するためにスクロール位置を調整する、ブラウザーのスクロールアンカリングの動作をオプトアウトする方法<br />
+        たとえば、画面外のコンテンツが読み込まれることにより、現在表示されているコンテンツが押し出され、画面がジャンプしたように見えてしまう
+      </p>
+      <div class="overflow-anchor">
+        <a
+          href="https://youtu.be/-Fr-i4dicCQ"
+          target="_blank"
+          rel="noopener noreferrer"
+          >https://youtu.be/-Fr-i4dicCQ</a
+        ><br />
+        <a
+          href="https://codepen.io/chriscoyier/pen/oWgENp"
+          target="_blank"
+          rel="noopener noreferrer"
+          >https://codepen.io/chriscoyier/pen/oWgENp</a
+        >
+      </div>
+    </section>
+    <section>
+      <h2>●::placeholder</h2>
+      <p>Pseudo-classes: ::placeholder CSS pseudo-element</p>
+      <p>
+        &lt;input&gt; または &lt;textarea&gt;
+        要素のプレイスホルダー文字列を表します
+      </p>
+      <div class="placeholder">
+        <input placeholder="こちらに入力..." />
+      </div>
+      <style>
+        .placeholder input::placeholder {
+          color: red;
+          font-size: 1.2em;
+          font-style: italic;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●:read-only / ●:read-write</h2>
+      <p>Pseudo-classes: CSS :read-only and :read-write selectors</p>
+      <p>
+        :read-only は CSS の擬似クラスで、ユーザーが編集できない要素 (input や
+        textarea など) を表します。
+      </p>
+      <p>
+        :read-write は CSS の擬似クラスで、ユーザーが編集できる要素 (input や
+        textarea など) を表します。
+      </p>
+      <div class="read-only">
+        <input type="text" name="" id="" value="read-only" readonly />
+        <input type="text" name="" id="" value="writable" />
+        <p contenteditable>この段落は編集可能です。読み書き可です。</p>
+        <p>この段落は編集できません。読み取り専用です。</p>
+      </div>
+      <style>
+        .read-only input:read-only,
+        textarea:read-only {
+          background-color: #ccc;
+        }
+        .read-only p {
+          font-size: 150%;
+          padding: 5px;
+          border-radius: 5px;
+        }
+
+        .read-only p:read-only {
+          background-color: red;
+          color: white;
+        }
+
+        .read-only p:read-write {
+          background-color: lime;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲resize</h2>
+      <p>CSS property: CSS resize property</p>
+      <p>
+        要素の寸法を変更できるかどうか、もしそうなら、どの方向に変更できるかを設定
+      </p>
+      <div class="resize">
+        <textarea>Type some text here.</textarea>
+        <div>
+          <div class="resizable">
+            <p class="resizable">
+              This paragraph is resizable in all directions, because the CSS
+              `resize` property is set to `both` on this element.
+            </p>
+          </div>
+        </div>
+      </div>
+      <style>
+        .resize textarea {
+          resize: none; /* Disables resizability */
+        }
+        .resize .resizable {
+          resize: both;
+          overflow: scroll;
+          border: 1px solid black;
+        }
+
+        .resize div {
+          height: 300px;
+          width: 300px;
+        }
+
+        .resize p {
+          height: 200px;
+          width: 200px;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●revert</h2>
+      <p>Keyword: CSS revert value</p>
+      <p>
+        CSS
+        のキーワードで、現在の要素にカスケードされたプロパティの値を、現在の**スタイルオリジン**が変更を行わなければそのプロパティが持っていたであろう値に戻します
+      </p>
+      <div class="revert">
+        <h3 style="font-weight: unset; color: unset">
+          これは font-weight: normal ですが、 color: black になります
+        </h3>
+        <p>いくらかのテキスト</p>
+        <h3 style="font-weight: revert; color: revert">
+          これは本来通り font-weight (bold) と color: black です
+        </h3>
+        <p>いくらかのテキスト</p>
+      </div>
+      <style>
+        .revert h3 {
+          font-weight: normal;
+          color: blue;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●#rrggbbaa hex color notation</h2>
+      <p>Keyword: 4 & 8 character hex</p>
+      <div class="hex">009900aa</div>
+      <style>
+        .hex {
+          color: #009900aa;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●sticky</h2>
+      <p>CSS property: CSS position:sticky</p>
+      <p>
+        要素は文書の通常のフローに従って配置され、直近のスクロールする祖先および包含ブロック
+        (直近のブロックレベル祖先、表関連要素を含む) に対して top, right,
+        bottom, left の値に基づいて相対配置されます
+      </p>
+      <div class="sticky">
+        <dl>
+          <div>
+            <dt>A</dt>
+            <dd>Andrew W.K.</dd>
+            <dd>Apparat</dd>
+            <dd>Arcade Fire</dd>
+            <dd>At The Drive-In</dd>
+            <dd>Aziz Ansari</dd>
+          </div>
+          <div>
+            <dt>C</dt>
+            <dd>Chromeo</dd>
+            <dd>Common</dd>
+            <dd>Converge</dd>
+            <dd>Crystal Castles</dd>
+            <dd>Cursive</dd>
+          </div>
+          <div>
+            <dt>E</dt>
+            <dd>Explosions In The Sky</dd>
+          </div>
+          <div>
+            <dt>T</dt>
+            <dd>Ted Leo &amp; The Pharmacists</dd>
+            <dd>T-Pain</dd>
+            <dd>Thrice</dd>
+            <dd>TV On The Radio</dd>
+            <dd>Two Gallants</dd>
+          </div>
+        </dl>
+      </div>
+      <style>
+        .sticky * {
+          box-sizing: border-box;
+        }
+
+        .sticky dl > div {
+          background: #fff;
+          padding: 24px 0 0 0;
+        }
+
+        .sticky dt {
+          background: #b8c1c8;
+          border-bottom: 1px solid #989ea4;
+          border-top: 1px solid #717d85;
+          color: #fff;
+          font: bold 18px/21px Helvetica, Arial, sans-serif;
+          margin: 0;
+          padding: 2px 0 0 12px;
+          position: -webkit-sticky;
+          position: sticky;
+          top: -1px;
+        }
+
+        .sticky dd {
+          font: bold 20px/45px Helvetica, Arial, sans-serif;
+          margin: 0;
+          padding: 0 0 0 12px;
+          white-space: nowrap;
+        }
+
+        .sticky dd + dd {
+          border-top: 1px solid #ccc;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●text-orientation</h2>
+      <p>CSS property: CSS text-orientation</p>
+      <p>行内のテキストの向きを設定します</p>
+      <div class="text-orientation">
+        <p>Lorem ipsum dolet semper quisquam.</p>
+      </div>
+      <style>
+        .text-orientation p {
+          writing-mode: vertical-rl;
+          text-orientation: upright;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●unset</h2>
+      <p>Keyword: CSS unset value</p>
+      <p>
+        CSS
+        のキーワードで、プロパティをリセットし、親から自然に継承された場合は継承値、そうでなければ初期値を設定します。
+      </p>
+      <div class="unset">
+        <p>このテキストは赤です。</p>
+        <div class="foo">
+          <p>このテキストも赤です。</p>
+        </div>
+        <div class="bar">
+          <p>このテキストは緑色（既定の継承値）です。</p>
+        </div>
+      </div>
+      <style>
+        .unset .foo {
+          color: blue;
+        }
+        .unset .bar {
+          color: green;
+        }
+
+        .unset p {
+          color: red;
+        }
+        .unset .bar p {
+          color: unset;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●CSS変数（カスタムプロパティ）</h2>
+      <p>Custom Properties: CSS Variables (Custom Properties)</p>
+      <p></p>
+      <div class="variables">
+        <div class="element">element</div>
+        <div class="one">
+          <div class="two">
+            <div class="three">three</div>
+            <div class="four">four</div>
+          </div>
+        </div>
+      </div>
+      <style>
+        .variables .element {
+          --main-bg-color: brown;
+          background-color: var(--main-bg-color);
+        }
+
+        .variables .two {
+          --test: 10px;
+          padding: var(--test);
+          color: var(--my-var, red);
+        }
+        .variables .three {
+          --test: 2em;
+          background-color: var(--my-var, var(--my-background, pink));
+          padding: var(--test);
+        }
+        .variables .four {
+          padding: var(--test);
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲Motion Path</h2>
+      <p>CSS property: CSS Motion Path</p>
+      <p>
+        要素がたどる移動経路と、親コンテナーまたは SVG
+        座標系の中での要素の配置を指定
+      </p>
+      <div class="offset-path">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="700"
+          height="450"
+          viewBox="350 0 1400 900"
+        >
+          <title>House and Scissors</title>
+          <rect x="595" y="423" width="610" height="377" fill="blue" />
+          <polygon points="506,423 900,190 1294,423" fill="yellow" />
+          <polygon points="993,245 993,190 1086,190 1086,300" fill="red" />
+          <path
+            id="house"
+            d="M900,190 L993,245 V201 A11,11 0 0,1 1004,190 H1075 A11,11 0 0,1 1086,201 V300 L1294,423 H1216 A11,11 0 0,0 1205,434 V789 A11,11 0 0,1 1194,800 H606 A11,11 0 0,1 595,789 V434 A11,11 0 0,0 584,423 H506 L900,190"
+            fill="none"
+            stroke="black"
+            stroke-width="13"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+          />
+          <path
+            id="firstScissorHalf"
+            class="scissorHalf"
+            d="M30,0 H-10 A10,10 0 0,0 -20,10 A20,20 0 1,1 -40,-10 H20 A10,10 0 0,1 30,0 M-40,20 A10,10 1 0,0 -40,0 A10,10 1 0,0 -40,20 M0,0"
+            transform="translate(0,0)"
+            fill="green"
+            stroke="black"
+            stroke-width="5"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            fill-rule="evenodd"
+          />
+          <path
+            id="secondScissorHalf"
+            class="scissorHalf"
+            d="M30,0 H-10 A10,10 0 0,1 -20,-10 A20,20 0 1,0 -40,10 H20 A10,10 0 0,0 30,0 M-40,-20 A10,10 1 0,0 -40,0 A10,10 1 0,0 -40,-20 M0,0"
+            transform="translate(0,0)"
+            fill="forestgreen"
+            stroke="black"
+            stroke-width="5"
+            stroke-linejoin="round"
+            stroke-linecap="round"
+            fill-rule="evenodd"
+          />
+        </svg>
+      </div>
+      <style>
+        .offset-path .scissorHalf {
+          offset-path: path(
+            'M900,190  L993,245 V201  A11,11 0 0,1 1004,190  H1075  A11,11 0 0,1 1086,201  V300  L1294,423 H1216  A11,11 0 0,0 1205,434  V789  A11,11 0 0,1 1194,800  H606  A11,11 0 0,1 595,789  V434  A11,11 0 0,0 584,423  H506 L900,190'
+          );
+          animation: followpath 4s linear 1;
+        }
+
+        @keyframes followpath {
+          to {
+            motion-offset: 100%;
+            offset-distance: 100%;
+          }
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●grab / grabbing</h2>
+      <p>Keyword: CSS grab & grabbing cursors</p>
+      <p></p>
+      <div>
+        <div class="grab">grab</div>
+        <div class="grabbing">grabbing</div>
+      </div>
+      <style>
+        .grab {
+          cursor: grab;
+        }
+        .grabbing {
+          cursor: grabbing;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●zoom-in, zoom-out</h2>
+      <p>Keyword: CSS3 Cursors: zoom-in & zoom-out</p>
+      <p></p>
+      <div>
+        <div class="zoom-in">zoom-in</div>
+        <div class="zoom-out">zoom-out</div>
+      </div>
+      <style>
+        .zoom-in {
+          cursor: zoom-in;
+        }
+        .zoom-out {
+          cursor: zoom-out;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>tab-size</h2>
+      <p>CSS property: CSS3 tab-size</p>
+      <p>タブ文字 (U+0009) の表示幅の指定に用います。</p>
+      <div class="tab-size">
+        <p>no tab</p>
+        <p>&#0009;default tab size of 8 characters wide</p>
+        <p class="custom">&#0009;custom tab size of 4 characters wide</p>
+        <p>&nbsp;&nbsp;&nbsp;4 spaces, equivalent to the custom tab size</p>
+      </div>
+      <style>
+        .tab-size p {
+          white-space: pre;
+        }
+
+        .tab-size .custom {
+          tab-size: 4;
+          -moz-tab-size: 4;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲flexbox gap</h2>
+      <p>CSS property: gap property for Flexbox</p>
+      <p>
+        フレックスアイテム間にギャップ/ガターを作成するためのフレックスボックスコンテナのギャップ
+      </p>
+      <div class="flexbox">
+        <div>flexbox</div>
+        <div>flexbox</div>
+        <div>flexbox</div>
+      </div>
+      <style>
+        .flexbox {
+          display: flex;
+          gap: 10px;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲display: flow-root</h2>
+      <p>Keyword: display: flow-root</p>
+      <p>
+        新たなブロック整形コンテキストを確立するブロック要素ボックスを生成し、整形ルートがある場所を定義
+      </p>
+      <div class="flow-root">
+        <div class="layout-block">
+          <div>layout-block</div>
+          <div class="block-l">
+            <h2>block-l</h2>
+            <p>Example text... Example text... Example text...</p>
+          </div>
+          <div class="block-r">
+            <h2>block-r</h2>
+            <p>Example text... Example text... Example text...</p>
+          </div>
+        </div>
+        <p class="text-block">
+          text-block<br />Example text... Example text... Example text...
+        </p>
+      </div>
+      <style>
+        .flow-root .layout-block {
+          background: gray;
+          display: flow-root;
+        }
+
+        .flow-root .block-l {
+          background: aliceblue;
+          float: left;
+        }
+
+        .flow-root .block-r {
+          background: antiquewhite;
+          float: right;
+        }
+
+        .flow-root .block-l,
+        .block-r {
+          width: 50%;
+        }
+
+        .flow-root .text-block {
+          background: yellowgreen;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●font-family system-ui</h2>
+      <p>Keyword: system-ui value for font-family</p>
+      <p>
+        指定されたプラットフォームの既定のユーザーインターフェイスフォントからグリフを取ります。文字の伝統は世界で様々であるため、この総称は他の総称にきれいに一致しない文字フォントを提供します。
+      </p>
+      <div>
+        <p class="system-ui">system-ui</p>
+        <p>system-ui do not use</p>
+      </div>
+      <style>
+        .system-ui {
+          font-family: system-ui;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●font-kerning</h2>
+      <p>CSS property: CSS3 font-kerning</p>
+      <p>フォントに存在するカーニング情報の使用を制御します</p>
+      <div class="font-kerning">
+        <p class="normal">AV T. ij font-kerning: normal;</p>
+        <p class="none">AV T. ij font-kerning: none;</p>
+      </div>
+      <style>
+        .font-kerning .normal {
+          font-kerning: normal;
+        }
+        .font-kerning .none {
+          font-kerning: none;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●Font Loading</h2>
+      <p>API: CSS Font Loading</p>
+      <p>
+        CSS Font Loading API
+        は動的にフォントリソースをロードするイベントやインターフェイスを提供します。
+      </p>
+      <div class="font-loading-api">
+        <div id="font-loading-api">
+          /font/Noto_Sans_JP/NotoSansJP-Regular.otf
+          ウェブフォントを適用したい部分
+        </div>
+      </div>
+      <script>
+        var font = new FontFace(
+          'Noto Sans JP',
+          'url(/font/Noto_Sans_JP/NotoSansJP-Regular.otf)',
+          {
+            style: 'normal',
+            weight: '400',
+          }
+        );
+        font.load().then(function () {
+          document.fonts.add(font);
+          document.getElementById('font-loading-api').style.fontFamily =
+            "'Noto Sans JP', sans-serif";
+        });
+      </script>
+    </section>
+    <section>
+      <h2>●font-variant-numeric</h2>
+      <p>CSS property: CSS font-variant-numeric</p>
+      <p>
+        CSS
+        のプロパティで、数字、分数、序数記号の表記を制御するために使用します。
+      </p>
+      <div class="font-variant-numeric">
+        <table>
+          <tbody>
+            <tr>
+              <td><span class="tabular">0</span></td>
+            </tr>
+            <tr>
+              <td><span class="tabular">3.14</span></td>
+            </tr>
+            <tr>
+              <td><span class="tabular">2.71</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <style>
+        .font-variant-numeric {
+          font-variant-numeric: slashed-zero;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●justify-content: space-evenly</h2>
+      <p>Keyword: CSS justify-content: space-evenly</p>
+      <p>
+        各アイテムは、配置コンテナーの中で主軸方向に均等に配置されます。隣接するアイテム同士の間隔、最初のアイテムの前の余白、最後のアイテムの後の余白は、まったく同じ幅になります。
+      </p>
+      <div class="space-evenly">
+        <div>evenness</div>
+        <div>evenness</div>
+        <div>evenness</div>
+        <div>evenness</div>
+      </div>
+      <style>
+        .space-evenly {
+          display: flex;
+          justify-content: space-evenly;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●object-fit/object-position</h2>
+      <p>CSS property: CSS3 object-fit/object-position</p>
+      <p>
+        置換要素、例えば &lt;img&gt; や &lt;video&gt;
+        などの中身を、コンテナーにどのようにはめ込むかを設定します。
+      </p>
+      <div class="object-fit">
+        <img src="/image/cat.jpg" alt="" />
+      </div>
+      <style>
+        .object-fit {
+          width: 10%;
+          height: 300px;
+        }
+        .object-fit img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲prefers-color-scheme</h2>
+      <p>Media Queries: prefers-color-scheme media query</p>
+      <p>
+        CSS
+        のメディア特性で、ユーザーがシステムに要求したカラーテーマが明色か暗色かを検出するために使用します。
+      </p>
+      <div class="prefers-color-scheme">
+        <div class="day">Day (initial)</div>
+        <div class="day light-scheme">Day (changes in light scheme)</div>
+        <div class="day dark-scheme">Day (changes in dark scheme)</div>
+        <br />
+
+        <div class="night">Night (initial)</div>
+        <div class="night light-scheme">Night (changes in light scheme)</div>
+        <div class="night dark-scheme">Night (changes in dark scheme)</div>
+      </div>
+      <style>
+        .prefers-color-scheme .day {
+          background: #eee;
+          color: black;
+        }
+        .prefers-color-scheme .night {
+          background: #333;
+          color: white;
+        }
+
+        @media (prefers-color-scheme: dark) {
+          .prefers-color-scheme .day.dark-scheme {
+            background: #333;
+            color: white;
+          }
+          .prefers-color-scheme .night.dark-scheme {
+            background: black;
+            color: #ddd;
+          }
+        }
+
+        @media (prefers-color-scheme: light) {
+          .prefers-color-scheme .day.light-scheme {
+            background: white;
+            color: #555;
+          }
+          .prefers-color-scheme .night.light-scheme {
+            background: #eee;
+            color: black;
+          }
+        }
+
+        .prefers-color-scheme .day,
+        .prefers-color-scheme .night {
+          display: inline-block;
+          padding: 1em;
+          width: 7em;
+          height: 2em;
+          vertical-align: middle;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●prefers-reduced-motion</h2>
+      <p>Media Queries: prefers-reduced-motion media query</p>
+      <p>
+        CSS
+        のメディア特性で、ユーザーが余計な動きを最少化するよう要求したことを検出するために使用します。
+      </p>
+      <div class="prefers-reduced-motion">
+        <div class="animation">animated box</div>
+      </div>
+      <style>
+        .prefers-reduced-motion .animation {
+          animation: pulse 1s linear infinite both;
+        }
+
+        /* Tone down the animation to avoid vestibular motion triggers like scaling or panning large objects. */
+        @media (prefers-reduced-motion) {
+          .prefers-reduced-motion .animation {
+            animation-name: dissolve;
+          }
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●text-emphasis</h2>
+      <p>CSS property: text-emphasis styling</p>
+      <p>
+        (空白や制御文字を除く) テキストに圏点を適用します。これは
+        text-emphasis-style と text-emphasis-color の一括指定です。
+      </p>
+      <div class="text-emphasis">
+        <p>これは重要です！</p>
+      </div>
+      <style>
+        .text-emphasis p {
+          -webkit-text-emphasis: triangle #d55;
+          text-emphasis: triangle #d55;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●-webkit-text-stroke</h2>
+      <p>CSS property: CSS text-stroke and text-fill</p>
+      <p>
+        この機能は標準ではなく、標準化の予定もありません。テキスト文字の輪郭線の幅と色を指定します。
+      </p>
+      <div class="text-stroke">
+        <p>このテキストの輪郭線は赤です。</p>
+      </div>
+      <style>
+        .text-stroke p {
+          font-size: 2em;
+          margin: 0;
+          -webkit-text-stroke: 2px red;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●-webkit-text-fill-color</h2>
+      <p>CSS property: CSS text-stroke and text-fill</p>
+      <p>
+        この機能は標準ではなく、標準化の予定もありません。プロパティで、テキストの文字の塗りつぶしの色を指定します。
+      </p>
+      <div class="text-fill-color">
+        <p>This text is green.</p>
+      </div>
+      <style>
+        .text-fill-color p {
+          margin: 0;
+          font-size: 2em;
+          -webkit-text-fill-color: green;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲font-variation-settings</h2>
+      <p>At-Rule: @font-face: font-variation-settings</p>
+      <p>
+        CSS の記述子で、 @font-face ルールの中で OpenType または TrueType
+        の低レベルのフォントバリエーションを指定することができます。
+      </p>
+      <div>
+        <p class="font-variation-settings">font-variation-settings</p>
+        <p>font-variation-settings</p>
+      </div>
+      <style>
+        @font-face {
+          font-family: 'OpenTypeFont';
+          src: url('open_type_font.woff2') format('woff2');
+
+          font-family: 'Noto Sans JP';
+          font-weight: normal;
+          font-style: normal;
+          src: url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff2)
+              format('woff2'),
+            url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff)
+              format('woff');
+          font-variation-settings: 'wght' 400, 'wdth' 300;
+        }
+        .font-variation-settings {
+          font-family: 'Noto Sans JP';
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●will-change</h2>
+      <p>CSS property: CSS will-change property</p>
+      <p>
+        will-change
+        プロパティは、どのような要素の変更が予測されているかブラウザーに助言します。
+      </p>
+      <div class="will-change">
+        <button type="button" class="element">
+          要素がクリックされる時に変化するとしたら、その要素がホバーされる時にwill-changeを設定すれば、ブラウザが変化に備えて最適化する時間を稼げます
+        </button>
+      </div>
+      <style>
+        .will-change .element {
+          transition: opacity 0.2s;
+          opacity: 1;
+        }
+        .will-change .element:hover {
+          will-change: opacity;
+        }
+        .will-change .element:active {
+          opacity: 0.3;
+        }
+      </style>
+    </section>
+    <h1>IEをサポート外にした時に使用できるHTMLの要素や属性</h1>
+    <section>
+      <h2>●Custom Elements</h2>
+      <p>Element: Custom Elements (V1)</p>
+      <p>
+        ウェブ文書上でカスタム要素を制御するのは CustomElementRegistry
+        オブジェクトです。 —
+        このオブジェクトで、ページへカスタム要素を登録したり、どのようなカスタム要素が登録されているのかを返したりすることができます。
+      </p>
+      <div class="Custom Elements"></div>
+      <style>
+        .Custom Elements {
+        }
+      </style>
+      <script>
+        class PopUpInfo extends HTMLElement {
+          constructor() {
+            // Always call super first in constructor
+            super();
+
+            // Create a shadow root
+            const shadow = this.attachShadow({ mode: 'open' });
+
+            // Create spans
+            const wrapper = document.createElement('span');
+            wrapper.setAttribute('class', 'wrapper');
+
+            const icon = document.createElement('span');
+            icon.setAttribute('class', 'icon');
+            icon.setAttribute('tabindex', 0);
+
+            const info = document.createElement('span');
+            info.setAttribute('class', 'info');
+
+            // Take attribute content and put it inside the info span
+            const text = this.getAttribute('data-text');
+            info.textContent = text;
+
+            // Insert icon
+            let imgUrl;
+            if (this.hasAttribute('img')) {
+              imgUrl = this.getAttribute('img');
+            } else {
+              imgUrl = '/image/cat.jpg';
+            }
+
+            const img = document.createElement('img');
+            img.src = imgUrl;
+            icon.appendChild(img);
+
+            // Create some CSS to apply to the shadow dom
+            const style = document.createElement('style');
+            console.log(style.isConnected);
+
+            style.textContent = `
+              .wrapper {
+                position: relative;
+              }
+              .info {
+                font-size: 0.8rem;
+                width: 200px;
+                display: inline-block;
+                border: 1px solid black;
+                padding: 10px;
+                background: white;
+                border-radius: 10px;
+                opacity: 0;
+                transition: 0.6s all;
+                position: absolute;
+                bottom: 20px;
+                left: 10px;
+                z-index: 3;
+              }
+              img {
+                width: 1.2rem;
+              }
+              .icon:hover + .info, .icon:focus + .info {
+                opacity: 1;
+              }
+            `;
+
+            // Attach the created elements to the shadow dom
+            shadow.appendChild(style);
+            console.log(style.isConnected);
+            shadow.appendChild(wrapper);
+            wrapper.appendChild(icon);
+            wrapper.appendChild(info);
+          }
+        }
+        customElements.define('popup-info', PopUpInfo);
+      </script>
+      <popup-info
+        img="/image/cat.jpg"
+        data-text="Your card validation code (CVC)
+      is an extra security feature — it is the last 3 or 4 numbers on the
+      back of your card."
+      ></popup-info>
+    </section>
+    <section>
+      <h2>▲Dialog</h2>
+      <p>Element: Dialog element</p>
+      <p>
+        ダイアログボックスや、消すことができるアラート、インスペクター、サブウィンドウ等のような対話的コンポーネントを表します。
+      </p>
+      <div class="dialog">
+        <dialog id="favDialog">
+          <form method="dialog">
+            <p>
+              <label
+                >Favorite animal:
+                <select>
+                  <option></option>
+                  <option>Brine shrimp</option>
+                  <option>Red panda</option>
+                  <option>Spider monkey</option>
+                </select>
+              </label>
+            </p>
+            <menu>
+              <button value="cancel">Cancel</button>
+              <button id="confirmBtn" value="default">Confirm</button>
+            </menu>
+          </form>
+        </dialog>
+        <menu>
+          <button id="updateDetails">Update details</button>
+        </menu>
+        <output aria-live="polite"></output>
+      </div>
+      <script>
+        var updateButton = document.getElementById('updateDetails');
+        var favDialog = document.getElementById('favDialog');
+        var outputBox = document.querySelector('output');
+        var selectEl = document.querySelector('select');
+        var confirmBtn = document.getElementById('confirmBtn');
+
+        // "Update details" button opens the <dialog> modally
+        updateButton.addEventListener('click', function onOpen() {
+          if (typeof favDialog.showModal === 'function') {
+            favDialog.showModal();
+          } else {
+            alert('The <dialog> API is not supported by this browser');
+          }
+        });
+        // "Favorite animal" input sets the value of the submit button
+        selectEl.addEventListener('change', function onSelect(e) {
+          confirmBtn.value = selectEl.value;
+        });
+        // "Confirm" button of form triggers "close" on dialog because of [method="dialog"]
+        favDialog.addEventListener('close', function onClose() {
+          outputBox.value =
+            favDialog.returnValue +
+            ' button clicked - ' +
+            new Date().toString();
+        });
+      </script>
+    </section>
+    <section>
+      <h2>● form attribute</h2>
+      <p>Attribute: Form attribute</p>
+      <p>
+        form
+        属性によって、入力欄を文書内のどこに置いても、文書内の他の場所にあるフォームと関連付けることができます。
+      </p>
+      <div>
+        <form id="form1" />
+        <input type="text" name="text1" form="form1" />
+      </div>
+    </section>
+    <section>
+      <h2>▲inert</h2>
+      <p>Attribute: HTMLElement API: inert</p>
+      <p>
+        inert
+        プロパティは論理値で、存在する場合は、フォーカスイベントや支援技術からのイベントを含む、要素に対するユーザーの入力イベントをブラウザーが「無視」するようにします。
+      </p>
+      <div class="inert">
+        <div>
+          <label for="button1">ボタン 1</label>
+          <button id="button1">不活性ではありません</button>
+        </div>
+        <div inert>
+          <label for="button2">ボタン 2</label>
+          <button id="button2">不活性です</button>
+        </div>
+      </div>
+      <style>
+        .inert [inert] > * {
+          opacity: 0.5;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●type="color"</h2>
+      <p>Attribute: Color input type</p>
+      <p>
+        input 要素の color は視覚的なインターフェイス、もしくは #rrggbb の
+        16進数表記でテキストを入力することでユーザーが色を指定することができます。
+      </p>
+      <div class="typeColor">
+        <p>Choose your monster's colors:</p>
+        <div>
+          <input type="color" id="head" name="head" value="#e66465" />
+          <label for="head">Head</label>
+        </div>
+        <div>
+          <input type="color" id="body" name="body" value="#f6b73c" />
+          <label for="body">Body</label>
+        </div>
+        <p>Supported through WKWebView and Safari but not through UIWebView</p>
+      </div>
+      <style>
+        .typeColor p,
+        .typeColor label {
+          font: 1rem 'Fira Sans', sans-serif;
+        }
+
+        .typeColor input {
+          margin: 0.4rem;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●inputmode</h2>
+      <p>Attribute: inputmode attribute</p>
+      <p>
+        inputmode
+        はグローバル属性で、ユーザーが要素やその内容を編集する際に入力されるデータの型のヒントとなる列挙型属性です。
+      </p>
+      <div class="inputmode">
+        <input type="text" inputmode="none" placeholder="none" />
+        <input type="text" inputmode="text" placeholder="text(規定値)" />
+        <input type="text" inputmode="decimal" placeholder="decimal" />
+        <input type="text" inputmode="numeric" placeholder="numeric" />
+        <input type="text" inputmode="tel" placeholder="tel" />
+        <input type="text" inputmode="search" placeholder="search" />
+        <input type="text" inputmode="email" placeholder="email" />
+        <input type="text" inputmode="url" placeholder="url" />
+      </div>
+    </section>
+    <section>
+      <h2>●minlength / maxlength</h2>
+      <p>Attribute: Minimum length attribute for input fields</p>
+      <p>
+        minlength: ext, search, url, tel, email, password
+        で有効であり、ユーザーがフィールドに入力することができる最小文字数
+        (UTF-16 コード単位) を定義します。
+      </p>
+      <p>
+        maxlength: date, month, week, time, datetime-local, number, range
+        で有効であり、許可される値の範囲の最大値を定義します。
+      </p>
+      <div>
+        <input type="text" minlength="2" placeholder="minlength" />
+        <input type="text" maxlength="2" placeholder="maxlength" />
+      </div>
+    </section>
+    <section>
+      <h2>▲ images iframes loading</h2>
+      <p>Attribute: Lazy loading via attribute for images & iframes</p>
+      <p>
+        画像とiframeの読み込み属性により、作成者はブラウザがリソースの読み込みを開始するタイミングを制御できます。
+      </p>
+      <div>
+        <p>eager cat</p>
+        <img src="/image/cat.jpg" alt="" loading="eager" />
+        <p>lazy cat</p>
+        <img src="/image/cat.jpg" alt="" loading="lazy" />
+      </div>
+    </section>
+    <section>
+      <h2>●olの降順</h2>
+      <p>Attribute: Reversed attribute of ordered lists</p>
+      <p>
+        論理属性で、リストの項目が逆順で指定されていることを指定します。項目は大きい方から小さい方へ番号付けされます。
+      </p>
+      <div>
+        <ol reversed>
+          <li>リスト項目1</li>
+          <li>リスト項目2</li>
+          <li>リスト項目3</li>
+        </ol>
+      </div>
+    </section>
+    <section>
+      <h2>●picture</h2>
+      <p>Element: Picture element</p>
+      <p>
+        picture 要素は、0個以上の source 要素と一つの img
+        要素を含み、様々な画面や端末の条件に応じた画像を提供します。
+      </p>
+      <div>
+        <picture>
+          <source
+            srcset="/image/car-horizontal.jpg"
+            media="(min-width: 800px)"
+          />
+          <img src="/image/cat.jpg" alt="" />
+        </picture>
+      </div>
+    </section>
+    <section>
+      <h2>srcset / sizes</h2>
+      <p>Attribute: Srcset and sizes attributes</p>
+      <p>
+        sizes :
+        ソースのサイズのセットを示す、カンマ区切りの文字列を1個以上並べたリストです。
+      </p>
+      <p>
+        srcset :
+        ユーザーエージェントが使用可能なソース画像のセットを示す、カンマ区切りで文字列を
+        1 個以上並べたリストです
+      </p>
+      <div>
+        <img
+          srcset="
+            /image/cat.jpg            200w,
+            /image/car-horizontal.jpg 262w,
+            /image/cat.jpg            200w
+          "
+          sizes="
+            (max-width: 320px) 100vw,
+            (max-width: 480px) 150vw,
+            262px
+          "
+        />
+      </div>
+    </section>
+    <section>
+      <h2>▲ping</h2>
+      <p>Attribute: Ping attribute</p>
+      <p>
+        空白で区切られた URL のリストです。リンクをたどるとき、ブラウザーは POST
+        リクエストを指定された URL に、 PING
+        を本文として送信します。通常、トラッキングに使用されます。
+      </p>
+      <div>
+        <a href="#" ping="tracking.php">ping attribute</a>
+      </div>
+    </section>
+    <section>
+      <h2>●rel=noopener</h2>
+      <p>リンク種別: rel=noopener</p>
+      <p>
+        noopener キーワードを a, area, form の各要素の rel
+        属性に指定すると、リンクを新しい閲覧コンテキストで開き、リンク元の文書へアクセスできないようにすることをブラウザーに指示します。
+      </p>
+      <div class="hoge"></div>
+      <style>
+        .hoge {
+        }
+      </style>
+    </section>
+    <h1>IEをサポート外にした時に使用できる機能</h1>
+    <section>
+      <h2>●Animated PNG</h2>
+      <p>機能: Animated PNG (APNG)</p>
+      <p>アニメーション PNG (APNG) 画像フォーマット</p>
+      <div>
+        <img src="/image/run.png" alt="" loading="lazy" />
+      </div>
+    </section>
+    <section>
+      <h2>Canvas blend modes</h2>
+      <p>mode: Canvas blend modes</p>
+      <p></p>
+      <div>
+        <canvas id="canvas-blend-modes"></canvas>
+      </div>
+      <script>
+        var canvas = document.getElementById('canvas-blend-modes');
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#037';
+        ctx.fillRect(0, 0, 130, 130);
+
+        ctx.globalCompositeOperation = 'lighter'; // AKA add / linear-dodge
+        ctx.fillStyle = '#777';
+        ctx.fillRect(90, 20, 130, 130);
+      </script>
+    </section>
+    <section>
+      <h2>▲-webkit-box-reflect</h2>
+      <p>CSS property: CSS Reflections</p>
+      <p>
+        非標準: この機能は標準ではなく、標準化の予定もありません。 CSS
+        のプロパティで、要素の内容を特定の方向に反射させることができます。
+      </p>
+      <div class="reflect">
+        <img src="/image/cat.jpg" alt="" class="reflect-image" />
+      </div>
+      <style>
+        .reflect .reflect-image {
+          margin-block-end: 200px;
+          -webkit-box-reflect: below 1px -webkit-gradient(linear, left bottom, left
+                top, from(#fff), to(transparent));
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●shape-outside / shape-margin / shape-image-threshold</h2>
+      <p>CSS property: CSS Shapes Level 1</p>
+      <p>
+        shape-outside: CSS
+        のプロパティで、隣接するインラインコンテンツが回り込むシェイプ (形状) を
+        — 矩形でない場合もありますが — 定義します
+      </p>
+      <p>
+        shape-margin: shape-outside を使用して作成された CSS
+        シェイプのマージンを設定します。
+      </p>
+      <p>
+        shape-image-threshold: shape-outside
+        の値に指定された画像によってシェイプを抽出するために使用するアルファチャネルのしきい値を設定します。
+      </p>
+      <div class="shape-outside">
+        <div class="main">
+          <div class="left"></div>
+          <div class="right"></div>
+          <p>
+            Sometimes a web page's text content appears to be funneling your
+            attention towards a spot on the page to drive you to follow a
+            particular link. Sometimes you don't notice.
+          </p>
+        </div>
+      </div>
+      <div class="shape-margin">
+        <section>
+          <div class="shape"></div>
+          We are not quite sure of any one thing in biology; our knowledge of
+          geology is relatively very slight, and the economic laws of society
+          are uncertain to every one except some individual who attempts to set
+          them forth; but before the world was fashioned the square on the
+          hypotenuse was equal to the sum of the squares on the other two sides
+          of a right triangle, and it will be so after this world is dead; and
+          the inhabitant of Mars, if one exists, probably knows its truth as we
+          know it.
+        </section>
+      </div>
+      <div class="shape-image-threshold">
+        <div id="gradient-shape"></div>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel at
+          commodi voluptates enim, distinctio officia. Saepe option accusamus
+          doloribus sint facilis itaque ab nulla, dolor molestiae assumenda cum
+          sit placeat adipisci, libero quae nihil porro debitis laboriosam
+          inventore animi impedit nostrum nesciunt quisquam expedita! Dolores
+          consectetur iure atque a mollitia dicta repudiandae illum
+          exercitationem aliquam repellendus ipsum porro modi, id nemo eligendi,
+          architecto ratione quibusdam iusto nisi soluta? Totam inventore ea eum
+          sed velit et eligendi suscipit accusamus iusto dolore, at provident
+          eius alias maxime pariatur non deleniti ipsum sequi rem eveniet
+          laboriosam magni expedita?
+        </p>
+      </div>
+      <style>
+        .shape-outside .main {
+          width: 530px;
+        }
+
+        .shape-outside .left,
+        .shape-outside .right {
+          width: 40%;
+          height: 12ex;
+          background-color: lightgray;
+        }
+
+        .shape-outside .left {
+          -webkit-shape-outside: polygon(0 0, 100% 100%, 0 100%);
+          shape-outside: polygon(0 0, 100% 100%, 0 100%);
+          float: left;
+          -webkit-clip-path: polygon(0 0, 100% 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 100%, 0 100%);
+        }
+
+        .shape-outside .right {
+          -webkit-shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+          shape-outside: polygon(100% 0, 100% 100%, 0 100%);
+          float: right;
+          -webkit-clip-path: polygon(100% 0, 100% 100%, 0 100%);
+          clip-path: polygon(100% 0, 100% 100%, 0 100%);
+        }
+
+        .shape-outside p {
+          text-align: center;
+        }
+      </style>
+      <style>
+        .shape-margin section {
+          max-width: 400px;
+        }
+
+        .shape-margin .shape {
+          float: left;
+          width: 150px;
+          height: 150px;
+          background-color: maroon;
+          clip-path: polygon(0 0, 150px 150px, 0 150px);
+          shape-outside: polygon(0 0, 150px 150px, 0 150px);
+          shape-margin: 20px;
+        }
+      </style>
+      <style>
+        .shape-image-threshold #gradient-shape {
+          width: 150px;
+          height: 150px;
+          float: left;
+          background-image: linear-gradient(
+            30deg,
+            black,
+            transparent 80%,
+            transparent
+          );
+          shape-outside: linear-gradient(
+            30deg,
+            black,
+            transparent 80%,
+            transparent
+          );
+          shape-image-threshold: 0.2;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>●CSS.supports()</h2>
+      <p>CSS.supports() API</p>
+      <p>
+        CSS.supports() メソッドは、ブラウザーが指定された CSS
+        機能に対応しているかどうかを論理値で返します。
+      </p>
+      <div class="supports">
+        <dl>
+          <dt>text-decoration-style, blink</dt>
+          <dd id="supports1"></dd>
+        </dl>
+        <dl>
+          <dt>display: flex</dt>
+          <dd id="supports2"></dd>
+        </dl>
+        <dl>
+          <dt>(--foo: red)</dt>
+          <dd id="supports3"></dd>
+        </dl>
+        <dl>
+          <dt>
+            (transform-style: preserve) or (-moz-transform-style: preserve) or
+            (-o-transform-style: preserve) or (-webkit-transform-style:
+            preserve)
+          </dt>
+          <dd id="supports4"></dd>
+        </dl>
+      </div>
+      <script>
+        const supports1 = CSS.supports('text-decoration-style', 'blink');
+        document.getElementById('supports1').innerText = supports1;
+
+        const supports2 = CSS.supports('display: flex');
+        document.getElementById('supports2').innerText = supports2;
+
+        const supports3 = CSS.supports('(--foo: red)');
+        document.getElementById('supports3').innerText = supports3;
+
+        const supports4 =
+          CSS.supports(`(transform-style: preserve) or (-moz-transform-style: preserve) or
+                       (-o-transform-style: preserve) or (-webkit-transform-style: preserve)`);
+        document.getElementById('supports4').innerText = supports4;
+      </script>
+    </section>
+    <section>
+      <h2>●IntersectionObserver</h2>
+      <p>API: IntersectionObserver</p>
+      <p>
+        Intersection Observer API の IntersectionObserver
+        インターフェイスは、対象の要素と祖先要素または文書の最上位のビューポートとの交差状態の変化を非同期に監視する方法を提供します。
+      </p>
+    </section>
+    <section>
+      <h2>●SVG favicons</h2>
+      <p>SVG favicons</p>
+      <p>
+        ファビコン (お気に入りアイコン) はウェブサイトに含まれる小さなアイコン
+      </p>
+    </section>
+    <section>
+      <h2>▲:picture-in-picture</h2>
+      <p>Pseudo-classes: Picture-in-Picture</p>
+      <p>
+        :picture-in-picture は CSS
+        の擬似クラスで、現在ピクチャインピクチャモードの要素に一致します
+      </p>
+      <div class="picture-in-picture">
+        <p>MDN Web Docs Demo: :picture-in-picture pseudo-class</p>
+        <p>
+          This demo uses the <code>:picture-in-picture</code> pseudo-class to
+          automatically change the style of a video entirely using CSS.
+        </p>
+        <video id="pip-video"></video>
+      </div>
+      <style>
+        .picture-in-picture :picture-in-picture {
+          box-shadow: 0 0 0 5px red;
+        }
+      </style>
+    </section>
+    <section>
+      <h2>▲WebP</h2>
+      <p>WebP image format</p>
+      <p>
+        WebP は Google
+        の開発した画像圧縮フォーマットです。可逆圧縮と不可逆圧縮の両方に対応しています。
+      </p>
+    </section>
+    <section>
+      <h2>●WOFF 2.0</h2>
+      <p>WOFF 2.0 - Web Open Font Format</p>
+      <p>
+        WOFF (Web Open Font Format) は、Mozilla が Type Supply や
+        LettError、他の組織と提携して開発した新しい Web フォント形式です。
+      </p>
+      <p>
+        WOFF と WOFF2 という、2 つのバージョンの WOFF
+        があります。これらの主な違いは、使用する圧縮アルゴリズムです。@font-face
+        では format 記述子で、それぞれ 'woff' と 'woff2' で識別されます。
+      </p>
+      <table>
+        <tr>
+          <th>size</th>
+          <th>format</th>
+          <th>file</th>
+        </tr>
+        <tr>
+          <td>498.8K</td>
+          <td>otf</td>
+          <td>NotoSansCJKjp-Jxck-Regular-201802.otf</td>
+        </tr>
+        <tr>
+          <td>391.6K</td>
+          <td>woff</td>
+          <td>NotoSansCJKjp-Jxck-Regular-201802.woff</td>
+        </tr>
+        <tr>
+          <td>345.7K</td>
+          <td>woff2</td>
+          <td>NotoSansCJKjp-Jxck-Regular-201802.woff2</td>
+        </tr>
+      </table>
+    </section>
+    <section>
+      <h2>●SVG favicons</h2>
+      <p>SVG favicons</p>
+      <p>
+        ファビコン (お気に入りアイコン) はウェブサイトに含まれる小さなアイコン
+      </p>
+    </section>
+  </body>
+</html>
