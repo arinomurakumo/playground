@@ -22,6 +22,12 @@ function App() {
           <Link to="/hooks/useMemo">useMemo</Link>
         </li>
       </ul>
+      <h2>React.Lazy</h2>
+      <ul>
+        <li>
+          <Link to="/lazy">lazy</Link>
+        </li>
+      </ul>
     </div>
   )
 }
