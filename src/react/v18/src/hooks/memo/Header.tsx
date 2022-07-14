@@ -7,10 +7,10 @@ export const Header = (): JSX.Element => {
         <Link to="/">home</Link>
       </li>
       <li>
-        <Link to="/memo">memo</Link>
+        <Link to="/hooks/memo">memo</Link>
       </li>
       <li>
-        <Link to="/memo/sample1">memo/sample1</Link>
+        <Link to="/hooks/memo/sample1">memo/sample1</Link>
       </li>
     </ul>
   )
