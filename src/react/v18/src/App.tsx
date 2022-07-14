@@ -7,16 +7,19 @@ function App() {
       <h1>React</h1>
       <ul>
         <li>
-          <Link to="/">home</Link>
+          <Link to="/hooks">home</Link>
+        </li>
+      </ul>
+      <h2>hooks</h2>
+      <ul>
+        <li>
+          <Link to="/hooks/memo">memo</Link>
         </li>
         <li>
-          <Link to="/memo">memo</Link>
+          <Link to="/hooks/useCallback">useCallback</Link>
         </li>
         <li>
-          <Link to="/useCallback">useCallback</Link>
-        </li>
-        <li>
-          <Link to="/useMemo">useMemo</Link>
+          <Link to="/hooks/useMemo">useMemo</Link>
         </li>
       </ul>
     </div>
