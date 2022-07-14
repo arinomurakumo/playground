@@ -135,7 +135,7 @@ body {
 
 .filter-parent {
   padding: 40px;
-  background: url(../../image/cat.jpg);
+  background: url(/css/assets/image/cat.jpg);
 }
 .backdrop-filter {
   backdrop-filter: blur(10px);
