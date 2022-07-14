@@ -90,7 +90,9 @@
       <p>
         要素の背後の領域に、ぼかしや色変化のようなグラフィック効果を適用する
       </p>
-      <div style="padding: 10%; background-image: url(/image/cat.jpg)">
+      <div
+        style="padding: 10%; background-image: url(/css/assets/image/cat.jpg)"
+      >
         <div class="backdrop-filter">backdrop-filter: blur(10px)</div>
       </div>
       <style>
@@ -152,7 +154,8 @@
         .background-blend-mode {
           width: 300px;
           height: 300px;
-          background: url('/image/cat.jpg'), url('/image/cat.jpg');
+          background: url('/css/assets/image/cat.jpg'),
+            url('/css/assets/image/cat.jpg');
           background-blend-mode: screen;
         }
       </style>
@@ -307,7 +310,7 @@
         .border-image-slice {
           width: 400px;
           height: 400px;
-          border-image-source: url(/image/cat.jpg);
+          border-image-source: url(/css/assets/image/cat.jpg);
           border-image-slice: 14;
           border-width: 40px;
           border-style: solid;
@@ -553,7 +556,7 @@
       <p>CSS property: CSS Filter Effects</p>
       <p>ぼかしや色変化などのグラフィック効果を要素に適用します。</p>
       <div class="filter">
-        <img src="/image/cat.jpg" alt="" />
+        <img src="/css/assets/image/cat.jpg" alt="" />
       </div>
       <style>
         .filter {
@@ -699,7 +702,7 @@
       <p>CSS property: CSS3 image-orientation</p>
       <p>画像の向きのレイアウトに依存しない修正を指定</p>
       <div class="image-orientation">
-        <img src="/image/car-horizontal.jpg" alt="" />
+        <img src="/css/assets/image/car-horizontal.jpg" alt="" />
       </div>
       <style>
         .image-orientation {
@@ -884,14 +887,14 @@
       </p>
       <div>
         10vw, 4000px どちらかの最小サイズ<br />
-        <img src="/image/cat.jpg" alt="" class="min" />
+        <img src="/css/assets/image/cat.jpg" alt="" class="min" />
       </div>
       <p>
         min(): カンマで区切られた式のリストから最大の (最も正である) 値を設定
       </p>
       <div>
         20vw, 100px どちらかの最大サイズ<br />
-        <img src="/image/cat.jpg" alt="" class="max" />
+        <img src="/css/assets/image/cat.jpg" alt="" class="max" />
       </div>
       <p>clamp(): 値を上限と下限の間に制限します</p>
       <div>
@@ -1594,14 +1597,14 @@
       </p>
       <div class="font-loading-api">
         <div id="font-loading-api">
-          /font/Noto_Sans_JP/NotoSansJP-Regular.otf
+          /css/assets/font/Noto_Sans_JP/NotoSansJP-Regular.otf
           ウェブフォントを適用したい部分
         </div>
       </div>
       <script>
         var font = new FontFace(
           'Noto Sans JP',
-          'url(/font/Noto_Sans_JP/NotoSansJP-Regular.otf)',
+          'url(/css/assets/font/Noto_Sans_JP/NotoSansJP-Regular.otf)',
           {
             style: 'normal',
             weight: '400',
@@ -1669,7 +1672,7 @@
         などの中身を、コンテナーにどのようにはめ込むかを設定します。
       </p>
       <div class="object-fit">
-        <img src="/image/cat.jpg" alt="" />
+        <img src="/css/assets/image/cat.jpg" alt="" />
       </div>
       <style>
         .object-fit {
@@ -1914,7 +1917,7 @@
             if (this.hasAttribute('img')) {
               imgUrl = this.getAttribute('img');
             } else {
-              imgUrl = '/image/cat.jpg';
+              imgUrl = '/css/assets/image/cat.jpg';
             }
 
             const img = document.createElement('img');
@@ -1963,7 +1966,7 @@
         customElements.define('popup-info', PopUpInfo);
       </script>
       <popup-info
-        img="/image/cat.jpg"
+        img="/css/assets/image/cat.jpg"
         data-text="Your card validation code (CVC)
       is an extra security feature — it is the last 3 or 4 numbers on the
       back of your card."
@@ -2136,9 +2139,9 @@
       </p>
       <div>
         <p>eager cat</p>
-        <img src="/image/cat.jpg" alt="" loading="eager" />
+        <img src="/css/assets/image/cat.jpg" alt="" loading="eager" />
         <p>lazy cat</p>
-        <img src="/image/cat.jpg" alt="" loading="lazy" />
+        <img src="/css/assets/image/cat.jpg" alt="" loading="lazy" />
       </div>
     </section>
     <section>
@@ -2165,10 +2168,10 @@
       <div>
         <picture>
           <source
-            srcset="/image/car-horizontal.jpg"
+            srcset="/css/assets/image/car-horizontal.jpg"
             media="(min-width: 800px)"
           />
-          <img src="/image/cat.jpg" alt="" />
+          <img src="/css/assets/image/cat.jpg" alt="" />
         </picture>
       </div>
     </section>
@@ -2187,9 +2190,9 @@
       <div>
         <img
           srcset="
-            /image/cat.jpg            200w,
-            /image/car-horizontal.jpg 262w,
-            /image/cat.jpg            200w
+            /css/assets/image/cat.jpg            200w,
+            /css/assets/image/car-horizontal.jpg 262w,
+            /css/assets/image/cat.jpg            200w
           "
           sizes="
             (max-width: 320px) 100vw,
@@ -2230,7 +2233,7 @@
       <p>機能: Animated PNG (APNG)</p>
       <p>アニメーション PNG (APNG) 画像フォーマット</p>
       <div>
-        <img src="/image/run.png" alt="" loading="lazy" />
+        <img src="/css/assets/image/run.png" alt="" loading="lazy" />
       </div>
     </section>
     <section>
@@ -2259,7 +2262,7 @@
         のプロパティで、要素の内容を特定の方向に反射させることができます。
       </p>
       <div class="reflect">
-        <img src="/image/cat.jpg" alt="" class="reflect-image" />
+        <img src="/css/assets/image/cat.jpg" alt="" class="reflect-image" />
       </div>
       <style>
         .reflect .reflect-image {
