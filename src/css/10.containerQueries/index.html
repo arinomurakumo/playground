@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>10.containerQueries</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="buttons">
+        <button type="button" data-value="320">320px</button>
+        <button type="button" data-value="401">401px</button>
+        <button type="button" data-value="601">601px</button>
+      </div>
+      <div id="coffee" class="coffee" style="width: 500px">
+        <h1>Espresso</h1>
+        <img src="/css/assets/image/cat.jpg" alt="" />
+        <p>
+          Espresso is the name of a highly concentrated, bittersweet coffee
+          originating in Italy in the early 20th century. Each shot of espresso
+          is made to order upon customer request, as opposed to being brewed in
+          anticipation of demand.
+        </p>
+        <a href="#">Learn more</a>
+      </div>
+    </div>
+  </body>
+  <style>
+    .wrapper {
+      display: grid;
+      justify-content: center;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    .buttons {
+      width: 300px;
+    }
+
+    .coffee {
+      container-type: inline-size;
+    }
+
+    .coffee p {
+      display: none;
+    }
+
+    .coffee a {
+      padding-block: 10px;
+    }
+
+    @container (400px < inline-size) {
+      .coffee p {
+        display: block;
+      }
+    }
+
+    @container (600px < inline-size) {
+      .coffee p,
+      .coffee a {
+        margin-left: 20px;
+      }
+
+      .coffee {
+        display: grid;
+        grid-template-columns: 280px auto;
+      }
+
+      .coffee h1 {
+        grid-column: 1/3;
+      }
+
+      .coffee img {
+        grid-row: 2/4;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const target = document.querySelector('#coffee');
+      const buttons = document.querySelectorAll('button');
+      buttons.length &&
+        [...buttons].map((button) => {
+          button.addEventListener('click', (event) => {
+            target.style.width = `${event.currentTarget.dataset.value}px`;
+          });
+        });
+    });
+  </script>
+</html>
