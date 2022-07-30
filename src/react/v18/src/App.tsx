@@ -28,6 +28,12 @@ function App() {
           <Link to="/lazy">lazy</Link>
         </li>
       </ul>
+      <h2>React.Suspense</h2>
+      <ul>
+        <li>
+          <Link to="/suspense">suspense</Link>
+        </li>
+      </ul>
     </div>
   )
 }

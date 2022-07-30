@@ -17,6 +17,7 @@ import { Parent as UseMemoSample4 } from './hooks/useMemo/Sample4'
 import { Parent as UseMemoSample5 } from './hooks/useMemo/Sample5'
 import { Parent as UseMemoSample6 } from './hooks/useMemo/Sample6'
 import LazyTest from './lazy'
+import SuspenseComponent from './suspense'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
@@ -43,6 +44,7 @@ root.render(
         <Route path="hooks/useMemo/sample5" element={<UseMemoSample5 />} />
         <Route path="hooks/useMemo/sample6" element={<UseMemoSample6 />} />
         <Route path="lazy" element={<LazyTest />} />
+        <Route path="suspense" element={<SuspenseComponent />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
