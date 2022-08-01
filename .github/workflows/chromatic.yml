@@ -8,6 +8,7 @@ jobs:
   chromatic-deployment:
     timeout-minutes: 10
     runs-on: ubuntu-latest
+    working-directory: ./src/storybook/build-webpack
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
