@@ -1,4 +1,4 @@
-const { injectAxe, getViolations } = require('axe-playwright')
+const { injectAxe, getViolations, checkA11y } = require('axe-playwright')
 const fs = require('fs')
 
 module.exports = {
@@ -20,8 +20,19 @@ module.exports = {
       detailedReport: true
     })
 
-    // Do something with violations
-    // For example, write them to a file
+    // DOMツリーを横断して問題をチェックするようにAxeを設定
+    await checkA11y(page, '#root', {
+      detailedReport: true,
+      detailedReportOptions: {
+        html: true
+      }
+    })
+
+    // アクセシビリティツリーをスナップショットしてページ構造を確認する
+    const accessibilityTree = await page.accessibility.snapshot()
+    expect(accessibilityTree).toMatchSnapshot()
+
+    // 違反を書き込み
     await new Promise((resolve, reject) => {
       fs.writeFile(
         process.cwd() + `/__accessibility__/${context.id}.json`,
