@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`stories/components/Text Default smoke-test 1`] = `
+Object {
+  "checked": undefined,
+  "children": Array [
+    Object {
+      "checked": undefined,
+      "children": undefined,
+      "name": "Text",
+      "pressed": undefined,
+      "role": "text",
+      "value": undefined,
+    },
+  ],
+  "name": "stories-components-text--default",
+  "pressed": undefined,
+  "role": "WebArea",
+  "value": undefined,
+}
+`;
