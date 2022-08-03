@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>11.variableUnits</title>
+  </head>
+  <body>
+    <h1>単位として使用できるカスタムプロパティを定義できる</h1>
+    <p class="elem1">
+      .elem1 { width: calc(4 * (var(--size))); /* --sizeに4をかける = 32px */ }
+    </p>
+    <p class="elem2">
+      .elem2 { width: 4--size; /* --sizeに4をかける = 32px */ }
+    </p>
+    <p class="fluid-type">
+      @property --fem {
+        /* "fluid em" */
+        syntax: '<length>';
+        initial: clamp(10px, 1vw + 1vh, 1rem);
+        inherits: true;
+      }
+    </p>
+  </body>
+  <style>
+    :root {
+      --size: 50px;
+      --fem: clamp(10px, 1vw + 1vh, 1rem);
+    }
+    @property --fem {
+      /* "fluid em" */
+      syntax: '<length>';
+      initial: clamp(10px, 1vw + 1vh, 1rem);
+      inherits: true;
+    }
+    .elem1 {
+      width: calc(4 * (var(--size))); /* --sizeに4をかける = 32px */
+    }
+    .elem2 {
+      width: 4--size; /* --sizeに4をかける = 32px */
+    }
+    .fluid-type {
+      font-size: 1.2--fem; /* 12pxより小さくなったり、1.2remより大きくなったりすることはありません */
+    }
+  </style>
+</html>
