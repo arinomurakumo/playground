@@ -6,6 +6,7 @@
   "private": true,
   "workspaces": [
     "src/css",
+    "src/next/v12",
     "src/react/v18",
     "src/storybook/build-webpack"
   ]
