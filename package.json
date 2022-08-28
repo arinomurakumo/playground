@@ -8,6 +8,7 @@
     "dev": "webpack serve"
   },
   "workspaces": [
+    "src/next/v12",
     "src/react/v18",
     "src/storybook/build-webpack"
   ],
