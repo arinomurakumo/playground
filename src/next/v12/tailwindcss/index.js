@@ -1,3 +1,5 @@
+const { plugins } = require('./core/plugins.js')
+
 module.exports = {
   theme: {
     colors: {
@@ -8,5 +10,6 @@ module.exports = {
     }
   },
   plugins: [
+    ...plugins
   ],
 }
