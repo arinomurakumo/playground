@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>10-2.containerQueries</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container">
+      <div class="card">
+        <div class="visual">🚀</div>
+        <div class="meta">
+          <h1>コンテナクエリ</h1>
+          <p class="desc">コンテナクエリは、親コンテナのサイズに応じて要素のスタイルを設定できます</p>
+          <p>問題となるのは、デベロッパーがビューポートの幅が特定の値よりも大きい場合にのみ、コンポーネントのバリエーションを使用することに縛られていること</p>
+        </div>
+      </div>
+    </div>
+    <div class="o-grid">
+      <div class="o-grid__item">
+        <article class="c-article">
+          <p>コンテンツ</p>
+          <p>コンテンツ</p>
+          <p>コンテンツ</p>
+        </article>
+        <article class="c-article--horizontal">
+          <p>46rem 以下で縦並びコンテンツ</p>
+          <p>46rem 以下で縦並びコンテンツ</p>
+          <p>46rem 以下で縦並びコンテンツ</p>
+        </article>
+      </div>
+      <div class="o-grid__item">
+        <article class="c-article">
+          <p>コンテンツ</p>
+          <p>コンテンツ</p>
+          <p>コンテンツ</p>
+        </article>
+        <article class="c-article--horizontal">
+          <p>46rem 以下で縦並びコンテンツ</p>
+          <p>46rem 以下で縦並びコンテンツ</p>
+          <p>46rem 以下で縦並びコンテンツ</p>
+        </article>
+      </div>
+      他の記事
+    </div>
+  </div>
+</body>
+<style>
+  .wrapper {
+    width: 100%;
+    max-width: 768px;
+    margin: auto;
+  }
+
+  .container {
+    container-type: inline-size;
+  }
+
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @container (max-width: 400px) {
+    .card {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .o-grid__item {
+    contain: layout inline-size;
+  }
+
+  .o-grid__item {
+    contain: layout inline-size;
+  }
+
+  .c-article>*+* {
+    margin-top: 1rem;
+  }
+
+  /* 水平バージョン */
+  @media (min-width: 46rem) {
+    .c-article--horizontal {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .c-article>*+* {
+      margin-top: 0;
+    }
+
+    .c-article__thumb {
+      margin-right: 1rem;
+    }
+  }
+
+  @container (min-width: 400px) {
+    .c-article {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+</style>
+
+</html>
