@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>13.media-query</title>
+</head>
+
+<body>
+  <h1>Media Queries: Range Syntax</h1>
+  <p>
+    - <a href="https://caniuse.com/css-media-range-syntax" target="_blank" rel="noopener noreferrer">
+      https://caniuse.com/css-media-range-syntax
+    </a>
+  </p>
+  <div>
+    <span class="animation">Spin</span>
+  </div>
+  <div class="min-width-and-max-width">
+    min-width & max-width
+  </div>
+  <div class="hover">
+    <a href="https://caniuse.com/mdn-css_at-rules_media_hover" target="_blank" rel="noopener noreferrer">hoverable only
+      effect Link</a>
+  </div>
+  <div class="landscape">
+    landscape
+  </div>
+</body>
+<style>
+  @keyframes spin {
+    from {
+      transform: rotate(0);
+    }
+
+    to {
+      transform: rotate(180deg);
+    }
+  }
+
+  .animation {
+    display: inline-block;
+    animation: spin 1s ease 0s infinite alternate;
+  }
+
+  @media (width <=768px) and (width <=1024px) {
+    .min-width-and-max-width {
+      color: aquamarine;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation: none !important;
+      transition-duration: 0s !important;
+      transition-delay: 0s !important;
+    }
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .hover a:hover {
+      color: white;
+      background: rebeccapurple;
+    }
+  }
+
+  @media (orientation: landscape) {
+    .landscape {
+      color: aqua;
+    }
+  }
+</style>
+
+</html>
