@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12.has</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="visual">🚀</div>
+      <div class="meta">
+        <h1>CSSの:has()擬似クラス</h1>
+        <p class="desc">親要素が特定のパラメータを持つ子を含んでいるかどうかを確認</p>
+      </div>
+    </div>
+  </div>
+
+  <br />
+
+  <div class="container">
+    <div class="card">
+      <div class="meta">
+        <h1>Unidentified Rocket no. 348983</h1>
+        <p class="desc">Here is some optional descriptive text about a rocket with no photo.</p>
+      </div>
+    </div>
+  </div>
+</body>
+<style>
+  .container {
+    container-type: inline-size;
+  }
+
+  .card {
+    display: grid;
+  }
+
+  .card:has(.visual) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .card:has(.visual) h1 {
+    font-size: 2rem;
+  }
+
+  .card:not(:has(.visual)) h1 {
+    font-size: 4rem;
+  }
+
+  @container (max-width: 400px) {
+    .card:has(.visual) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /*  addtl. styles */
+
+  body {
+    font-family: system-ui;
+  }
+
+  .card {
+    background: lightblue;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .visual {
+    background: white;
+    display: grid;
+    place-items: center;
+    font-size: 96px;
+  }
+</style>
+
+</html>
