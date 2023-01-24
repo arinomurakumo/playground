@@ -8,130 +8,133 @@
   <title>13.13.review2022</title>
 </head>
 
-<body>
+<body style="background-color: black; color: lightslategray;">
   <section>
     <h1>Layout</h1>
     <section>
       <h2>grid</h2>
-      <p>
-        <code>grid-column:左からの開始位置;</code> ※<br />
-        または<br />
-        <code>grid-column:左からの開始位置 / 左からの終了位置;</code><br />
-      </p>
-      <p>
-        <code>grid-row:上からの開始位置;</code>※<br />
-        または<br />
-        <code>grid-row:上からの開始位置 / 上からの終了位置;</code><br />
-      </p>
-      <h3>
-        一番目のグリッドアイテムに grid-row: 1 / 3; を指定
-      </h3>
-      <p>
-        （1本目の行グリッドラインの直後から、3本目の行グリッドラインの直前まで）
-      </p>
-      <div class="grid-row">
-        <div style="grid-row: 1 / 3;">一</div>
-        <div>ニ</div>
-        <div>三</div>
-        <div>四</div>
-        <div>五</div>
-        <div>六</div>
-        <div>七</div>
-        <div>八</div>
-        <div>九</div>
-      </div>
-      <h3>
-        一番目のグリッドアイテムに grid-row: 2 / span 2; を指定
-      </h3>
-      <p>
-        （2本目の行グリッドラインの直後から、2スパン分）<br>
-        ライン番号から始めて、2つ先のラインまで伸ばす
-      </p>
-      <p>ライン番号1から始めて、2つ先のラインまで伸ばす</p>
-      <div class="grid-row">
-        <div style="grid-row: 2 / span 2;">一</div>
-        <div>ニ</div>
-        <div>三</div>
-        <div>四</div>
-        <div>五</div>
-        <div>六</div>
-        <div>七</div>
-        <div>八</div>
-        <div>九</div>
-      </div>
-      <p>マイナスも可</p>
-      <div class="grid-row">
-        <div style="grid-row: -5 / span 2;">一</div>
-        <div>ニ</div>
-        <div>三</div>
-        <div>四</div>
-        <div>五</div>
-        <div>六</div>
-        <div>七</div>
-        <div>八</div>
-        <div>九</div>
-      </div>
-      <h2>Subgrid</h2>
-      <div class="grid-wrapper">
-        <div class="grid">
-          <h3 class="headline">Subgrid不使用</h3>
-          <div class="grid-item">1</div>
-          <div class="grid-item">2</div>
-          <div class="grid-item">3</div>
-          <div class="grid-item">4</div>
-          <div class="grid-item">5</div>
-          <div class="grid-item">6</div>
-          <div class="grid-item">7</div>
-          <div class="grid-item">8</div>
-          <div class="grid-item">9</div>
-          <div class="grid-item">10</div>
-          <div class="grid-item">11</div>
-          <div class="non-subgrid">
-            <div class="nested-grid-item">12</div>
-            <div class="nested-grid-item">13</div>
-            <div class="nested-grid-item">14</div>
-            <div class="nested-grid-item">15</div>
-          </div>
-          <div class="grid-item">16</div>
-          <div class="grid-item">17</div>
-          <div class="grid-item">18</div>
-          <div class="grid-item">19</div>
-          <div class="grid-item">20</div>
-          <div class="grid-item">21</div>
-          <div class="grid-item">22</div>
-          <div class="grid-item">23</div>
-          <div class="grid-item">24</div>
-          <div class="grid-item">25</div>
+      <div>
+
+        <p>
+          <code>grid-column:左からの開始位置;</code> ※<br />
+          または<br />
+          <code>grid-column:左からの開始位置 / 左からの終了位置;</code><br />
+        </p>
+        <p>
+          <code>grid-row:上からの開始位置;</code>※<br />
+          または<br />
+          <code>grid-row:上からの開始位置 / 上からの終了位置;</code><br />
+        </p>
+        <h3>
+          一番目のグリッドアイテムに grid-row: 1 / 3; を指定
+        </h3>
+        <p>
+          （1本目の行グリッドラインの直後から、3本目の行グリッドラインの直前まで）
+        </p>
+        <div class="grid-row">
+          <div style="grid-row: 1 / 3;">一</div>
+          <div>ニ</div>
+          <div>三</div>
+          <div>四</div>
+          <div>五</div>
+          <div>六</div>
+          <div>七</div>
+          <div>八</div>
+          <div>九</div>
         </div>
-        <div class="grid">
-          <h3 class="headline">Subgrid使用</h3>
-          <div class="grid-item">1</div>
-          <div class="grid-item">2</div>
-          <div class="grid-item">3</div>
-          <div class="grid-item">4</div>
-          <div class="grid-item">5</div>
-          <div class="grid-item">6</div>
-          <div class="grid-item">7</div>
-          <div class="grid-item">8</div>
-          <div class="grid-item">9</div>
-          <div class="grid-item">10</div>
-          <div class="grid-item">11</div>
-          <div class="subgrid">
-            <div class="nested-grid-item">12</div>
-            <div class="nested-grid-item">13</div>
-            <div class="nested-grid-item">14</div>
-            <div class="nested-grid-item">15</div>
+        <h3>
+          一番目のグリッドアイテムに grid-row: 2 / span 2; を指定
+        </h3>
+        <p>
+          （2本目の行グリッドラインの直後から、2スパン分）<br>
+          ライン番号から始めて、2つ先のラインまで伸ばす
+        </p>
+        <p>ライン番号1から始めて、2つ先のラインまで伸ばす</p>
+        <div class="grid-row">
+          <div style="grid-row: 2 / span 2;">一</div>
+          <div>ニ</div>
+          <div>三</div>
+          <div>四</div>
+          <div>五</div>
+          <div>六</div>
+          <div>七</div>
+          <div>八</div>
+          <div>九</div>
+        </div>
+        <p>マイナスも可</p>
+        <div class="grid-row">
+          <div style="grid-row: -5 / span 2;">一</div>
+          <div>ニ</div>
+          <div>三</div>
+          <div>四</div>
+          <div>五</div>
+          <div>六</div>
+          <div>七</div>
+          <div>八</div>
+          <div>九</div>
+        </div>
+        <h2>Subgrid</h2>
+        <div class="grid-wrapper">
+          <div class="grid">
+            <h3 class="headline">Subgrid不使用</h3>
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+            <div class="grid-item">9</div>
+            <div class="grid-item">10</div>
+            <div class="grid-item">11</div>
+            <div class="non-subgrid">
+              <div class="nested-grid-item">12</div>
+              <div class="nested-grid-item">13</div>
+              <div class="nested-grid-item">14</div>
+              <div class="nested-grid-item">15</div>
+            </div>
+            <div class="grid-item">16</div>
+            <div class="grid-item">17</div>
+            <div class="grid-item">18</div>
+            <div class="grid-item">19</div>
+            <div class="grid-item">20</div>
+            <div class="grid-item">21</div>
+            <div class="grid-item">22</div>
+            <div class="grid-item">23</div>
+            <div class="grid-item">24</div>
+            <div class="grid-item">25</div>
           </div>
-          <div class="grid-item">16</div>
-          <div class="grid-item">17</div>
-          <div class="grid-item">18</div>
-          <div class="grid-item">19</div>
-          <div class="grid-item">20</div>
-          <div class="grid-item">21</div>
-          <div class="grid-item">22</div>
-          <div class="grid-item">23</div>
-          <div class="grid-item">24</div>
-          <div class="grid-item">25</div>
+          <div class="grid">
+            <h3 class="headline">Subgrid使用</h3>
+            <div class="grid-item">1</div>
+            <div class="grid-item">2</div>
+            <div class="grid-item">3</div>
+            <div class="grid-item">4</div>
+            <div class="grid-item">5</div>
+            <div class="grid-item">6</div>
+            <div class="grid-item">7</div>
+            <div class="grid-item">8</div>
+            <div class="grid-item">9</div>
+            <div class="grid-item">10</div>
+            <div class="grid-item">11</div>
+            <div class="subgrid">
+              <div class="nested-grid-item">12</div>
+              <div class="nested-grid-item">13</div>
+              <div class="nested-grid-item">14</div>
+              <div class="nested-grid-item">15</div>
+            </div>
+            <div class="grid-item">16</div>
+            <div class="grid-item">17</div>
+            <div class="grid-item">18</div>
+            <div class="grid-item">19</div>
+            <div class="grid-item">20</div>
+            <div class="grid-item">21</div>
+            <div class="grid-item">22</div>
+            <div class="grid-item">23</div>
+            <div class="grid-item">24</div>
+            <div class="grid-item">25</div>
+          </div>
         </div>
       </div>
     </section>
@@ -185,28 +188,67 @@
     </section>
     <section>
       <h2>aspect-ratio</h2>
-      <ul class="aspect-ratio-items">
-        <li>
-          <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1">
-        </li>
-        <li>
-          <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1">
-        </li>
-        <li>
-          <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1">
-        </li>
-      </ul>
-      <ul class="aspect-ratio-items">
-        <li>
-          <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3">
-        </li>
-        <li>
-          <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3">
-        </li>
-        <li>
-          <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3">
-        </li>
-      </ul>
+      <div>
+        <ul class="aspect-ratio-items">
+          <li>
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1">
+          </li>
+          <li>
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1">
+          </li>
+          <li>
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1">
+          </li>
+        </ul>
+        <ul class="aspect-ratio-items">
+          <li>
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3">
+          </li>
+          <li>
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3">
+          </li>
+          <li>
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3">
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section>
+      <h2>content-visibility</h2>
+      <div>
+        <p>要素がスクリーン外にある場合、その子孫はレンダリングされない</p>
+        <div class="content-visibility-hidden">content-visibility-hidden</div>
+        <div class="content-visibility-visible">content-visibility-visible</div>
+        <div class="content-visibility-hidden">content-visibility-hidden</div>
+        <div class="content-visibility-hidden">content-visibility-hidden</div>
+      </div>
+    </section>
+    <section>
+      <h2>Flexbox gap</h2>
+      <div class="flexbox-gap">
+        <div class="flexbox-gap-item">flexbox-gap</div>
+        <div class="flexbox-gap-item">flexbox-gap</div>
+        <div class="flexbox-gap-item">flexbox-gap</div>
+        <div class="flexbox-gap-item">flexbox-gap</div>
+      </div>
+    </section>
+    <section>
+      <h2>@Container</h2>
+      <div>
+        <p>クエリコンテナのアスペクトに応じた要素のスタイルを設定</p>
+        <div class="container-query">
+          <div class="container-query-item">
+            <p>container-query</p>
+            <em>Emphasis</em>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2></h2>
+    </section>
+    <section>
+      <h2></h2>
     </section>
     <section>
       <h2></h2>
@@ -214,6 +256,72 @@
   </section>
 </body>
 <style>
+  :root {
+    --theme: dark;
+  }
+
+  /* container */
+  .container-query {
+    container-type: inline-size;
+    container-name: example;
+    /* shorthand */
+    container: example / inline-size;
+  }
+
+  @container example (min-width:768px) {
+    .container-query-item {
+      background: royalblue;
+      border-color: navy;
+      color: white;
+    }
+  }
+
+  @container example (min-width:768px) and var(--theme)=dark {
+    .container-query-item {
+      /*  do not apply */
+      color: red;
+    }
+  }
+
+  em,
+  i,
+  q {
+    font-style: italic;
+  }
+
+  @container example style(font-style: italic) {
+
+    /*  do not apply */
+    .container-query em,
+    .container-query i,
+    .container-query q {
+      font-style: normal;
+    }
+  }
+
+  /* flexbox-gap */
+  .flexbox-gap {
+    display: flex;
+    gap: 10px;
+  }
+
+  /* content-visibility */
+  .content-visibility-hidden {
+    content-visibility: hidden;
+    /* 非表示の場合、要素のサイズを 0 x 500px サイズの子が 1 つあるかのようにします */
+    contain-intrinsic-size: 0 500px;
+    background-color: lightslategray;
+  }
+
+  .content-visibility-visible {
+    height: 500px;
+    content-visibility: visible;
+    /* これは、 .hidden と .visible を切り替えるときにレイアウトがシフトしないようにするためです */
+    contain: style layout paint;
+    background-color: slategrey;
+    color: black;
+  }
+
   /* aspect-ratio */
   .aspect-ratio-items {
     display: grid;
@@ -238,14 +346,14 @@
     display: grid;
     width: 240px;
     margin-bottom: 8px;
-    background-color: #000000;
+    background-color: lightslategray;
     grid-template-rows: 40px 40px 40px 40px 40px;
     grid-template-columns: 80px 80px 80px;
   }
 
   .grid-row div {
     margin: 4px;
-    background-color: slategrey;
+    background-color: lightblue;
   }
 
   /* subgrid */
@@ -255,7 +363,7 @@
   }
 
   .grid {
-    background-color: black;
+    background-color: lightslategray;
     display: grid;
     flex-grow: 1;
     gap: 10px;
@@ -290,7 +398,7 @@
   }
 
   .grid-item {
-    background-color: slategrey;
+    background-color: lightblue;
   }
 
   .nested-grid-item {
@@ -333,5 +441,35 @@
     -ms-writing-mode: sideways-rl;
   }
 </style>
+<script>
+  const contentVisibilityHiddens = document.querySelectorAll('.content-visibility-hidden');
+  const options = {
+    threshold: 1,
+    rootMargin: '10px'
+  };
+  const observer = new IntersectionObserver(showElements, options);
+
+  contentVisibilityHiddens.forEach(heading => {
+    observer.observe(heading);
+  });
+
+  function showElements(entries) {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('content-visibility-hidden')
+        entry.target.classList.add('content-visibility-visible')
+      }
+    });
+  };
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   const contentVisibilityHiddens = document.querySelectorAll('.content-visibility-hidden')
+  //   contentVisibilityHiddens.forEach((target) => {
+  //     target.addEventListener('click', (event) => {
+  //       event.currentTarget.classList.remove('content-visibility-hidden')
+  //       event.currentTarget.classList.add('content-visibility-visible')
+  //     })
+  //   })
+  // })
+</script>
 
 </html>
