@@ -1,7 +1,7 @@
 import Image, { StaticImageData } from 'next/future/image'
 
 import {
-  FixedImage as LagacyFixedImage,
+  FixedImage as LegacyFixedImage,
   IntrinsicImage as LegacyIntrinsicImage,
   ResponsiveImage as LegacyResponsiveImage,
   FillImage as LegacyFillImage,
@@ -18,14 +18,14 @@ export const FutureImage = () => {
         gridTemplateColumns: 'repeat(2, 50%)',
       }}
     >
-      <div style={{ fontSize: 'xx-large' }}>Frature</div>
+      <div style={{ fontSize: 'xx-large' }}>Feature</div>
       <div style={{ fontSize: 'xx-large' }}>Legacy</div>
       <div style={{ gridColumn: '1/3', fontSize: 'large' }}>Fixed</div>
       <div>
         <FixedImage />
       </div>
       <div>
-        <LagacyFixedImage />
+        <LegacyFixedImage />
       </div>
       <div style={{ gridColumn: '1/3', fontSize: 'large' }}>
         Fixed / optimized
@@ -34,7 +34,7 @@ export const FutureImage = () => {
         <FixedImage unoptimized={false} />
       </div>
       <div>
-        <LagacyFixedImage />
+        <LegacyFixedImage />
       </div>
       <div style={{ gridColumn: '1/3', fontSize: 'large' }}>Intrinsic</div>
       <div>
