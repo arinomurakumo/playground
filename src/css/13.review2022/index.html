@@ -142,6 +142,7 @@
       <h2>Writing Modes</h2>
       <p>テキストの行のレイアウトを横書きにするか縦書きにするか、ブロックのフロー方向を左向きにするか右向きにするかを設定</p>
       <table>
+        <caption>writing-mode</caption>
         <tr>
           <th>値</th>
           <th>縦書きの文字</th>
@@ -191,24 +192,24 @@
       <div>
         <ul class="aspect-ratio-items">
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1" width="122" height="122" decoding="async">
           </li>
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1" width="122" height="122" decoding="async">
           </li>
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1" width="122" height="122" decoding="async">
           </li>
         </ul>
         <ul class="aspect-ratio-items">
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3" width="122" height="122" decoding="async">
           </li>
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3" width="122" height="122" decoding="async">
           </li>
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3" width="122" height="122" decoding="async">
           </li>
         </ul>
       </div>
@@ -245,7 +246,18 @@
       </div>
     </section>
     <section>
-      <h2></h2>
+      <h2>object-view-box</h2>
+      <div>
+        <p>画像の任意の場所を数字で指定して、トリミングを行うことができるプロパティ</p>
+        <figure>
+          <img src="/assets/image/cat.jpg" alt="" class="object-view-box" width="200" height="262" decoding="async">
+          <figcaption>apply object-view-box cat</figcaption>
+        </figure>
+        <figure>
+          <img src="/assets/image/cat.jpg" alt="" width="200" height="262" decoding="async">
+          <figcaption>cat</figcaption>
+        </figure>
+      </div>
     </section>
     <section>
       <h2></h2>
@@ -255,6 +267,15 @@
     </section>
   </section>
 </body>
+<style></style>
+<style></style>
+<style></style>
+<style></style>
+<style>
+  .object-view-box {
+    object-view-box: inset(30px 40px 40px 20px);
+  }
+</style>
 <style>
   :root {
     --theme: dark;
@@ -278,7 +299,7 @@
 
   @container example (min-width:768px) and var(--theme)=dark {
     .container-query-item {
-      /*  do not apply */
+      /*  not working */
       color: red;
     }
   }
@@ -291,20 +312,22 @@
 
   @container example style(font-style: italic) {
 
-    /*  do not apply */
+    /*  not working */
     .container-query em,
     .container-query i,
     .container-query q {
       font-style: normal;
     }
   }
-
+</style>
+<style>
   /* flexbox-gap */
   .flexbox-gap {
     display: flex;
     gap: 10px;
   }
-
+</style>
+<style>
   /* content-visibility */
   .content-visibility-hidden {
     content-visibility: hidden;
@@ -321,7 +344,8 @@
     background-color: slategrey;
     color: black;
   }
-
+</style>
+<style>
   /* aspect-ratio */
   .aspect-ratio-items {
     display: grid;
@@ -331,16 +355,19 @@
   .aspect-ratio-items .aspect-retio-1-1 {
     aspect-ratio: 1 / 1;
     width: 100%;
+    height: auto;
     object-fit: cover;
   }
 
   .aspect-ratio-items .aspect-retio-4-3 {
     aspect-ratio: 4 / 3;
     width: 100%;
+    height: auto;
     object-fit: cover;
 
   }
-
+</style>
+<style>
   /* grid */
   .grid-row {
     display: grid;
@@ -404,7 +431,8 @@
   .nested-grid-item {
     background-color: silver;
   }
-
+</style>
+<style>
   /* writing-mode */
   .writing-mode.Text1 span,
   .writing-mode.Text1 {
