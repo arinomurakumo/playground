@@ -18,7 +18,7 @@ export const FutureImage = () => {
         gridTemplateColumns: 'repeat(2, 50%)',
       }}
     >
-      <div style={{ fontSize: 'xx-large' }}>Frature</div>
+      <div style={{ fontSize: 'xx-large' }}>Fracture</div>
       <div style={{ fontSize: 'xx-large' }}>Legacy</div>
       <div style={{ gridColumn: '1/3', fontSize: 'large' }}>Fixed</div>
       <div>
@@ -77,7 +77,7 @@ export const FutureImage = () => {
             aspectRatio: '16/9',
           }}
         >
-          <FillImage />
+          <FillImage unoptimized={false} sizes="25vw" />
         </div>
       </div>
       <div>
@@ -102,7 +102,7 @@ export const FutureImage = () => {
             aspectRatio: '16/9',
           }}
         >
-          <FillImage />
+          <FillImage /> {/* has warning for no unoptimized.  */}
         </div>
       </div>
       <div>
@@ -122,6 +122,7 @@ export const FutureImage = () => {
 
 interface ImageProps {
   unoptimized?: boolean
+  sizes?: string
   src?: StaticImageData
 }
 
@@ -143,6 +144,7 @@ const IntrinsicImage = ({
   src = imageMountain,
 }: ImageProps) => (
   <Image
+    priority
     unoptimized={unoptimized}
     src={src}
     alt="mountain"
@@ -160,12 +162,13 @@ const ResponsiveImage = ({
   src = imageMountain,
 }: ImageProps) => (
   <Image
+    priority
     unoptimized={unoptimized}
     src={src}
     alt="mountain"
     width={384}
     height={256}
-    sizes="50vw"
+    sizes="25vw"
     style={{
       width: '100%',
       height: 'auto',
@@ -173,6 +176,17 @@ const ResponsiveImage = ({
   />
 )
 
-const FillImage = ({ unoptimized = true, src = imageMountain }: ImageProps) => (
-  <Image fill unoptimized={unoptimized} src={src} alt="mountain" />
+const FillImage = ({
+  unoptimized = true,
+  sizes = undefined,
+  src = imageMountain,
+}: ImageProps) => (
+  <Image
+    fill
+    priority
+    unoptimized={unoptimized}
+    src={src}
+    sizes={sizes}
+    alt="mountain"
+  />
 )
