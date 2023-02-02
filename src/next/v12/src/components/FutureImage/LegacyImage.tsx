@@ -7,7 +7,14 @@ export const FixedImage = ({ src = imageMountain }) => (
 )
 
 export const IntrinsicImage = ({ src = imageMountain }) => (
-  <Image src={src} alt="mountain" width={384} height={256} layout="intrinsic" />
+  <Image
+    priority
+    src={src}
+    alt="mountain"
+    width={384}
+    height={256}
+    layout="intrinsic"
+  />
 )
 
 export const ResponsiveImage = ({
@@ -16,6 +23,7 @@ export const ResponsiveImage = ({
   src?: StaticImageData
 }) => (
   <Image
+    priority
     src={src}
     alt="mountain"
     width={384}
@@ -28,4 +36,4 @@ export const FillImage = ({
   src = imageMountain,
 }: {
   src?: StaticImageData
-}) => <Image src={src} alt="mountain" layout="fill" />
+}) => <Image src={src} alt="mountain" layout="fill" sizes="100vw" priority />
