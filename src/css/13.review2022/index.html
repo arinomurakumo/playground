@@ -5,6 +5,250 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    h1,
+    h2 {
+      border-bottom: solid 1px;
+    }
+  </style>
+  <style>
+    /* grid */
+    .grid-row {
+      display: grid;
+      width: 240px;
+      margin-bottom: 8px;
+      background-color: lightslategray;
+      grid-template-rows: 40px 40px 40px 40px 40px;
+      grid-template-columns: 80px 80px 80px;
+    }
+
+    .grid-row div {
+      margin: 4px;
+      background-color: lightblue;
+    }
+
+    /* subgrid */
+    .grid-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid {
+      background-color: lightslategray;
+      display: grid;
+      flex-grow: 1;
+      gap: 10px;
+      grid-template-columns: 1fr 2fr 3fr 4fr 5fr;
+      grid-template-rows: 1fr 2fr 3fr 4fr 5fr 6fr;
+      height: 500px;
+      padding: 20px;
+    }
+
+    .non-subgrid {
+      display: grid;
+      grid-column: 2 / 4;
+      grid-row: 4 / 6;
+      gap: 10px;
+      grid-template-columns: 2fr 3fr;
+      grid-template-rows: 4fr 5fr;
+    }
+
+    .subgrid {
+      display: grid;
+      grid-column: 2 / 4;
+      grid-row: 4 / 6;
+      grid-template-columns: subgrid;
+      grid-template-rows: subgrid;
+    }
+
+    .headline {
+      align-self: center;
+      color: white;
+      font-size: 40px;
+      grid-column: 1 / -1;
+    }
+
+    .grid-item {
+      background-color: lightblue;
+    }
+
+    .nested-grid-item {
+      background-color: silver;
+    }
+  </style>
+  <style>
+    /* writing-mode */
+    .writing-mode.Text1 span,
+    .writing-mode.Text1 {
+      writing-mode: horizontal-tb;
+      -webkit-writing-mode: horizontal-tb;
+      -ms-writing-mode: horizontal-tb;
+    }
+
+    .writing-mode.Text2 span,
+    .writing-mode.Text2 {
+      writing-mode: vertical-lr;
+      -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: vertical-lr;
+    }
+
+    .writing-mode.Text3 span,
+    .writing-mode.Text3 {
+      writing-mode: vertical-rl;
+      -webkit-writing-mode: vertical-rl;
+      -ms-writing-mode: vertical-rl;
+    }
+
+    .writing-mode.Text4 span,
+    .writing-mode.Text4 {
+      writing-mode: sideways-lr;
+      -webkit-writing-mode: sideways-lr;
+      -ms-writing-mode: sideways-lr;
+    }
+
+    .writing-mode.Text5 span,
+    .writing-mode.Text5 {
+      writing-mode: sideways-rl;
+      -webkit-writing-mode: sideways-rl;
+      -ms-writing-mode: sideways-rl;
+    }
+  </style>
+  <style>
+    /* aspect-ratio */
+    .aspect-ratio-items {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    }
+
+    .aspect-ratio-items .aspect-ratio-1-1 {
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .aspect-ratio-items .aspect-ratio-4-3 {
+      aspect-ratio: 4 / 3;
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+
+    }
+  </style>
+  <style>
+    :root {
+      --theme: dark;
+    }
+
+    /* container */
+    .container-query {
+      container-type: inline-size;
+      container-name: example;
+      /* shorthand */
+      container: example / inline-size;
+    }
+
+    @container example (min-width:768px) {
+      .container-query-item {
+        background: royalblue;
+        border-color: navy;
+        color: white;
+      }
+    }
+
+    @container example (min-width:768px) and var(--theme)=dark {
+      .container-query-item {
+        /*  not working */
+        color: red;
+      }
+    }
+
+    em,
+    i,
+    q {
+      font-style: italic;
+    }
+
+    @container example style(font-style: italic) {
+
+      /*  not working */
+      .container-query em,
+      .container-query i,
+      .container-query q {
+        font-style: normal;
+      }
+    }
+  </style>
+  <style>
+    /* flexbox-gap */
+    .flexbox-gap {
+      display: flex;
+      gap: 10px;
+    }
+  </style>
+  <style>
+    /* content-visibility */
+    .content-visibility-hidden {
+      content-visibility: hidden;
+      /* 非表示の場合、要素のサイズを 0 x 500px サイズの子が 1 つあるかのようにします */
+      contain-intrinsic-size: 0 500px;
+      background-color: lightslategray;
+    }
+
+    .content-visibility-visible {
+      height: 500px;
+      content-visibility: visible;
+      /* これは、 .hidden と .visible を切り替えるときにレイアウトがシフトしないようにするためです */
+      contain: style layout paint;
+      background-color: slategrey;
+      color: black;
+    }
+  </style>
+  <style>
+    .object-view-box {
+      object-view-box: inset(30px 40px 40px 20px);
+    }
+  </style>
+  <style>
+    .view-port-vmin {
+      display: inline-block;
+      width: 150px;
+      height: 10vmin;
+      background: aliceblue;
+    }
+
+    .view-port-vmax {
+      display: inline-block;
+      width: 150px;
+      height: 10vmax;
+      background: skyblue;
+    }
+
+    .view-port-vi {
+      font-size: 2vi;
+      /* Same as 2vh */
+    }
+
+    .view-port-vb {
+      font-size: 2vb;
+      /* Same as 2vw */
+    }
+  </style>
+  <style>
+    .media-queries-range-contexts {
+      background-color: slategray;
+      color: aliceblue;
+    }
+
+    @media (width <=400px) {
+      .media-queries-range-contexts {
+        background-color: aliceblue;
+        color: slategray;
+      }
+    }
+  </style>
+  <style></style>
+  <style></style>
   <title>13.13.review2022</title>
 </head>
 
@@ -192,24 +436,24 @@
       <div>
         <ul class="aspect-ratio-items">
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1" width="122" height="122" decoding="async">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-ratio-1-1" width="122" height="122" decoding="async">
           </li>
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1" width="122" height="122" decoding="async">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-ratio-1-1" width="122" height="122" decoding="async">
           </li>
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-1-1" width="122" height="122" decoding="async">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-ratio-1-1" width="122" height="122" decoding="async">
           </li>
         </ul>
         <ul class="aspect-ratio-items">
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3" width="122" height="122" decoding="async">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-ratio-4-3" width="122" height="122" decoding="async">
           </li>
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3" width="122" height="122" decoding="async">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-ratio-4-3" width="122" height="122" decoding="async">
           </li>
           <li>
-            <img src="/assets/image/cat.jpg" alt="" class="aspect-retio-4-3" width="122" height="122" decoding="async">
+            <img src="/assets/image/cat.jpg" alt="" class="aspect-ratio-4-3" width="122" height="122" decoding="async">
           </li>
         </ul>
       </div>
@@ -260,244 +504,71 @@
       </div>
     </section>
     <section>
+      <h2>
+        <a href="https://www.w3.org/TR/css-values-4/#viewport-relative-lengths" target="_blank"
+          rel="noreferrer noopener">
+          Viewport-Percentage Length Units
+        </a>
+      </h2>
+      <div>
+        <div class="view-port-vmin">ブラウザウィンドウの縦横サイズで小さいほうを基準</div>
+        <div class="view-port-vmax">ブラウザウィンドウの縦横サイズで大きいほうを基準</div>
+        <div class="view-port-vi">インライン軸方向の既定のビューポートの長さの1%を“1vi”と定義した相対単位</div>
+        <div class="view-port-vb">ブロック軸方向の既定のビューポートの長さの1%を“1vi”と定義した相対単位</div>
+      </div>
+    </section>
+    <section>
+      <h2>
+        <a href="https://www.w3.org/TR/mediaqueries-4/" target="_blank" rel="noreferrer noopener">
+          Media Queries Range Contexts
+        </a>
+      </h2>
+      <div class="media-queries-range-contexts">
+        <p>
+          メディアクエリはレスポンシブデザインを可能にし、ビューポートの最小サイズと最大サイズを定義する範囲指定
+        </p>
+      </div>
+    </section>
+    <section>
+      <h2></h2>
+    </section>
+    <section>
       <h2></h2>
     </section>
     <section>
       <h2></h2>
     </section>
   </section>
-</body>
-<style></style>
-<style></style>
-<style></style>
-<style></style>
-<style>
-  .object-view-box {
-    object-view-box: inset(30px 40px 40px 20px);
-  }
-</style>
-<style>
-  :root {
-    --theme: dark;
-  }
+  <script>
+    const contentVisibilityHidden = document.querySelectorAll('.content-visibility-hidden');
+    const options = {
+      threshold: 1,
+      rootMargin: '10px'
+    };
+    const observer = new IntersectionObserver(showElements, options);
 
-  /* container */
-  .container-query {
-    container-type: inline-size;
-    container-name: example;
-    /* shorthand */
-    container: example / inline-size;
-  }
-
-  @container example (min-width:768px) {
-    .container-query-item {
-      background: royalblue;
-      border-color: navy;
-      color: white;
-    }
-  }
-
-  @container example (min-width:768px) and var(--theme)=dark {
-    .container-query-item {
-      /*  not working */
-      color: red;
-    }
-  }
-
-  em,
-  i,
-  q {
-    font-style: italic;
-  }
-
-  @container example style(font-style: italic) {
-
-    /*  not working */
-    .container-query em,
-    .container-query i,
-    .container-query q {
-      font-style: normal;
-    }
-  }
-</style>
-<style>
-  /* flexbox-gap */
-  .flexbox-gap {
-    display: flex;
-    gap: 10px;
-  }
-</style>
-<style>
-  /* content-visibility */
-  .content-visibility-hidden {
-    content-visibility: hidden;
-    /* 非表示の場合、要素のサイズを 0 x 500px サイズの子が 1 つあるかのようにします */
-    contain-intrinsic-size: 0 500px;
-    background-color: lightslategray;
-  }
-
-  .content-visibility-visible {
-    height: 500px;
-    content-visibility: visible;
-    /* これは、 .hidden と .visible を切り替えるときにレイアウトがシフトしないようにするためです */
-    contain: style layout paint;
-    background-color: slategrey;
-    color: black;
-  }
-</style>
-<style>
-  /* aspect-ratio */
-  .aspect-ratio-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  }
-
-  .aspect-ratio-items .aspect-retio-1-1 {
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-
-  .aspect-ratio-items .aspect-retio-4-3 {
-    aspect-ratio: 4 / 3;
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-
-  }
-</style>
-<style>
-  /* grid */
-  .grid-row {
-    display: grid;
-    width: 240px;
-    margin-bottom: 8px;
-    background-color: lightslategray;
-    grid-template-rows: 40px 40px 40px 40px 40px;
-    grid-template-columns: 80px 80px 80px;
-  }
-
-  .grid-row div {
-    margin: 4px;
-    background-color: lightblue;
-  }
-
-  /* subgrid */
-  .grid-wrapper {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .grid {
-    background-color: lightslategray;
-    display: grid;
-    flex-grow: 1;
-    gap: 10px;
-    grid-template-columns: 1fr 2fr 3fr 4fr 5fr;
-    grid-template-rows: 1fr 2fr 3fr 4fr 5fr 6fr;
-    height: 500px;
-    padding: 20px;
-  }
-
-  .non-subgrid {
-    display: grid;
-    grid-column: 2 / 4;
-    grid-row: 4 / 6;
-    gap: 10px;
-    grid-template-columns: 2fr 3fr;
-    grid-template-rows: 4fr 5fr;
-  }
-
-  .subgrid {
-    display: grid;
-    grid-column: 2 / 4;
-    grid-row: 4 / 6;
-    grid-template-columns: subgrid;
-    grid-template-rows: subgrid;
-  }
-
-  .headline {
-    align-self: center;
-    color: white;
-    font-size: 40px;
-    grid-column: 1 / -1;
-  }
-
-  .grid-item {
-    background-color: lightblue;
-  }
-
-  .nested-grid-item {
-    background-color: silver;
-  }
-</style>
-<style>
-  /* writing-mode */
-  .writing-mode.Text1 span,
-  .writing-mode.Text1 {
-    writing-mode: horizontal-tb;
-    -webkit-writing-mode: horizontal-tb;
-    -ms-writing-mode: horizontal-tb;
-  }
-
-  .writing-mode.Text2 span,
-  .writing-mode.Text2 {
-    writing-mode: vertical-lr;
-    -webkit-writing-mode: vertical-lr;
-    -ms-writing-mode: vertical-lr;
-  }
-
-  .writing-mode.Text3 span,
-  .writing-mode.Text3 {
-    writing-mode: vertical-rl;
-    -webkit-writing-mode: vertical-rl;
-    -ms-writing-mode: vertical-rl;
-  }
-
-  .writing-mode.Text4 span,
-  .writing-mode.Text4 {
-    writing-mode: sideways-lr;
-    -webkit-writing-mode: sideways-lr;
-    -ms-writing-mode: sideways-lr;
-  }
-
-  .writing-mode.Text5 span,
-  .writing-mode.Text5 {
-    writing-mode: sideways-rl;
-    -webkit-writing-mode: sideways-rl;
-    -ms-writing-mode: sideways-rl;
-  }
-</style>
-<script>
-  const contentVisibilityHiddens = document.querySelectorAll('.content-visibility-hidden');
-  const options = {
-    threshold: 1,
-    rootMargin: '10px'
-  };
-  const observer = new IntersectionObserver(showElements, options);
-
-  contentVisibilityHiddens.forEach(heading => {
-    observer.observe(heading);
-  });
-
-  function showElements(entries) {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.remove('content-visibility-hidden')
-        entry.target.classList.add('content-visibility-visible')
-      }
+    contentVisibilityHidden.forEach(heading => {
+      observer.observe(heading);
     });
-  };
+
+    function showElements(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('content-visibility-hidden')
+          entry.target.classList.add('content-visibility-visible')
+        }
+      });
+    };
   // document.addEventListener('DOMContentLoaded', () => {
-  //   const contentVisibilityHiddens = document.querySelectorAll('.content-visibility-hidden')
-  //   contentVisibilityHiddens.forEach((target) => {
+  //   const contentVisibilityHidden = document.querySelectorAll('.content-visibility-hidden')
+  //   contentVisibilityHidden.forEach((target) => {
   //     target.addEventListener('click', (event) => {
   //       event.currentTarget.classList.remove('content-visibility-hidden')
   //       event.currentTarget.classList.add('content-visibility-visible')
   //     })
   //   })
   // })
-</script>
+  </script>
+</body>
 
 </html>
