@@ -423,6 +423,7 @@ q {
 /* font-display のフォールバックの指定 */
 
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
+
 @font-face {
   font-family: 'Noto Sans JP';
   font-style: normal;
@@ -439,4 +440,29 @@ q {
 
 .font-display {
   font-family: 'Noto Sans JP';
+}
+
+/* .line-clamp */
+
+.line-clamp {
+  width: 300px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* font-variation */
+.font-variation p {
+  font-size: 24px;
+}
+
+.font-variation-settings {
+  font-size: 24px;
+  font-variation-settings: 'XHGT' 0.7;
+}
+
+.ffont-feature-settings {
+  font-size: 24px;
+  font-feature-settings: 'wght' 300, 'wdth' 100, 'GRAD' 1, 'pwid' 1;
 }
