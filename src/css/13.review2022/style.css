@@ -466,3 +466,21 @@ q {
   font-size: 24px;
   font-feature-settings: 'wght' 300, 'wdth' 100, 'GRAD' 1, 'pwid' 1;
 }
+
+/* font-palette */
+@font-face {
+  font-family: 'Naniseg';
+  src: url('../assets/font/Naniseg//Naniseg.ttf') format('truetype');
+}
+
+@font-palette-values --brown {
+  font-family: 'Naniseg';
+  base-palette: 0;
+  override-colors: 0 #6f5b5b, 1 #ab0101;
+}
+
+.font-palette {
+  font-size: 72pt;
+  font-family: 'Naniseg';
+  font-palette: --brown;
+}
