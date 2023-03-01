@@ -484,3 +484,45 @@ q {
   font-family: 'Naniseg';
   font-palette: --brown;
 }
+
+/* .prefers-reduced-motion */
+.prefers-reduced-motion {
+  position: absolute;
+  animation: spin 5s linear infinite both;
+}
+
+@media (prefers-reduced-motion) {
+  .prefers-reduced-motion {
+    animation: spin 10s linear infinite both;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* prefers-color-scheme */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000;
+    color: #ddd;
+  }
+}
+
+/* prefers-reduced-data */
+.prefers-reduced-data {
+  background-image: url('../assets/image/cat.jpg');
+}
+
+@media (prefers-reduced-data: reduce) {
+  /* Save-Data: On */
+  .prefers-reduced-data {
+    background-image: url('../assets/image/car-horizontal.jpg');
+  }
+}
