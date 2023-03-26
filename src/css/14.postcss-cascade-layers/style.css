@@ -1,0 +1,71 @@
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000;
+    color: #ddd;
+  }
+}
+
+/* より高い詳細度にもかかわらず、レイヤー外だと負けます */
+#h1 {
+  color: red;
+}
+
+#h1::before {
+  content: '❌ ';
+}
+
+/* レイヤーが非レイヤースタイルを上書き */
+@layer override {
+  h1 {
+    color: green;
+  }
+
+  h1::before {
+    content: '✅ ';
+  }
+  li {
+    color: blue;
+  }
+}
+
+@layer base, override, media-queries-sample;
+
+@layer base {
+  li {
+    color: aqua;
+  }
+  .container-query {
+    container-type: inline-size;
+    container-name: example;
+    /* shorthand */
+    container: example / inline-size;
+    max-width: 1024px;
+    margin: auto;
+  }
+  .media-queries {
+    background-color: royalblue;
+  }
+}
+
+@container example (min-width: 640px) {
+  .container-query-item {
+    background-color: royalblue;
+    border-color: navy;
+    color: white;
+  }
+}
+
+@layer media-queries-sample {
+  li {
+    color: orange;
+  }
+  .media-queries {
+    background-color: green;
+  }
+}
+
+@media (max-width: 640px) {
+  .media-queries {
+    background-color: navy;
+  }
+}
