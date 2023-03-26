@@ -515,6 +515,13 @@ q {
   }
 }
 
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
 /* prefers-reduced-data */
 .prefers-reduced-data {
   background-image: url('../assets/image/cat.jpg');
@@ -525,4 +532,120 @@ q {
   .prefers-reduced-data {
     background-image: url('../assets/image/car-horizontal.jpg');
   }
+}
+
+/* color-contrast */
+.color-contrast {
+  color-contrast(wheat vs tan, sienna, #d2691e)
+}
+
+/* .color-scheme */
+/* :root {
+  color-scheme: light dark;
+} */
+
+.color-scheme-light {
+  color-scheme: light;
+}
+
+.color-scheme-dark {
+  color-scheme: dark;
+}
+
+.color-scheme-scroll {
+  overflow-y: scroll;
+  height: 100px;
+  background-color: #cccccc;
+  color: black;
+  border: 1px solid ButtonBorder;
+}
+
+.color-scheme-scroll-contents {
+  height: 500px;
+}
+
+.color-scheme-wrapper {
+  width: min(80vw, 300px);
+  margin: 1em auto;
+  padding: 1em;
+  background-color: Canvas;
+  color: CanvasText;
+}
+
+/* .prefers-contrast */
+@media all and (prefers-contrast: no-preference) {
+  .prefers-contrast {
+    background-color: #00a497;
+    text-decoration: underline dotted;
+  }
+}
+
+@media all and (prefers-contrast: less) {
+  .prefers-contrast {
+    background-color: #e198b4;
+    text-decoration: underline wavy;
+  }
+}
+
+@media all and (prefers-contrast: more) {
+  .prefers-contrast {
+    background-color: #fabf14;
+    text-decoration: underline dashed;
+  }
+}
+
+@media all and (prefers-contrast: custom) {
+  .prefers-contrast {
+    background-color: #884898;
+    text-decoration: underline double;
+  }
+}
+
+/* .forced-colors */
+.forced-colors {
+  border: 0;
+  padding: 10px;
+  box-shadow: -2px -2px 5px gray, 2px 2px 5px gray;
+}
+
+@media (forced-colors: active) {
+  .forced-colors {
+    /* 強制カラーモードでは box-shadow が 'none' に強制されるため、代わりに border を使用します。 */
+    border: 2px ButtonText solid;
+  }
+}
+
+/* :focus-visible */
+.focus-visible input,.focus-visible button {
+  margin: 10px;
+}
+
+.focus-visible .focus-only:focus {
+  outline: 2px solid black;
+}
+
+.focus-visible .focus-visible-only:focus-visible {
+  outline: 4px dashed darkorange;
+}
+
+/* ::marker */
+.marker ul li::marker {
+  color: red;
+  font-size: 1.5em;
+}
+
+/* :has() */
+
+.has div:has(+ p) {
+  color: red;
+}
+
+.has p:has(span) {
+  color: green;
+}
+
+/* where */
+:where(.where header,.where main,.where footer) p:hover {
+  color: red;
+  cursor: pointer;
 }
