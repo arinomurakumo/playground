@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css" />
+  <style></style>
+  <style></style>
+  <title>13.13.review2022</title>
+</head>
+
+<body style="background-color: black; color: white;">
+  <h1>13.13.review2022</h1>
+  <section>
+    <h2>interaction</h2>
+    <section>
+      <h3>Scroll Snap</h3>
+      <div>
+        <p>スナップ点が存在する場合にスクロールコンテナーにどれだけ厳密にスナップ点を強制するかを設定</p>
+        <div class="scroll-snap">
+          <div class="scroll-snap-children">
+            scroll-snap-children1
+          </div>
+          <div class="scroll-snap-children">
+            scroll-snap-children2
+          </div>
+          <div class="scroll-snap-children">
+            scroll-snap-children3
+          </div>
+          <div class="scroll-snap-children">
+            scroll-snap-children4
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>overscroll-behavior</h3>
+      <p>スクロール領域の境界に達したときにブラウザーが何をするかを設定</p>
+      <dl>
+        <dt>overscroll-behavior: none;</dt>
+        <dd>止めた感じ</dd>
+        <dt>
+          overscroll-behavior: contain;
+        </dt>
+        <dd>跳ね返り</dd>
+      </dl>
+    </section>
+    <section>
+      <h3>touch-action</h3>
+      <p>タッチ画面のユーザーが要素のある領域をどのように操作できるか（例えば、ブラウザー内に組み込まれたパンまたはズーム機能）を設定</p>
+    </section>
+    <section>
+      <h3>scroll-behavior</h3>
+      <p>ナビゲーションや CSSOM のスクローリング API によってスクロールするボックスにスクロールが発生した際の、そのスクロールの振る舞いを設定</p>
+      <dl>
+        <dt>scroll-behavior: auto;</dt>
+        <dd>瞬時にスクロール</dd>
+        <dt>
+          scroll-behavior: smooth;
+        </dt>
+        <dd>滑らか</dd>
+      </dl>
+    </section>
+    <section>
+      <h3>scrollbar-gutter</h3>
+      <div>
+        <p>
+          スクロールバー用のスペースを確保
+        </p>
+        <dl>
+          <dt>scrtollbar-gutter: stable</dt>
+          <dd>クラシック スクロールバーを使用している場合、ボックスがオーバーフローしていなくても、オーバーフローが auto、scroll、または hidden の場合、ガターが表示されます。 オーバーレイ
+            スクロールバーを使用する場合、ガターは表示されません。</dd>
+        </dl>
+      </div>
+    </section>
+  </section>
+  <section>
+    <h2></h2>
+    <section>
+      <h3></h3>
+    </section>
+  </section>
+  <script>
+    const contentVisibilityHidden = document.querySelectorAll('.content-visibility-hidden');
+    const options = {
+      threshold: 1,
+      rootMargin: '10px'
+    };
+    const observer = new IntersectionObserver(showElements, options);
+
+    contentVisibilityHidden.forEach(heading => {
+      observer.observe(heading);
+    });
+
+    function showElements(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.remove('content-visibility-hidden')
+          entry.target.classList.add('content-visibility-visible')
+        }
+      });
+    };
+  // document.addEventListener('DOMContentLoaded', () => {
+  //   const contentVisibilityHidden = document.querySelectorAll('.content-visibility-hidden')
+  //   contentVisibilityHidden.forEach((target) => {
+  //     target.addEventListener('click', (event) => {
+  //       event.currentTarget.classList.remove('content-visibility-hidden')
+  //       event.currentTarget.classList.add('content-visibility-visible')
+  //     })
+  //   })
+  // })
+  </script>
+</body>
+
+</html>

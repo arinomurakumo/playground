@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css" />
+  <style></style>
+  <style></style>
+  <title>13.13.review2022</title>
+</head>
+
+<body style="background-color: black; color: white;">
+  <h1>13.13.review2022</h1>
+  <section>
+    <h2>Colors</h2>
+    <section>
+      <h3>color()</h3>
+      <div class="color-gamut">
+        <p>他のほとんどの色関数が暗黙に処理する sRGB 色空間ではなく、特定の指定した色空間で色を指定</p>
+        <div class="color-profile">
+          color-profile
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>accent-color</h3>
+      <div>
+        <label for="accent-color-checkbox">
+          <input type="checkbox" name="accent-color-checkbox" id="accent-color-checkbox" class="accent-color" checked />
+          accent-color-checkbox
+        </label>
+      </div>
+    </section>
+    <section>
+      <h3>currentcolor</h3>
+      <div>
+        <p>currentcolor キーワード</p>
+        <div style="color: blue; border: 1px dashed currentcolor;">
+          この文字列の色は青です。
+          <div style="background: currentcolor; height:9px;"></div>
+          このブロックは青い境界線で囲まれています。
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>color-mix()</h3>
+      <p>関数記法は 2 つのcolorの値を採り、指定された色空間の指定された量で混合した結果を返す</p>
+      <ul class="color-mix">
+        <li>10% #34c9eb</li>
+        <li>40% #34c9eb</li>
+        <li>70% #34c9eb</li>
+        <li>Safari OK</li>
+      </ul>
+    </section>
+    <section>
+      <h3>Wide Gamut Colors</h3>
+      <div class="wide-gamut-colors">
+        <p>特定のディスプレイでサポートされている新しいカラープロファイル</p>
+        wide-gamut-colors
+      </div>
+    </section>
+    <section>
+      <h3>Relative Colors</h3>
+      <div class="relative-colors">
+        <p>新しい相対色構文が柔軟な色操作を可能にする</p>
+        relative-colors
+      </div>
+    </section>
+    <section>
+      <h3>Gradient Color Spaces</h3>
+      <div>
+        <div class="no-support">
+          .no-support This browser doesn't support specifying gradient colorspace, try Safari Tech Preview with Gradient
+          Interpolation Color Spaces enabled or Chrome Canary with Web Experiements on.
+        </div>
+        <ul class="black-to-white">
+          <li>sRGB</li>
+          <li>sRGB Linear</li>
+          <li>LAB</li>
+          <li>okLAB</li>
+          <li>LCH</li>
+          <li>okLCH</li>
+          <li>HSL</li>
+          <li>HWB</li>
+          <li>XYZ</li>
+          <li>xyz-d50</li>
+          <li>xyz-d65</li>
+        </ul>
+      </div>
+    </section>
+  </section>
+</body>
+
+</html>

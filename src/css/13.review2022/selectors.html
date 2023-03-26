@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css" />
+  <style></style>
+  <style></style>
+  <title>13.13.review2022</title>
+</head>
+
+<body>
+  <h1>13.13.review2022</h1>
+  <section>
+    <h2>selectors</h2>
+    <section>
+      <h3>::marker</h3>
+      <div>
+        <p>::marker は CSS の擬似要素で、リスト項目の箇条書き記号ボックス (ふつうは黒丸や番号) を選択します。これは [display: list-item](/ja/docs/Web/CSS/display)
+          が設定された要素や擬似要素、例えば li 要素や summary 要素で利用できます。</p>
+        <div class="marker">
+          <ul>
+            <li>Peaches</li>
+            <li>Apples</li>
+            <li>Plums</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>:has()</h3>
+      <div>
+        <p>:has() は CSS の擬似クラスで、引数として渡されたセレクターに (指定された要素の :scope の相対で) 該当する要素が一つ以上の要素に一致することを表します。</p>
+        <div class="has">
+          <div>
+            div 要素のうち直後に p があるものを選択
+          </div>
+          <p>これは p タグ</p>
+          <p>
+            div 要素のうち直後に p があるものを選択
+          </p>
+          <p>これは p タグ</p>
+          <p>p 要素のうち span があるものを選択。 <span>これは span</span></p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>:where()</h3>
+      <div>
+        <p>:where() は CSS の擬似クラス関数で、セレクターリストを引数として取り、列挙されたセレクターのうちの何れかに当てはまるすべての要素を選択します。</p>
+        <div class="where">
+          <header>
+            <p>header</p>
+          </header>
+          <main>
+            <p>main</p>
+          </main>
+          <footer>
+            <p>footer</p>
+          </footer>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>prefers-reduced-motion</h3>
+      <div>
+        <p></p>
+        <div class="prefers-reduced-motion">animated box</div>
+      </div>
+    </section>
+  </section>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css" />
+  <style></style>
+  <style></style>
+  <title>13.13.review2022</title>
+</head>
+
+<body>
+  <h1>13.13.review2022</h1>
+  <section>
+    <h2>Accessibility</h2>
+    <section>
+      <h3>prefers-reduced-motion</h3>
+      <div>
+        <p>prefers-reduced-motion CSS メディア機能は、システムが使用する重要でないモーションの量を最小限に抑えるようにユーザーが要求したかどうかを検出するために使用されます。</p>
+        <div class="prefers-reduced-motion">animated box</div>
+      </div>
+    </section>
+    <section>
+      <h3>prefers-color-scheme</h3>
+      <div>
+        <p>prefers-color-scheme CSS メディア機能は、ユーザーが明るい色または暗い色のテーマを要求したかどうかを検出するために使用されます。</p>
+        <div class="prefers-color-scheme">
+          テーマによってスタイルが変えれる
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>prefers-reduced-data</h3>
+      <div>
+        <p>prefers-reduced-data CSS メディア機能は、インターネット トラフィックの消費量が少ない Web コンテンツをユーザーが要求したかどうかを検出するために使用されます。</p>
+        <div class="prefers-reduced-data">
+          prefers-reduced-data
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>color-contrast()</h3>
+      <div>
+        <p>color-contrast() は関数表記で、ある色の値と他の色の値のリストを取り、リストから最もコントラストが高くなる値を選択します。</p>
+        <div class="color-contrast">
+          color-contrast(wheat vs tan, sienna, #d2691e)
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>color-scheme</h3>
+      <div>
+        <p>color-scheme は CSS のプロパティで、要素がどのような配色で快適に表示されるかを示すことができます。</p>
+        <div class="color-scheme">
+          <div class="color-scheme-light color-scheme-wrapper">
+            <p>ここはlightです。</p>
+            <div class="color-scheme-scroll">
+              <div class="color-scheme-scroll-contents">スクロールバーが出る領域
+              </div>
+            </div>
+          </div>
+          <div class="color-scheme-dark color-scheme-wrapper">
+            <p>ここはdarkです。</p>
+            <div class="color-scheme-scroll">
+              <div class="color-scheme-scroll-contents">スクロールバーが出る領域
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>prefers-contrast</h3>
+      <div>
+        <p>prefers-contrast は CSS のメディア特性で、ユーザーがウェブコンテンツをより高い (またはより低い) コントラストで表示するように要求したかどうかを検出するために使用します。</p>
+        <div class="prefers-contrast">
+          prefers-contrast
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>forced-colors</h3>
+      <div>
+        <p>
+          forced-colors は CSS のメディア特性で、ユーザーエージェントが強制カラーモードを有効にしているかどうかを検出するために使用されます。強制カラーモードの例としては、 Windows
+          のハイコントラストモードがあります。
+        </p>
+        <div class="forced-colors">
+          forced-colors
+        </div>
+      </div>
+    </section>
+    <section>
+      <h3>:focus-visible</h3>
+      <div>
+        <p>
+          :focus-visible 擬似クラスは、要素が :focus 擬似クラスに一致している時で、ユーザーエージェントが要素にフォーカスを明示するべきであると推測的に判断した場合に適用されます
+          (多くのブラウザーではこの場合、既定で「フォーカスリング」を表示します)。
+        </p>
+        <div class="focus-visible">
+          <input type="text" name="test1" value="既定のスタイル" aria-label="既定のスタイル" /><br />
+          <button type="button">既定のスタイル</button /><br />
+          <input type="text" name="test2" class="focus-only" value=":focus のみ" aria-label=":focus のみ" /><br />
+          <button type="button" class="focus-only">:focus のみ</button /><br />
+          <input type="text" name="test3" class="focus-visible-only" value=":focus-visible のみ"
+            aria-label=":focus-visible のみ" /><br />
+          <button class="focus-visible-only">:focus-visible のみ</button>
+        </div>
+      </div>
+    </section>
+  </section>
+</body>
+
+</html>

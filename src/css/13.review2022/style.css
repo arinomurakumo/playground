@@ -1,0 +1,651 @@
+body {
+  font-family: sans-serif;
+  background-color: black;
+  color: #ccc;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  border-bottom: solid 1px;
+}
+
+a {
+  color: aqua;
+}
+
+section + section {
+  margin-top: 80px;
+}
+
+/* grid */
+.grid-row {
+  display: grid;
+  width: 240px;
+  margin-bottom: 8px;
+  background-color: lightslategray;
+  grid-template-rows: 40px 40px 40px 40px 40px;
+  grid-template-columns: 80px 80px 80px;
+}
+
+.grid-row div {
+  margin: 4px;
+  background-color: lightblue;
+}
+
+/* subgrid */
+.grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid {
+  background-color: lightslategray;
+  display: grid;
+  flex-grow: 1;
+  gap: 10px;
+  grid-template-columns: 1fr 2fr 3fr 4fr 5fr;
+  grid-template-rows: 1fr 2fr 3fr 4fr 5fr 6fr;
+  height: 500px;
+  padding: 20px;
+}
+
+.non-subgrid {
+  display: grid;
+  grid-column: 2 / 4;
+  grid-row: 4 / 6;
+  gap: 10px;
+  grid-template-columns: 2fr 3fr;
+  grid-template-rows: 4fr 5fr;
+}
+
+.subgrid {
+  display: grid;
+  grid-column: 2 / 4;
+  grid-row: 4 / 6;
+  grid-template-columns: subgrid;
+  grid-template-rows: subgrid;
+}
+
+.headline {
+  align-self: center;
+  color: white;
+  font-size: 40px;
+  grid-column: 1 / -1;
+}
+
+.grid-item {
+  background-color: lightblue;
+}
+
+.nested-grid-item {
+  background-color: silver;
+}
+
+/* writing-mode */
+.writing-mode.Text1 span,
+.writing-mode.Text1 {
+  writing-mode: horizontal-tb;
+  -webkit-writing-mode: horizontal-tb;
+  -ms-writing-mode: horizontal-tb;
+}
+
+.writing-mode.Text2 span,
+.writing-mode.Text2 {
+  writing-mode: vertical-lr;
+  -webkit-writing-mode: vertical-lr;
+  -ms-writing-mode: vertical-lr;
+}
+
+.writing-mode.Text3 span,
+.writing-mode.Text3 {
+  writing-mode: vertical-rl;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: vertical-rl;
+}
+
+.writing-mode.Text4 span,
+.writing-mode.Text4 {
+  writing-mode: sideways-lr;
+  -webkit-writing-mode: sideways-lr;
+  -ms-writing-mode: sideways-lr;
+}
+
+.writing-mode.Text5 span,
+.writing-mode.Text5 {
+  writing-mode: sideways-rl;
+  -webkit-writing-mode: sideways-rl;
+  -ms-writing-mode: sideways-rl;
+}
+
+/* aspect-ratio */
+.aspect-ratio-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.aspect-ratio-items .aspect-ratio-1-1 {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.aspect-ratio-items .aspect-ratio-4-3 {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+:root {
+  --theme: dark;
+}
+
+/* container */
+.container-query {
+  container-type: inline-size;
+  container-name: example;
+  /* shorthand */
+  container: example / inline-size;
+}
+
+@container example (min-width:768px) {
+  .container-query-item {
+    background-color: royalblue;
+    border-color: navy;
+    color: white;
+  }
+}
+
+@container example (min-width:768px) and var(--theme)=dark {
+  .container-query-item {
+    /*  not working */
+    color: red;
+  }
+}
+
+em,
+i,
+q {
+  font-style: italic;
+}
+
+@container example style(font-style: italic) {
+  /*  not working */
+  .container-query em,
+  .container-query i,
+  .container-query q {
+    font-style: normal;
+  }
+}
+
+/* flexbox-gap */
+.flexbox-gap {
+  display: flex;
+  gap: 10px;
+}
+
+/* content-visibility */
+.content-visibility-hidden {
+  content-visibility: hidden;
+  /* 非表示の場合、要素のサイズを 0 x 500px サイズの子が 1 つあるかのようにします */
+  contain-intrinsic-size: 0 500px;
+  background-color: lightslategray;
+}
+
+.content-visibility-visible {
+  height: 500px;
+  content-visibility: visible;
+  /* これは、 .hidden と .visible を切り替えるときにレイアウトがシフトしないようにするためです */
+  contain: style layout paint;
+  background-color: slategrey;
+  color: black;
+}
+
+.object-view-box {
+  object-view-box: inset(30px 40px 40px 20px);
+}
+
+.view-port-vmin {
+  display: inline-block;
+  width: 150px;
+  height: 10vmin;
+  background-color: aliceblue;
+}
+
+.view-port-vmax {
+  display: inline-block;
+  width: 150px;
+  height: 10vmax;
+  background-color: skyblue;
+}
+
+.view-port-vi {
+  font-size: 2vi;
+  /* Same as 2vh */
+}
+
+.view-port-vb {
+  font-size: 2vb;
+  /* Same as 2vw */
+}
+
+.media-queries-range-contexts {
+  background-color: slategray;
+  color: aliceblue;
+}
+
+@media (width <=400px) {
+  .media-queries-range-contexts {
+    background-color: aliceblue;
+    color: slategray;
+  }
+}
+
+/* .blend-mode */
+
+.blend-mode {
+  position: relative;
+}
+
+.blend-mode-text {
+  position: absolute;
+  mix-blend-mode: overlay; /* オーバーレイを指定 */
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  top: 0;
+  left: 0;
+}
+
+/* intrinsic-sizing */
+.intrinsic-sizing-min-content {
+  width: min-content;
+  background-color: skyblue;
+}
+
+.intrinsic-sizing-max-content {
+  width: max-content;
+  background-color: skyblue;
+}
+
+.intrinsic-sizing-fit-content {
+  width: fit-content;
+  background-color: skyblue;
+}
+
+/* conic-gradient() */
+
+.conic-gradient-1 {
+  padding: 10%;
+  background: conic-gradient(red, orange, yellow, green, blue);
+}
+
+.conic-gradient-2 {
+  padding: 10%;
+  background: conic-gradient(red 36deg, orange 36deg 170deg, yellow 170deg);
+  border-radius: 50%;
+}
+
+/* color() */
+
+@color-profile --swop5c {
+  src: url('https://example.org/SWOP2006_Coated5v2.icc');
+}
+
+.color-profile {
+  background-color: color(--swop5c 0% 70% 20% 0%);
+}
+
+@media (color-gamut: srgb) {
+  .color-gamut {
+    background: #f4ae8a;
+  }
+}
+
+/* accent-color */
+.accent-color {
+  accent-color: red;
+}
+
+/* color-mix() */
+
+.color-mix li:nth-child(1) {
+  background-color: color-mix(in srgb, #34c9eb 10%, white);
+}
+
+.color-mix li:nth-child(2) {
+  background-color: color-mix(in srgb, #34c9eb 40%, white);
+}
+
+.color-mix li:nth-child(3) {
+  background-color: color-mix(in srgb, #34c9eb 70%, white);
+}
+
+/* wide-gamut-colors */
+
+.wide-gamut-colors {
+  color: rgb(0, 255, 0); /* fallback color */
+  color: color(display-p3 0 1 0);
+}
+
+/* Relative Colors */
+
+.relative-colors {
+  --color: #4488dd;
+  /* transform a color value into `rgb` */
+  background-color: rgb(from var(--color) r g b / 0.5);
+}
+
+/* .black-to-white */
+
+.black-to-white li {
+  background-image: linear-gradient(
+    to right in var(--colorspace),
+    black,
+    white
+  );
+}
+
+.black-to-white li:nth-of-type(2) {
+  --colorspace: srgb-linear;
+}
+.black-to-white li:nth-of-type(3) {
+  --colorspace: lab;
+}
+.black-to-white li:nth-of-type(4) {
+  --colorspace: oklab;
+}
+.black-to-white li:nth-of-type(5) {
+  --colorspace: lch;
+}
+.black-to-white li:nth-of-type(6) {
+  --colorspace: oklch;
+}
+.black-to-white li:nth-of-type(7) {
+  --colorspace: hsl;
+}
+.black-to-white li:nth-of-type(8) {
+  --colorspace: hwb;
+}
+.black-to-white li:nth-of-type(9) {
+  --colorspace: xyz;
+}
+.black-to-white li:nth-of-type(10) {
+  --colorspace: xyz-d50;
+}
+.black-to-white li:nth-of-type(11) {
+  --colorspace: xyz-d65;
+}
+
+@supports (background: linear-gradient(in lch, black, white)) {
+  .no-support {
+    display: none;
+  }
+}
+
+/* scroll-snap */
+
+.scroll-snap {
+  overflow: auto;
+  scroll-snap-type: y mandatory;
+  height: 100vh;
+  text-align: center;
+  color: black;
+  font-size: 5rem;
+}
+
+.scroll-snap-children {
+  scroll-snap-align: start;
+  height: 100vh;
+}
+
+.scroll-snap-children {
+  scroll-snap-align: start;
+  height: 100vh;
+}
+
+.scroll-snap-children:nth-child(even) {
+  background-color: #0db;
+}
+
+.scroll-snap-children:nth-child(odd) {
+  background-color: #0bd;
+}
+
+/* scrollbar-gutter */
+
+.scrollbar-gutter {
+}
+
+/* font-display のフォールバックの指定 */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;700&display=swap');
+
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Noto Sans CJK JP'),
+    url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff2)
+      format('woff2'),
+    url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.woff)
+      format('woff'),
+    url(//fonts.gstatic.com/ea/notosansjp/v5/NotoSansJP-Thin.otf)
+      format('opentype');
+  font-display: fallback;
+}
+
+.font-display {
+  font-family: 'Noto Sans JP';
+}
+
+/* .line-clamp */
+
+.line-clamp {
+  width: 300px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+}
+
+/* font-variation */
+.font-variation p {
+  font-size: 24px;
+}
+
+.font-variation-settings {
+  font-size: 24px;
+  font-variation-settings: 'XHGT' 0.7;
+}
+
+.ffont-feature-settings {
+  font-size: 24px;
+  font-feature-settings: 'wght' 300, 'wdth' 100, 'GRAD' 1, 'pwid' 1;
+}
+
+/* font-palette */
+@font-face {
+  font-family: 'Naniseg';
+  src: url('../assets/font/Naniseg//Naniseg.ttf') format('truetype');
+}
+
+@font-palette-values --brown {
+  font-family: 'Naniseg';
+  base-palette: 0;
+  override-colors: 0 #6f5b5b, 1 #ab0101;
+}
+
+.font-palette {
+  font-size: 72pt;
+  font-family: 'Naniseg';
+  font-palette: --brown;
+}
+
+/* .prefers-reduced-motion */
+.prefers-reduced-motion {
+  position: absolute;
+  animation: spin 5s linear infinite both;
+}
+
+@media (prefers-reduced-motion) {
+  .prefers-reduced-motion {
+    animation: spin 10s linear infinite both;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* prefers-color-scheme */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: #000;
+    color: #ddd;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+}
+
+/* prefers-reduced-data */
+.prefers-reduced-data {
+  background-image: url('../assets/image/cat.jpg');
+}
+
+@media (prefers-reduced-data: reduce) {
+  /* Save-Data: On */
+  .prefers-reduced-data {
+    background-image: url('../assets/image/car-horizontal.jpg');
+  }
+}
+
+/* color-contrast */
+.color-contrast {
+  color-contrast(wheat vs tan, sienna, #d2691e)
+}
+
+/* .color-scheme */
+/* :root {
+  color-scheme: light dark;
+} */
+
+.color-scheme-light {
+  color-scheme: light;
+}
+
+.color-scheme-dark {
+  color-scheme: dark;
+}
+
+.color-scheme-scroll {
+  overflow-y: scroll;
+  height: 100px;
+  background-color: #cccccc;
+  color: black;
+  border: 1px solid ButtonBorder;
+}
+
+.color-scheme-scroll-contents {
+  height: 500px;
+}
+
+.color-scheme-wrapper {
+  width: min(80vw, 300px);
+  margin: 1em auto;
+  padding: 1em;
+  background-color: Canvas;
+  color: CanvasText;
+}
+
+/* .prefers-contrast */
+@media all and (prefers-contrast: no-preference) {
+  .prefers-contrast {
+    background-color: #00a497;
+    text-decoration: underline dotted;
+  }
+}
+
+@media all and (prefers-contrast: less) {
+  .prefers-contrast {
+    background-color: #e198b4;
+    text-decoration: underline wavy;
+  }
+}
+
+@media all and (prefers-contrast: more) {
+  .prefers-contrast {
+    background-color: #fabf14;
+    text-decoration: underline dashed;
+  }
+}
+
+@media all and (prefers-contrast: custom) {
+  .prefers-contrast {
+    background-color: #884898;
+    text-decoration: underline double;
+  }
+}
+
+/* .forced-colors */
+.forced-colors {
+  border: 0;
+  padding: 10px;
+  box-shadow: -2px -2px 5px gray, 2px 2px 5px gray;
+}
+
+@media (forced-colors: active) {
+  .forced-colors {
+    /* 強制カラーモードでは box-shadow が 'none' に強制されるため、代わりに border を使用します。 */
+    border: 2px ButtonText solid;
+  }
+}
+
+/* :focus-visible */
+.focus-visible input,.focus-visible button {
+  margin: 10px;
+}
+
+.focus-visible .focus-only:focus {
+  outline: 2px solid black;
+}
+
+.focus-visible .focus-visible-only:focus-visible {
+  outline: 4px dashed darkorange;
+}
+
+/* ::marker */
+.marker ul li::marker {
+  color: red;
+  font-size: 1.5em;
+}
+
+/* :has() */
+
+.has div:has(+ p) {
+  color: red;
+}
+
+.has p:has(span) {
+  color: green;
+}
+
+/* where */
+:where(.where header,.where main,.where footer) p:hover {
+  color: red;
+  cursor: pointer;
+}
