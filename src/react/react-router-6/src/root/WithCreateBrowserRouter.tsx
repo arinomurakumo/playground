@@ -5,9 +5,9 @@ import Home from '../routes/Home'
 import About from '../routes/About'
 import Contact from '../routes/Contact'
 import Error from '../routes/Error'
-import PostWrapper from '../routes/PostWrapper'
-import Posts, { loader as postsLoader } from '../routes/Posts'
-import Post, { loader as postLoader } from '../routes/Post'
+import PostWrapper from '../routes/posts/PostWrapper'
+import Posts, { loader as postsLoader } from '../routes/posts/Posts'
+import Post, { loader as postLoader } from '../routes/posts/Post'
 import Todo, {
   loader as todoLoader,
   action as todoAction,
