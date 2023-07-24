@@ -8,6 +8,10 @@ import Error from '../routes/Error'
 import PostWrapper from '../routes/PostWrapper'
 import Posts, { loader as postsLoader } from '../routes/Posts'
 import Post, { loader as postLoader } from '../routes/Post'
+import Todo, {
+  loader as todoLoader,
+  action as todoAction,
+} from '../routes/todos/Todo'
 
 const router = createBrowserRouter([
   {
@@ -27,11 +31,6 @@ const router = createBrowserRouter([
         path: 'contact',
         element: <Contact />,
       },
-      // {
-      //   path: 'posts',
-      //   element: <Posts />,
-      //   loader: postsLoader,
-      // },
       {
         path: 'posts',
         element: <PostWrapper />,
@@ -49,6 +48,12 @@ const router = createBrowserRouter([
             errorElement: <Error />,
           },
         ],
+      },
+      {
+        path: 'todo',
+        element: <Todo />,
+        loader: todoLoader,
+        action: todoAction,
       },
     ],
   },
