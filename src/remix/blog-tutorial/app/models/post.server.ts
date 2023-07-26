@@ -1,9 +1,11 @@
 import { prisma } from "~/db.server";
 
-type Post = {
-  slug: string;
-  title: string;
-};
+import type { Post } from "@prisma/client";
+
+// type Post = {
+//   slug: string;
+//   title: string;
+// };
 
 // export async function getPosts(): Promise<Array<Post>> {
 //   return [
@@ -24,4 +26,10 @@ export async function getPosts() {
 
 export async function getPost(slug: string) {
   return prisma.post.findUnique({ where: { slug } });
+}
+
+export async function createPost(
+  post: Pick<Post, "slug" | "title" | "markdown">
+) {
+  return prisma.post.create({ data: post });
 }
